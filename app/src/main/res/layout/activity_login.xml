@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
 
-    tools:context="com.example.hannes.foodificialintelligence.LoginActivity">
+    tools:context="com.example.hannes.foodificialintelligence.GUI.LoginActivity">
 
     <!-- Login progress -->
     <ProgressBar

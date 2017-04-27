@@ -7,6 +7,6 @@ import java.util.ArrayList;
  */
 
 public abstract class Chain {
-    private String name;
+    private String chainName;
     private ArrayList <String> produts;
 }
