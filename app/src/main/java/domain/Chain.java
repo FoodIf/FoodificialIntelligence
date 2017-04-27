@@ -9,4 +9,8 @@ import java.util.ArrayList;
 public abstract class Chain {
     private String name;
     private ArrayList <String> produts;
-}
+
+
+    
+public Chain(ArrayList<String> products, String name) {
+    }}
