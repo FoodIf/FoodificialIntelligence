@@ -11,7 +11,7 @@ public class User {
     private String password;
     private String userAddress;
     private double gasConsumption;
-    //private GroceryList standardList;
+    private MyList standardList;
 
     public User(String email, String password){
         this.email = email;
@@ -21,11 +21,11 @@ public class User {
         this.userAddress = userAddress;
     }
     public void setStandardList(){
-
+        this.standardList = new MyList();
     }
-    /*public GroceryList getStandardList(){
+    public MyList getStandardList(){
         return standardList;
-    }*/
+    }
     public void setGasConsumption(double gasConsumption){
         this.gasConsumption = gasConsumption;
     }

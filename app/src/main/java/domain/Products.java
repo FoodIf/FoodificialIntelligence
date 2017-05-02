@@ -15,7 +15,7 @@ public class Products {
             e.getMessage();
         }
         while(file.hasNextLine()){
-            
+
         }
     }
 }
