@@ -12,7 +12,10 @@ import java.util.ArrayList;
 public class Products {
 
     private ArrayList<String> productList;
-    private int rowCounter;
+
+    public Products(){
+
+    }
 
     public void readProductList(){
         if(productList == null) {
@@ -30,7 +33,6 @@ public class Products {
             String productRow;
             while ((productRow = in.readLine()) != null) {
                 productList.add(productRow);
-                rowCounter += 1;
                 for (int i = 0; i < productList.size(); i++) {
                     System.out.print(productList.get(i));
                 }
@@ -39,6 +41,9 @@ public class Products {
         } catch (IOException e) {
             e.getMessage();
         }
+    }
+    public ArrayList<String> getProductList(){
+        return productList;
     }
     public ArrayList<String> clearProductList(ArrayList<String> productList){
         productList.clear();
