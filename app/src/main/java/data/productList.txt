@@ -14,5 +14,13 @@ bröd, Valjes Grova, 300
 bröd, Rostat, 300
 bröd, Korvbrödsbagarn, 100
 bröd, Leksandsknäcke, 50
-kött, Nötfärs, 0
-kött, Fläskfile, 
+kött, Nötfärs, 700
+kött, Fläskfile, 1000
+kött, Kycklingfile, 800
+fisk, Norsk Lax, 500
+fisk, Findus Torsk, 300
+fisk, Rödspätta, 400
+snus, Granit Vit, 20
+snus, General Portion, 20
+snus, Göteborg Rape, 20
+snus, Whiskey Probe, 20
