@@ -3,10 +3,14 @@ package GUI;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.example.hannes.foodificialintelligence.R;
-
-import org.w3c.dom.Text;
 
 import domain.Store;
 
@@ -29,6 +33,9 @@ public class StoreActivity extends Activity {
         addressView.setText("Implementeramedfacadestore.getaddress()");
         //TODO ImplementeraAvstånd
         //TODO ImplementeraKarta
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
         setContentView(R.layout.activity_store);
 
 
