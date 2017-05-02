@@ -9,9 +9,7 @@ import java.util.ArrayList;
 
 public class MyList {
     private ArrayList <String> products;
-    public MyList(ArrayList<String> products) {
-        this.products = products;
-        //committa
+    public MyList() {
     }
 
     public ArrayList<String> getProducts() {
@@ -20,6 +18,9 @@ public class MyList {
 
     public void setProducts(ArrayList<String> products) {
         this.products = products;
+    }
+    public void addProducts(String selected) {
+        this.products.add(selected);
     }
 }
 
