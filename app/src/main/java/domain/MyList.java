@@ -11,6 +11,7 @@ public class MyList {
     private ArrayList <String> products;
     public MyList(ArrayList<String> products) {
         this.products = products;
+        //committa
     }
 
     public ArrayList<String> getProducts() {
