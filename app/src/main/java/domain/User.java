@@ -21,7 +21,7 @@ public class User {
         this.userAddress = userAddress;
     }
     public void setStandardList(){
-        this.standardList = new MyList();
+        this.standardList = new MyList(name);
     }
     public MyList getStandardList(){
         return standardList;

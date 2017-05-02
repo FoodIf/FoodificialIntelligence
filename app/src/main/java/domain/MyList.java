@@ -1,6 +1,8 @@
 package domain;
 
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
 import java.util.ArrayList;
 
 /**
@@ -8,10 +10,13 @@ import java.util.ArrayList;
  */
 
 public class MyList {
+    private String name;
+    private String date;
     private ArrayList <String> products;
-    public MyList(ArrayList<String> products) {
-        this.products = products;
-        //committa
+    public MyList(String name) {
+        this.name = name;
+        this.date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
     }
 
     public ArrayList<String> getProducts() {
@@ -20,6 +25,17 @@ public class MyList {
 
     public void setProducts(ArrayList<String> products) {
         this.products = products;
+    }
+    public void addProducts(String selected) {
+        this.products.add(selected);
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 
