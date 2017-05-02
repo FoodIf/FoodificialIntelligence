@@ -18,6 +18,24 @@
         android:padding="30px"
         android:text="Namn på butiken"
         ></TextView>
+    <TextView
+        android:id="@+id/store_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40px"
+        android:paddingLeft="30px"
+        android:paddingTop="0px"
+        android:text="Address på butiken"
+        ></TextView>
+    <TextView
+        android:id="@+id/store_length"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30px"
+        android:paddingLeft="30px"
+        android:paddingTop="20px"
+        android:text="Avstånd till butiken"
+        ></TextView>
 
 
 </LinearLayout>
