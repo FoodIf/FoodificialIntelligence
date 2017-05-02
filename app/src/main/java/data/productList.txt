@@ -23,3 +23,4 @@ snus, Granit Vit, 20
 snus, General Portion, 20
 snus, Göteborg Rape, 20
 snus, Whiskey Probe, 20
+chips, Estrella Dill, 300
