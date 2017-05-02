@@ -9,11 +9,20 @@ import java.util.ArrayList;
 public class Main {
     private User user;
     private ArrayList<Store> storeList;
+    private ArrayList<Chain> chainList;
 
     public Main() {
-        Store rogerLivs = new Store("Rogers Livs", "Pillesnoppvägen 1");
-        storeList.add(rogerLivs);
+        //this.user = new User();
+        this.storeList = new ArrayList<>();
+        this.chainList = new ArrayList<>();
+
+        storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1"));
+
+        chainList.add(new Chain("Ica"));
+        chainList.add(new Chain("Coop"));
+        chainList.add(new Chain("Hemkop"));
     }
+
     public static void main(String[] args){
         new Main();
 
