@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:textSize="80px"
         android:padding="30px"
-        android:text="Namn på butiken"
+        android:text=""
         ></TextView>
     <TextView
         android:id="@+id/store_address"
@@ -25,7 +25,7 @@
         android:textSize="40px"
         android:paddingLeft="30px"
         android:paddingTop="0px"
-        android:text="Address på butiken"
+        android:text=""
         ></TextView>
     <TextView
         android:id="@+id/store_length"
