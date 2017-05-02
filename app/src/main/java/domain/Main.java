@@ -22,9 +22,8 @@ public class Main {
 
         chainList.add(new Chain("Ica"));
         chainList.add(new Chain("Coop"));
-        chainList.add(new Chain("Hemkop"));
+        chainList.add(new Chain("Hemköp"));
     }
-
     public static void main(String[] args){
         new Main();
     }
