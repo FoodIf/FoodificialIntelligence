@@ -1,0 +1,18 @@
+Product, Brand, Size/Vol
+ketchup, Heinz, 100
+ketchup, Felix, 100
+ketchup, ICA, 150
+ketchup, Coop, 150
+mjölk, Arla, 1.5
+mjölk, Skåne Mejerier, 1.5
+mjölk, Östgöta Mjölk, 1.5
+smör, Bregott, 500
+smör, Lätt&Lagom, 500
+smör, Smör, 400
+bröd, Pågen Lingongrova, 300
+bröd, Valjes Grova, 300
+bröd, Rostat, 300
+bröd, Korvbrödsbagarn, 100
+bröd, Leksandsknäcke, 50
+kött, Nötfärs, 0
+kött, Fläskfile, 
