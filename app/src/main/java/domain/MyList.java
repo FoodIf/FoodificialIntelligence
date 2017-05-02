@@ -1,5 +1,7 @@
 package domain;
 
+import android.widget.AutoCompleteTextView;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
@@ -13,12 +15,13 @@ public class MyList {
     private String name;
     private String date;
     private ArrayList <String> products;
+
+
     public MyList(String name) {
         this.name = name;
         this.date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
     }
-
     public ArrayList<String> getProducts() {
         return products;
     }
