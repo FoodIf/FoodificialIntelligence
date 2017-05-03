@@ -1,4 +1,4 @@
-Product, sek
+Product                                | sek
 Heinz Ketchup 1000g                    | 23.50
 Felix Ketchup 1000g                    | 21.95
 Tomater krav 500g                      | 34.95
