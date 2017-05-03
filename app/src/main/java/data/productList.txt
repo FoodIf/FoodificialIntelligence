@@ -1,3 +1,28 @@
+Ketchup Heinz
+Ketchup Felix
+Tomater
+Tomatpuré
+Mellanmjölk
+Smör
+Kycklingfilé
+Pyttipanna
+Blåbär
+Kalles Kaviar
+Snickers
+Ost
+Filmjölk
+Lax
+Bröd
+Falukorv
+Gifflar
+Bearnaise
+Toalettpapper
+Chips
+Grill
+Bregott
+
+
+
 ketchup, Heinz, 100
 ketchup, Felix, 100
 ketchup, ICA, 150
@@ -24,5 +49,8 @@ snus, General Portion, 20
 snus, Göteborg Rape, 20
 snus, Whiskey Probe, 20
 chips, Estrella Dill, 300
+
+
+
 
 startActivity(new Intent(LoginActivity.this, MainActivity.class));
