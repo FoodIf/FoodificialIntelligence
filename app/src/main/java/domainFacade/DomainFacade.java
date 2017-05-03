@@ -7,10 +7,15 @@ import domain.*;
  */
 
 public class DomainFacade {
+    private static final DomainFacade instance = new DomainFacade();
+
     private Main main;
 
-    public DomainFacade(){
+    private DomainFacade(){
         this.main = new Main();
+    }
+    public static DomainFacade getInstance(){
+        return instance;
     }
     public boolean compareEmail(String email){
         return main.compareEmail(email);
