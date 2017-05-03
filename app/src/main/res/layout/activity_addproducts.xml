@@ -28,7 +28,7 @@
         android:layout_width="369dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
-        android:text="Add product"
+        android:text="Lägg till produkt"
         app:layout_constraintBottom_toTopOf="@+id/addedProducts_ListView"
         tools:layout_editor_absoluteX="8dp" />
 
