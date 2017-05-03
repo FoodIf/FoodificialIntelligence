@@ -1,6 +1,5 @@
-Product                                | sek
-Heinz Ketchup 1000g                    | 22.95
-Felix Ketchup 1000g                    | 21.50
+Ketchup Heinz 1000g                    | 22.95
+Ketchup Felix 1000g                    | 21.50
 Tomater kvist 1000g                    | 34.95
 Tomater eco 500g                       | 32.95
 Tomatpuré 200g                         | 9.80
@@ -22,3 +21,5 @@ Falukorv Scan 800g                     | 28.95
 Gifflar Kanel 280g                     | 19.50
 Bearnaise Lohmanders 500ml             | 38.90
 Toalettpapper ultra soft 8p            | 37.50
+Chips Dill 275g                        | 19.50
+Bregott Extrasaltat 600g               | 33.95

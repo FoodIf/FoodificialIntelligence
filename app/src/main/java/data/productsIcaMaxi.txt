@@ -1,6 +1,5 @@
-Product                                | sek
-Heinz Ketchup 1000g                    | 25.90
-Felix Ketchup 1000g                    | 23.90
+Ketchup Heinz 1000g                    | 25.90
+Ketchup Felix 1000g                    | 23.90
 Tomater kvist 1000g                    | 48.90
 Tomater eco 500g                       | 35.90
 Tomatpuré ICA 200g                     | 12.50
@@ -21,3 +20,6 @@ Falukorv Scan 800g                     | 28.90
 Gifflar Kanel 280g                     | 19.50
 Bearnaise Lohmanders 500ml             | 39.90
 Toalettpapper Ica skona 8p             | 27.90
+Chips Dill 275g                        | 21.90
+Grill Klotgrill 1st                    | 1999.00
+Bregott Extrasaltat 600g               | 33.90

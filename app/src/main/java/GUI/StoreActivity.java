@@ -2,8 +2,11 @@ package GUI;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,7 +39,10 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         addressView.setText("Implementeramedfacadestore.getaddress()");
         */
         //TODO ImplementeraAvstånd
-        //TODO ImplementeraKarta
+
+        ImageView storebild = (ImageView) findViewById(R.id.storepicture);
+        storebild.setImageResource(R.drawable.icabild);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);

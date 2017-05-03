@@ -8,13 +8,14 @@ import domain.*;
 
 public class DomainFacade {
     private Main main;
-    private String email;
 
     public DomainFacade(){
         this.main = new Main();
     }
-
-    public void setEmail(String email){
-        this.email = email;
+    public boolean compareEmail(String email){
+        return main.compareEmail(email);
+    }
+    public boolean comparePassword(String password){
+        return main.comparePassword(password);
     }
 }
