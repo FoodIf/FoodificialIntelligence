@@ -24,9 +24,26 @@ public class Main {
 
         chainList.add(new Chain("Ica"));
         chainList.add(new Chain("Coop"));
-        chainList.add(new Chain("Hemköp"));
+        chainList.add(new Chain("Citygross"));
     }
+
     public static void main(String[] args){
         new Main();
+    }
+    public static MyList cheapestList(MyList mylist, ArrayList<MyList> compWith){
+        for (int i = 0; i < compWith.size(); i++){
+        MyList tempComp = compWith.get(i);
+            int listsize = mylist.getProducts().size();
+            for (int j =0; j < listsize; j++){
+                String product = mylist.getProducts().get(j);
+
+            }
+
+        }
+        return cheapestList;
+    }
+    public static double compare(double price){
+
+        return price;
     }
 }
