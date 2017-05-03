@@ -28,13 +28,19 @@ public class Main {
     public static void main(String[] args){
         new Main();
     }
+    public static void storesToComp(){
+        for (Store nearbyStore:
+             ) {
+            
+        }     
+    }
     public static MyList cheapestList(MyList mylist, ArrayList<MyList> compWith){
         for (int i = 0; i < compWith.size(); i++){
         MyList tempComp = compWith.get(i);
             int listsize = mylist.getProducts().size();
             for (int j =0; j < listsize; j++){
                 String product = mylist.getProducts().get(j);
-
+                for (int k =0; k < )
             }
 
         }
