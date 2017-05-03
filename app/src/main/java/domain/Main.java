@@ -2,6 +2,8 @@ package domain;
 
 import java.util.ArrayList;
 
+import domainFacade.DomainFacade;
+
 /**
  * Created by olle_ on 2017-04-27.
  */

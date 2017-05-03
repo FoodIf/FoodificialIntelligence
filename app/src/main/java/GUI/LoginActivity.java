@@ -34,12 +34,19 @@ import com.example.hannes.foodificialintelligence.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import domainFacade.DomainFacade;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+    private DomainFacade domainFacade;
+
+    public LoginActivity(){
+        this.domainFacade = new DomainFacade();
+    }
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -193,6 +200,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
+       // if(domainFacade != null) {
+            domainFacade.setEmail(email);
+      //  }
         return email.contains("@");
     }
 
