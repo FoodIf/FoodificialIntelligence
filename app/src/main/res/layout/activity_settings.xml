@@ -22,9 +22,27 @@
         android:text="Adress" />
 
     <TextView
+        android:id="@+id/gasConsumption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_weight="0.02"
+        android:text="Ställ in bensinförbrukning:" />
+
+    <EditText
+        android:id="@+id/setGasComsumption_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:ems="10"
+        android:hint="Bensinförbrukning"
+        android:inputType="number" />
+
+    <TextView
         android:id="@+id/standardList_TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:layout_weight="0.02"
         android:text="Ställ in standardlista:" />
 

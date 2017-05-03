@@ -10,12 +10,12 @@ public class Store {
     private String storeName;
     private ArrayList<String> products;
     private String address;
-    private String bild;
-    public Store(String storeName, String address, String bild) {
+    private String pic;
+    public Store(String storeName, String address, String pic) {
         this.storeName=storeName;
         products=new ArrayList<String>();
         this.address=address;
-        this.bild=bild;
+        this.pic=pic;
     }
     public ArrayList<String> getProductList(){
         return products;

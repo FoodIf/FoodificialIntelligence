@@ -53,4 +53,3 @@ chips, Estrella Dill, 300
 
 
 
-startActivity(new Intent(LoginActivity.this, MainActivity.class));
