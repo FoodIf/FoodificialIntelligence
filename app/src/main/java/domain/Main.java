@@ -30,26 +30,31 @@ public class Main {
     public static void main(String[] args){
         new Main();
     }
-    public static void storesToComp(){
-        for (Store nearbyStore:
-             ) {
-            
-        }     
+    public static void storesToComp(MyList usedList, ArrayList<Store> nearBy){
+        for (Store list:nearBy){
+            cheapestList(usedList,list.getProductList());
+        } 
     }
-    public static MyList cheapestList(MyList mylist, ArrayList<MyList> compWith){
-        for (int i = 0; i < compWith.size(); i++){
-        MyList tempComp = compWith.get(i);
-            int listsize = mylist.getProducts().size();
-            for (int j =0; j < listsize; j++){
-                String product = mylist.getProducts().get(j);
-                for (int k =0; k < )
-            }
+    public static double cheapestList(MyList myList, ArrayList<String> compWith){
+        double sum=0;
+        for (String product: myList.getProducts()) {
+
+        ArrayList<Double> buildList = new ArrayList<>();
+            sum =+ compare(product, compWith);
 
         }
-        return cheapestList;
-    }
-    public static double compare(double price){
+        return sum;
+        }
 
+
+    public static double compare(String product, ArrayList<String> storeList){
+        double price=0;
+        for (String store:storeList) {
+            if (store.equals(product)){
+            price= Double.parseDouble(store.substring(store.indexOf("|")));
+        }
+        else price =+0;
+        }
         return price;
     }
 }
