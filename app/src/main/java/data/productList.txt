@@ -22,7 +22,7 @@ Grill
 Bregott
 
 
-
+/*
 ketchup, Heinz, 100
 ketchup, Felix, 100
 ketchup, ICA, 150
@@ -49,7 +49,7 @@ snus, General Portion, 20
 snus, Göteborg Rape, 20
 snus, Whiskey Probe, 20
 chips, Estrella Dill, 300
-
+*/
 
 
 
