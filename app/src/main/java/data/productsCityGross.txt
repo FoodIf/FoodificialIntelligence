@@ -1,0 +1,22 @@
+Product, sek
+Heinz Ketchup 1000g                    | 23.50
+Felix Ketchup 1000g                    | 21.95
+Tomater krav 500g                      | 34.95
+Tomatpuré 200g                         | 12.95
+Mellanmjölk Arla 1000ml                | 9.40
+Mellanmjölk EKO Arla 1000ml            | 11.10
+Smör Arla 500g                         | 29.50
+Smör Valio 500g                        | 27.95
+Kycklingfilé frusen 1000g              | 89.90
+Pytt i panna 1000g                     | 44.90
+Blåbär Fryst 250g                      | 11.95
+Kalles Kaviar 300g                     | 24.95
+Snickers 2-pack 75g                    | 9.95
+Ost Präst mellan 700g                  | 65.10
+Filmjölk Laktosfri Arla 1000g          | 19.95
+Lax gravad 150g                        | 44.95
+Bröd Carlssons fyrkant 700g            | 24.95
+Falukorv Scan 800g                     | 29.90
+Gifflar Kanel 280g                     | 17.95
+Bearnaise Lohmanders 500ml             | 39.95
+Toalettpapper budget 8p                | 43.95
