@@ -40,7 +40,7 @@ public class Main {
             }
 
         }
-        return cheapestList;
+        return null;//cheapestList;
     }
     public static double compare(double price){
 
