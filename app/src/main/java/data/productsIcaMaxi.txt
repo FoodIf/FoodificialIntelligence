@@ -1,0 +1,23 @@
+Product                                | sek
+Heinz Ketchup 1000g                    | 25.90
+Felix Ketchup 1000g                    | 23.90
+Tomater kvist 1000g                    | 48.90
+Tomater eco 500g                       | 35.90
+Tomatpuré ICA 200g                     | 12.50
+Mellanmjölk Arla 1000ml                | 8.90
+Mellanmjölk EKO Arla 1000ml            | 10.90
+Smör Arla 500g                         | 33.90
+Smör ICA 500g                          | 25.90
+Kycklingfilé frusen kronfågel 1000g    | 75.90
+Pyttipanna ICA 1000g                   | 30.90
+Blåbär Fryst ICA 250g                  | 18.50
+Kalles Kaviar 300g                     | 24.90
+Snickers 2-pack 75g                    | 10.90
+Ost Präst mellan 700g                  | 76.30
+Filmjölk Laktosfri Arla KRAV 1000g     | 21.50
+Lax gravad 180g                        | 52.90
+Bröd Carlssons fyrkant 700g            | 25.90
+Falukorv Scan 800g                     | 28.90
+Gifflar Kanel 280g                     | 19.50
+Bearnaise Lohmanders 500ml             | 39.90
+Toalettpapper Ica skona 8p             | 27.90
