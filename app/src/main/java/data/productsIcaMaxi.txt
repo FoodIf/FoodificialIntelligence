@@ -1,4 +1,3 @@
-Product                                | sek
 Ketchup Heinz 1000g                    | 25.90
 Ketchup Felix 1000g                    | 23.90
 Tomater kvist 1000g                    | 48.90
