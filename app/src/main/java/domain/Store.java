@@ -20,4 +20,8 @@ public class Store {
     public ArrayList<String> getProductList(){
         return products;
     }
+
+    public String getStoreName() {
+        return storeName;
+    }
 }
