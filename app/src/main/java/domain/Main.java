@@ -26,7 +26,12 @@ public class Main {
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
     }
+    public void compareEmail(String email){
 
+    }
+    public void comparePassword(String password){
+
+    }
     public static void main(String[] args){
         new Main();
     }
@@ -40,7 +45,7 @@ public class Main {
             }
 
         }
-        return cheapestList;
+        return null; //cheapestList;
     }
     public static double compare(double price){
 

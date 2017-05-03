@@ -200,14 +200,25 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-       // if(domainFacade != null) {
-            domainFacade.setEmail(email);
-      //  }
-        return email.contains("@");
+        String[] matches = new String[] {".com", ".se"};
+        boolean confirmed = false;
+        for(String match : matches) {
+            if (email.contains(match)) {
+                if(email.contains("@")){
+                    domainFacade.compareEmail(email);
+                    confirmed = true;
+                    break;
+                }
+            }
+        }
+        return confirmed;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
+        if(password.length() > 4){
+            domainFacade.comparePassword(password);
+        }
         return password.length() > 4;
     }
 
