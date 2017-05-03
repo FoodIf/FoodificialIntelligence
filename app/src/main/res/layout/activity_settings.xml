@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:baselineAligned="false">
+
+    <TextView
+        android:id="@+id/homeAdress"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.02"
+        android:text="Ställ in hemadress:" />
+
+    <AutoCompleteTextView
+        android:id="@+id/setHomeAdress_actv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:text="Adress" />
+
+    <TextView
+        android:id="@+id/standardList_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:text="Ställ in standardlista:" />
+
+    <ListView
+        android:id="@+id/setStandardList_listView"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp" />
+
+</LinearLayout>

@@ -6,8 +6,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
-        android:background="@drawable/bild_store_ica">
+        android:layout_height="400px">
+        <ImageView
+            android:id="@+id/storepicture"
+            android:layout_width="match_parent"
+            android:layout_height="400px"
+            />
 
     </LinearLayout>
     <ScrollView android:id="@+id/ScrollViewID"

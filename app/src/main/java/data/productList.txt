@@ -24,3 +24,5 @@ snus, General Portion, 20
 snus, Göteborg Rape, 20
 snus, Whiskey Probe, 20
 chips, Estrella Dill, 300
+
+startActivity(new Intent(LoginActivity.this, MainActivity.class));
