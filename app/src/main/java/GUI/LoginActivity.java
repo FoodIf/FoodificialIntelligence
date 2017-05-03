@@ -205,8 +205,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         for(String match : matches) {
             if (email.contains(match)) {
                 if(email.contains("@")){
-                    domainFacade.compareEmail(email);
-                    confirmed = true;
+                    confirmed = domainFacade.compareEmail(email);
                     break;
                 }
             }
@@ -216,10 +215,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
+        boolean confirmed = false;
         if(password.length() > 4){
-            domainFacade.comparePassword(password);
+            confirmed = domainFacade.comparePassword(password);
         }
-        return password.length() > 4;
+        return confirmed;
     }
 
     /**
