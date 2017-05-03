@@ -25,9 +25,21 @@ public class Main {
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
     }
+
+    /**
+     * Jämför inloggsadressen mot (de i databasen).
+     * @param email
+     * @return
+     */
     public boolean compareEmail(String email){
         return true;
     }
+
+    /**
+     * Jämför inloggsadressen mot (de i databasen).
+     * @param password
+     * @return
+     */
     public boolean comparePassword(String password){
         return true;
     }
