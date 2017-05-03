@@ -12,10 +12,10 @@ public class DomainFacade {
     public DomainFacade(){
         this.main = new Main();
     }
-    public void compareEmail(String email){
-        main.compareEmail(email);
+    public boolean compareEmail(String email){
+        return main.compareEmail(email);
     }
-    public void comparePassword(String password){
-        main.comparePassword(password);
+    public boolean comparePassword(String password){
+        return main.comparePassword(password);
     }
 }
