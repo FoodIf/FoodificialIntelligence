@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import domainFacade.DomainFacade;
 
@@ -15,26 +16,24 @@ public class Main {
     private Products products;
 
     public Main() {
+        //this.user = new User();
         this.storeList = new ArrayList<>();
         this.chainList = new ArrayList<>();
         this.products = new Products();
 
-        storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1"));
+        // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1"));
 
         chainList.add(new Chain("Ica"));
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
     }
-    public boolean compareEmail(String email){
-        return true;
-    }
-    public boolean comparePassword(String password){
-        return true;
-    }
+
     public static void main(String[] args){
         new Main();
     }
-    public static void storesToComp(MyList usedList, ArrayList<Store> nearBy){
+    public static HashMap storesToComp(MyList usedList, ArrayList<Store> nearBy){
+        ArrayList<String> newList;
+        HashMap<String, ArrayList<String>> sortedStores = new HashMap<String, ArrayList<String>>();
         for (Store list:nearBy){
             newList=cheapestList(usedList,list.getProductList());
             int size = newList.size();
@@ -54,15 +53,15 @@ public class Main {
         }
         productNsum.add(String.valueOf(sum));
         return productNsum;
-        }
+    }
 
     private static String[] compare(String product, ArrayList<String> storeList){
         double price=0;
         String[] combo = new String[2];
         for (String store:storeList) {
             if (store.equals(product)){
-            combo[1]=store.substring(store.indexOf("|"));
-        }
+                combo[1]=store.substring(store.indexOf("|"));
+            }
             combo[0]= store;
         }
         return combo;
