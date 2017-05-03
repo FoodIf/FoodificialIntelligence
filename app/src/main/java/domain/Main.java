@@ -31,6 +31,13 @@ public class Main {
     public static void main(String[] args){
         new Main();
     }
+
+    /**
+     *
+     * @param usedList
+     * @param nearBy
+     * @return Ger tillbaka en hashmap med Store name som key och en "Arraylist<String>" där summan av alla varoar är utskrivan på sista raden i Arrayn.
+     */
     public static HashMap storesToComp(MyList usedList, ArrayList<Store> nearBy){
         ArrayList<String> newList;
         HashMap<String, ArrayList<String>> sortedStores = new HashMap<String, ArrayList<String>>();
