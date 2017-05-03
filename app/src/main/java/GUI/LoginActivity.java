@@ -3,7 +3,6 @@ package GUI;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -32,18 +31,22 @@ import android.widget.TextView;
 
 import com.example.hannes.foodificialintelligence.R;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.Manifest.permission.READ_CONTACTS;
+import domainFacade.DomainFacade;
 
-import domainFacade.*;
+import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+    private DomainFacade domainFacade;
+
+    public LoginActivity(){
+        this.domainFacade = new DomainFacade();
+    }
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -68,8 +71,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
-    private DomainFacade domain;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,12 +90,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
+
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
+        mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
-
             }
         });
 
@@ -197,12 +198,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
         }
     }
-
     private boolean isEmailValid(String email) {
-        return email.contains("@");
+        //TODO: Replace this with your own logic
+        String[] matches = new String[] {".com", ".se"};
+        boolean confirmed = false;
+        for(String match : matches) {
+            if (email.contains(match)) {
+                if(email.contains("@")){
+                    domainFacade.compareEmail(email);
+                    confirmed = true;
+                    break;
+                }
+            }
+        }
+        return confirmed;
     }
 
     private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        if(password.length() > 4){
+            domainFacade.comparePassword(password);
+        }
         return password.length() > 4;
     }
 
