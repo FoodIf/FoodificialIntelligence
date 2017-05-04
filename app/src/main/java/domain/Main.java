@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import domainFacade.DomainFacade;
 
@@ -20,40 +21,56 @@ public class Main {
         this.chainList = new ArrayList<>();
         this.products = new Products();
 
-        storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1", "bild"));
+        // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1"));
 
         chainList.add(new Chain("Ica"));
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
     }
-    public boolean compareEmail(String email){
-        return true;
-    }
-    public boolean comparePassword(String password){
-        return true;
-    }
+
     public static void main(String[] args){
         new Main();
     }
-    public static void storesToComp(){
-      /*  for (Store nearbyStore:) {
-            
-        }*/
+
+    /**
+     *
+     * @param usedList
+     * @param nearBy
+     * @return Ger tillbaka en hashmap med Store name som key och en "Arraylist<String>" där summan av alla varoar är utskrivan på sista raden i Arrayn.
+     */
+    public static HashMap storesToComp(MyList usedList, ArrayList<Store> nearBy){
+        ArrayList<String> newList;
+        HashMap<String, ArrayList<String>> sortedStores = new HashMap<String, ArrayList<String>>();
+        for (Store list:nearBy){
+            newList=cheapestList(usedList,list.getProductList());
+            int size = newList.size();
+            double sum = Double.parseDouble(newList.get(size-1));
+            sortedStores.put(list.getStoreName(),newList);
+        }
+        return sortedStores;
     }
-    public static MyList cheapestList(MyList mylist, ArrayList<MyList> compWith){
-      /*  for (int i = 0; i < compWith.size(); i++){
-        MyList tempComp = compWith.get(i);
-            int listsize = mylist.getProducts().size();
-            for (int j =0; j < listsize; j++){
-                String product = mylist.getProducts().get(j);
-                for (int k =0; k < k;)
+    private static ArrayList<String> cheapestList(MyList myList, ArrayList<String> compWith){
+        String[] combo;
+        double sum=0;
+        ArrayList <String> productNsum = new ArrayList<>();
+        for (String product: myList.getProducts()) {
+            combo= compare(product, compWith);
+            sum =+ Double.parseDouble(combo[1]);
+            productNsum.add(combo[0]);
+        }
+        productNsum.add(String.valueOf(sum));
+        return productNsum;
+    }
+
+    private static String[] compare(String product, ArrayList<String> storeList){
+        double price=0;
+        String[] combo = new String[2];
+        for (String store:storeList) {
+            if (store.equals(product)){
+                combo[1]=store.substring(store.indexOf("|"));
             }
-
-        }*/
-        return null; //cheapestList;
-    }
-    public static double compare(double price){
-
-        return price;
+            combo[0]= store;
+        }
+        return combo;
     }
 }

@@ -16,6 +16,6 @@ public class Chain {
         stores=new ArrayList<Store>();
     }
     public void newStore(String storeName, String address){
-        stores.add(new Store(storeName, address,"bild"));
+        stores.add(new Store(storeName, address));
     }
 }

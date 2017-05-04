@@ -1,6 +1,7 @@
 package domain;
 
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,6 +16,8 @@ public class MyList {
     private String name;
     private String date;
     private ArrayList <String> products;
+    AutoCompleteTextView addProduct;
+
 
 
     public MyList(String name) {
@@ -40,5 +43,6 @@ public class MyList {
     public String getName() {
         return name;
     }
+
 }
 
