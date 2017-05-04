@@ -40,13 +40,13 @@
         android:text=""
         ></TextView>
     <TextView
-        android:id="@+id/store_length"
+        android:id="@+id/store_distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30px"
         android:paddingLeft="30px"
         android:paddingTop="20px"
-        android:text="Avstånd till butiken"
+        android:text=""
         ></TextView>
     </LinearLayout>
     </ScrollView>
