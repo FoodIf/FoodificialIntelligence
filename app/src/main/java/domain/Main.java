@@ -1,9 +1,20 @@
 package domain;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.hannes.foodificialintelligence.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import GUI.LoginActivity;
+import GUI.MainActivity;
 import domainFacade.DomainFacade;
+
+import static com.example.hannes.foodificialintelligence.R.id.goToSettings_Button;
 
 /**
  * Created by olle_ on 2017-04-27.
@@ -14,6 +25,7 @@ public class Main {
     private ArrayList<Store> storeList;
     private ArrayList<Chain> chainList;
     private Products products;
+    private String activeView;
 
     public Main() {
         //this.user = new User();
@@ -26,6 +38,7 @@ public class Main {
         chainList.add(new Chain("Ica"));
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
+
     }
 
     public static void main(String[] args){
@@ -68,15 +81,16 @@ public class Main {
         return productNsum;
     }
 
-    private static String[] compare(String product, ArrayList<String> storeList){
-        double price=0;
+    private static String[] compare(String product, ArrayList<String> storeList) {
+        double price = 0;
         String[] combo = new String[2];
-        for (String store:storeList) {
-            if (store.equals(product)){
-                combo[1]=store.substring(store.indexOf("|"));
+        for (String store : storeList) {
+            if (store.equals(product)) {
+                combo[1] = store.substring(store.indexOf("|"));
             }
-            combo[0]= store;
+            combo[0] = store;
         }
         return combo;
     }
+
 }

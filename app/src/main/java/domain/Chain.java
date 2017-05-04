@@ -15,7 +15,7 @@ public class Chain {
         this.chainName=chainName;
         stores=new ArrayList<Store>();
     }
-    public void newStore(String storeName, String address){
-        stores.add(new Store(storeName, address));
+    public void newStore(String storeName, String address, String pic){
+        stores.add(new Store(storeName, address, pic));
     }
 }
