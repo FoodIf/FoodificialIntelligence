@@ -46,7 +46,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         TextView addressView = (TextView) findViewById(R.id.store_address);
         addressView.setText("Implementeramedfacadestore.getaddress()");
 
-        double valueResult = distance("implementeragetlnglat");
+        /*double valueResult = distance("implementeragetlnglat");
         double km = valueResult / 1;
         DecimalFormat newFormat = new DecimalFormat("####");
         int kmInDec = Integer.valueOf(newFormat.format(km));
@@ -55,7 +55,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         Log.i("Distance", "" + valueResult + " km " + kmInDec
                 + " Meter " + meterInDec+ ".");
         TextView distanceView = (TextView) findViewById(R.id.store_distance);
-        distanceView.setText("någontextsomvisaravstånd");
+        distanceView.setText("någontextsomvisaravstånd");*/
 
 
         ImageView storebild = (ImageView) findViewById(R.id.storepicture);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
@@ -27,16 +28,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_weight="0.02"
-        android:text="Ställ in bensinförbrukning:" />
+        android:text="Ställ in bensinförbrukning (liter/mil):" />
 
     <EditText
-        android:id="@+id/setGasComsumption_EditText"
+        android:id="@+id/gasConsumption_EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.02"
         android:ems="10"
         android:hint="Bensinförbrukning"
-        android:inputType="number" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/standardList_TextView"
@@ -50,5 +51,12 @@
         android:id="@+id/setStandardList_listView"
         android:layout_width="wrap_content"
         android:layout_height="60dp" />
+
+    <Button
+        android:id="@+id/saveSettings_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_dark"
+        android:text="Spara inställningar" />
 
 </LinearLayout>
