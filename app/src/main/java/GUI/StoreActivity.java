@@ -41,13 +41,21 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
-        /*TextView nameView = (TextView) findViewById(R.id.store_name);
+        TextView nameView = (TextView) findViewById(R.id.store_name);
         nameView.setText("Implementeramedfacadestore.getname()");
         TextView addressView = (TextView) findViewById(R.id.store_address);
         addressView.setText("Implementeramedfacadestore.getaddress()");
-        */
+
+        double valueResult = distance("implementeragetlnglat");
+        double km = valueResult / 1;
+        DecimalFormat newFormat = new DecimalFormat("####");
+        int kmInDec = Integer.valueOf(newFormat.format(km));
+        double meter = valueResult % 1000;
+        int meterInDec = Integer.valueOf(newFormat.format(meter));
+        Log.i("Distance", "" + valueResult + " km " + kmInDec
+                + " Meter " + meterInDec+ ".");
         TextView distanceView = (TextView) findViewById(R.id.store_distance);
-        distanceView.setText("Implementeramedfacadestore.getaddress()");
+        distanceView.setText("någontextsomvisaravstånd");
 
 
         ImageView storebild = (ImageView) findViewById(R.id.storepicture);
@@ -69,7 +77,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 
     }
-    public double Distance(LatLng latlngyou, LatLng latlngstore) {
+    public double distance(LatLng latlngyou, LatLng latlngstore) {
         int sizeofearth = 6371;
         double lat1 = latlngyou.latitude;
         double lat2 = latlngstore.latitude;
@@ -84,14 +92,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
                 * Math.sin(dLon / 2);
 
         double c = 2 * Math.asin(Math.sqrt(a));
-        double valueResult = sizeofearth * c;
-        double km = valueResult / 1;
-        DecimalFormat newFormat = new DecimalFormat("####");
-        int kmInDec = Integer.valueOf(newFormat.format(km));
-        double meter = valueResult % 1000;
-        int meterInDec = Integer.valueOf(newFormat.format(meter));
-        Log.i("Distance", "" + valueResult + " km " + kmInDec
-                + " Meter " + meterInDec+ ".");
+
 
         return sizeofearth * c;
     }
