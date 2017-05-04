@@ -8,7 +8,6 @@ import domain.*;
 
 public class DomainFacade {
     private static final DomainFacade instance = new DomainFacade();
-
     private Main main;
 
     private DomainFacade(){
