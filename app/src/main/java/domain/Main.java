@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.hannes.foodificialintelligence.R;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -91,6 +92,26 @@ public class Main {
             combo[0] = store;
         }
         return combo;
+    }
+    public double distance(LatLng latlngyou, LatLng latlngstore) {
+        //TODO ska denna in i domän kanske? enkelt att fixa isf
+        int sizeofearth = 6371;
+        double lat1 = latlngyou.latitude;
+        double lat2 = latlngstore.latitude;
+        double lon1 = latlngyou.longitude;
+        double lon2 = latlngstore.longitude;
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+                + Math.cos(Math.toRadians(lat1))
+                * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2)
+                * Math.sin(dLon / 2);
+
+        double c = 2 * Math.asin(Math.sqrt(a));
+
+
+        return sizeofearth * c;
     }
 
 }
