@@ -1,16 +1,16 @@
 package data;
 
 /**
- * Created by albin_000 on 2017-05-04.
+ * Created by albin_000 on 2017-05-08.
  */
 
-public class UserBroker<E> extends Broker {
+public class ProductBroker<E> extends Broker {
 
     private E dto;
     private String tag;
-    private String file = "userList.txt";
+    private String file = "productList.txt";
 
-    public UserBroker(E dto, String tag){
+    public ProductBroker(E dto, String tag){
         super(dto, tag);
         this.dto = dto;
         this.tag = tag;

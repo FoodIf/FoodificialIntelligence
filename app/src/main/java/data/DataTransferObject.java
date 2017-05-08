@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DataTransferObject<E> {
     private String tag;
     private String operation;
-    private ArrayList<E> values;
+    private ArrayList<E> values; //HashMap istället.
 
      public DataTransferObject(String tag, String operation){
          this.tag = tag;

@@ -1,5 +1,8 @@
 package data;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 
 import domain.Store;
@@ -12,29 +15,51 @@ public abstract class Broker<E> {
 
     private String tag;
     private E dto;
+    private String file;
 
     public Broker(E dto, String tag) {
         this.dto = dto;
         this.tag = tag;
 
-        HashMap<E, String> hashMap = new HashMap();
-        hashMap.put(dto, tag);
+        /*HashMap<E, String> hashMap = new HashMap();
+        hashMap.put(dto, tag);*/
 
-        findClass(tag, dto);
+        findDatabase(this.tag);
     }
-
-    public void findClass(String tag, E dto){
-        if(tag.equals("store")){
-
-            new StoreBroker(dto, tag);
+    public void setFile(String file){
+        this.file = file;
+    }
+    public void findDatabase(String tag){
+        if(tag.equals("user")){
+            new UserBroker<E>(this.dto, this.tag);
         }
-        else if(tag.equals("user")){
-
-            new UserBroker(dto, tag);
+        else if(tag.equals("products")){
+            new ProductBroker<E>(this.dto, this.tag);
+        }
+        else if(tag.equals("store")){
+            new StoreBroker<E>(this.dto, this.tag);
         }
     }
-    public String searchDatabase(E dto){
-        String data = "";
-        return data;
+    /**
+     * Sök i databasen efter input värde.
+     * @param dto, tag
+     */
+    public String searchDatabase(E dto, String tag){
+        String input = dto.toString();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String dataRow;
+            while((dataRow = reader.readLine()) != null){
+                if(dataRow.contains(input)){
+                    return input;
+                }
+                else{
+                    return null;
+                }
+            }
+        } catch (IOException e){
+            e.getMessage();
+        }
+        return null;
     }
 }

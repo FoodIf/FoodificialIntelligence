@@ -10,10 +10,12 @@ public class StoreBroker<E> extends Broker {
     private E dto;
     private String tag;
 
+
     public StoreBroker(E dto, String tag) {
         super(dto, tag);
         this.dto = dto;
         this.tag = tag;
-        String str = dto.toString();
+        //setFile(this.file);
+        searchDatabase(this.dto, this.tag);
     }
 }
