@@ -23,4 +23,5 @@ public class DataFacade<E> {
         Factory<E> factory = new Factory<E>(dto);
         return factory.control();
     }
+
 }
