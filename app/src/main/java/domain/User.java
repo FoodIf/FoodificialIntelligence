@@ -36,4 +36,7 @@ public class User {
     public double getGasConsumption(){
         return gasConsumption;
     }
+    public LatLng getLatlnguser(){
+        return latlnguser;
+    }
 }
