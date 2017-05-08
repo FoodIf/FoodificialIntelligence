@@ -1,4 +1,6 @@
 package domainFacade;
+import com.google.android.gms.maps.model.LatLng;
+
 import GUI.*;
 import domain.*;
 
@@ -21,5 +23,9 @@ public class DomainFacade {
     }
     public boolean comparePassword(String password){
         return main.comparePassword(password);
+    }
+
+    public double compareDistance(LatLng latlnguser, LatLng latlngstore){
+        return main.distance(latlnguser,latlngstore);
     }
 }

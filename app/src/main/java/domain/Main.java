@@ -94,12 +94,11 @@ public class Main {
         }
         return combo;
     }
-    public double distance(LatLng latlngyou, LatLng latlngstore) {
-        //TODO ska denna in i domän kanske? enkelt att fixa isf
+    public double distance(LatLng latlnguser, LatLng latlngstore) {
         int sizeofearth = 6371;
-        double lat1 = latlngyou.latitude;
+        double lat1 = latlnguser.latitude;
         double lat2 = latlngstore.latitude;
-        double lon1 = latlngyou.longitude;
+        double lon1 = latlnguser.longitude;
         double lon2 = latlngstore.longitude;
         double dLat = Math.toRadians(lat2 - lat1);
         double dLon = Math.toRadians(lon2 - lon1);

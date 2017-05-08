@@ -1,19 +1,11 @@
 package GUI;
 
-import android.Manifest;
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
+
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -22,9 +14,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.example.hannes.foodificialintelligence.R;
 
-import java.text.DecimalFormat;
-
 import domain.Store;
+import domainFacade.DomainFacade;
 
 /**
  * Created by Hannes on 2017-05-02.
@@ -33,9 +24,11 @@ import domain.Store;
 public class StoreActivity extends FragmentActivity implements OnMapReadyCallback {
     private Store store;
     private GoogleMap mMap;
+    private DomainFacade domainFacade;
 
-    /* public StoreActivity(Store store) {
+    /* public StoreActivity(Store store, DomainFacade domainFacade) {
          this.store=store;
+         this.domainFacade=domainFacade
      }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +39,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         TextView addressView = (TextView) findViewById(R.id.store_address);
         addressView.setText("Implementeramedfacadestore.getaddress()");
 
-        /*double valueResult = distance("implementeragetlnglat");
+        /*double valueResult = domainfacade.distance("implementeragetlnglat");
         double km = valueResult / 1;
         DecimalFormat newFormat = new DecimalFormat("####");
         int kmInDec = Integer.valueOf(newFormat.format(km));
