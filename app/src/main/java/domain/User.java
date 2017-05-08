@@ -1,5 +1,7 @@
 package domain;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 /**
@@ -12,10 +14,12 @@ public class User {
     private String userAddress;
     private double gasConsumption;
     private MyList standardList;
+    private LatLng latlnguser;
 
     public User(String email, String password){
         this.email = email;
         this.password = password;
+        this.latlnguser= new LatLng(58.40197,15.57681);
     }
     public void setUserAddress(String userAddress){
         this.userAddress = userAddress;
