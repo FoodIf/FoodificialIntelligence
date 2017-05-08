@@ -34,9 +34,10 @@ public class Main {
         this.chainList = new ArrayList<>();
         this.products = new Products();
 
-        // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1",bildint,latlng));
+        // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1",R.drawable.bildaddress,new LatLng(double,double)));
 
         chainList.add(new Chain("Ica"));
+        chainList.get(chainList.size()).newStore("Ica Alnö", "Raholmsvägen 13, 865 31 Alnö", R.drawable.icabild,new LatLng(62.4288926,17.4171566));
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
 
