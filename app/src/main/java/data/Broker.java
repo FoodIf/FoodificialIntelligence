@@ -3,6 +3,7 @@ package data;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import domain.Store;
@@ -36,7 +37,7 @@ public abstract class Broker<E> {
         else if(tag.equals("products")){
             new ProductBroker<E>(this.dto, this.tag);
         }
-        else if(tag.equals("store")){
+        else if(tag.equals("maxi") || tag.equals("coop") || tag.equals("citygross")){
             new StoreBroker<E>(this.dto, this.tag);
         }
     }
@@ -51,7 +52,7 @@ public abstract class Broker<E> {
             String dataRow;
             while((dataRow = reader.readLine()) != null){
                 if(dataRow.contains(input)){
-                    return input;
+                    return dataRow;
                 }
                 else{
                     return null;
