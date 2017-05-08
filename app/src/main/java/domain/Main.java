@@ -34,7 +34,7 @@ public class Main {
         this.chainList = new ArrayList<>();
         this.products = new Products();
 
-        // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1"));
+        // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1",bildint,latlng));
 
         chainList.add(new Chain("Ica"));
         chainList.add(new Chain("Coop"));

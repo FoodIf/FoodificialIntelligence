@@ -1,6 +1,8 @@
 package domain;
 
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +17,7 @@ public class Chain {
         this.chainName=chainName;
         stores=new ArrayList<Store>();
     }
-    public void newStore(String storeName, String address, String pic){
-        stores.add(new Store(storeName, address, pic));
+    public void newStore(String storeName, String address, int pic, LatLng storelatlng){
+        stores.add(new Store(storeName, address, pic, storelatlng));
     }
 }
