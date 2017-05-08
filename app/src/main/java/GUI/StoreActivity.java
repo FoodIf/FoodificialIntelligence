@@ -1,8 +1,10 @@
 package GUI;
 
 
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.example.hannes.foodificialintelligence.R;
+
+import java.text.DecimalFormat;
 
 import domain.Store;
 import domainFacade.DomainFacade;
@@ -25,34 +29,47 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
     private Store store;
     private GoogleMap mMap;
     private DomainFacade domainFacade;
+    private int storePicture;
+    private String storeName;
+    private String storeAddress;
+    private LatLng storelatlng;
+    private LatLng userlatlng;
 
-    /* public StoreActivity(Store store, DomainFacade domainFacade) {
+     public StoreActivity(Store store, DomainFacade domainFacade, int storePicture, String storeName, String storeAddress, LatLng storelatlng, LatLng userlatlng) {
          this.store=store;
-         this.domainFacade=domainFacade
-     }*/
+         this.domainFacade=domainFacade;
+         this.storePicture = storePicture;
+         this.storeName=storeName;
+         this.storeAddress=storeAddress;
+         this.storelatlng=storelatlng;
+         this.userlatlng=userlatlng;
+     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
         TextView nameView = (TextView) findViewById(R.id.store_name);
-        nameView.setText("Implementeramedfacadestore.getname()");
+        nameView.setText(storeName);
         TextView addressView = (TextView) findViewById(R.id.store_address);
-        addressView.setText("Implementeramedfacadestore.getaddress()");
+        addressView.setText(storeAddress);
 
-        /*double valueResult = domainfacade.distance("implementeragetlnglat");
+        double valueResult = domainFacade.compareDistance(storelatlng,userlatlng);
         double km = valueResult / 1;
         DecimalFormat newFormat = new DecimalFormat("####");
         int kmInDec = Integer.valueOf(newFormat.format(km));
         double meter = valueResult % 1000;
         int meterInDec = Integer.valueOf(newFormat.format(meter));
+        //Inte 100 på vad denna gör, men testa utskriften nedan istället för denna, sparar bara denna ifall att.
         Log.i("Distance", "" + valueResult + " km " + kmInDec
                 + " Meter " + meterInDec+ ".");
+        //
         TextView distanceView = (TextView) findViewById(R.id.store_distance);
-        distanceView.setText("någontextsomvisaravstånd");*/
+        distanceView.setText(valueResult + " km " + kmInDec
+                + " Meter " + meterInDec+ ".");
 
 
         ImageView storebild = (ImageView) findViewById(R.id.storepicture);
-        storebild.setImageResource(R.drawable.icabild);
+        storebild.setImageResource(storePicture);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -65,8 +82,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng storelat = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(storelat).title("Implementeranågongetstorelat"));
+        mMap.addMarker(new MarkerOptions().position(storelatlng).title(storeName));
 
     }
 

@@ -1,7 +1,6 @@
 package domainFacade;
 import com.google.android.gms.maps.model.LatLng;
 
-import GUI.*;
 import domain.*;
 
 /**
