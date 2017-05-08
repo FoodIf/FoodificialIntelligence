@@ -24,25 +24,12 @@ public abstract class Broker<E> {
 
         /*HashMap<E, String> hashMap = new HashMap();
         hashMap.put(dto, tag);*/
-
-        findDatabase(this.tag);
     }
     public void setFile(String file){
         this.file = file;
     }
-    public void findDatabase(String tag){
-        if(tag.equals("user")){
-            new UserBroker<E>(this.dto, this.tag);
-        }
-        else if(tag.equals("products")){
-            new ProductBroker<E>(this.dto, this.tag);
-        }
-        else if(tag.equals("maxi") || tag.equals("coop") || tag.equals("citygross")){
-            new StoreBroker<E>(this.dto, this.tag);
-        }
-    }
     /**
-     * Sök i databasen efter input värde.
+     * Sök i databasen efter input värde och skicka tillbaka aktuell rad.
      * @param dto, tag
      */
     public String searchDatabase(E dto, String tag){
