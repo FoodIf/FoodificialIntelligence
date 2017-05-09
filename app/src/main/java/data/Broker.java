@@ -19,22 +19,16 @@ public abstract class Broker {
 
     public Broker(){}
     /**
-     * Sök i databasen efter input värde och skicka tillbaka aktuell rad.
+     * Sök i databasen efter input värde och skicka tillbaka en Arraylist över detalagret.
      * @param dto, tag
      */
     public DataTransferObject searchDatabase(DataTransferObject dto, String file){
-        String input = dto.toString();
+        ArrayList<String> databaseList = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String dataRow;
-            while((dataRow = reader.readLine()) != null){
-                if(dataRow.contains(input)){
-                    updateCache(dto);
-                    return dto;
-                }
-                else{
-                    return null;
-                }
+            while((dataRow = reader.readLine()) != null) {
+                databaseList.add(dataRow);
             }
         } catch (IOException e){
             e.getMessage();
