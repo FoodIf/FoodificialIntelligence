@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 import GUI.LoginActivity;
 import GUI.MainActivity;
+import dataFacade.DataFacade;
 import domainFacade.DomainFacade;
 
 import static com.example.hannes.foodificialintelligence.R.id.goToSettings_Button;
@@ -22,6 +23,7 @@ import static com.example.hannes.foodificialintelligence.R.id.goToSettings_Butto
  */
 
 public class Main {
+    private DataFacade dataFacade;
     private User user;
     private ArrayList<Store> storeList;
     private ArrayList<Chain> chainList;
@@ -29,6 +31,7 @@ public class Main {
     private String activeView;
 
     public Main() {
+        this.dataFacade = DataFacade.getInstance();
         //this.user = new User();
         this.storeList = new ArrayList<>();
         this.chainList = new ArrayList<>();
@@ -48,6 +51,7 @@ public class Main {
     
     }
     public boolean compareEmail(String email){
+        dataFacade.load("login", "load");
         return true;
     }
     public boolean comparePassword(String password){

@@ -18,13 +18,19 @@ public class DataTransferObject<E> {
          this.operation = operation;
          values = new ArrayList<E>();
      }
-     public void setValue(ArrayList<E> values){
+     public String getOperation(){
+         return operation;
+     }
+     public String getTag(){
+         return tag;
+     }
+     public void setValues(ArrayList<E> values){
          this.values = values;
      }
      public void addValue(E value){
          values.add(value);
      }
-     public ArrayList<E> getValue(){
+     public ArrayList<E> getValues(){
          return values;
      }
 }
