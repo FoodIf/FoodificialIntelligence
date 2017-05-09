@@ -17,7 +17,7 @@ public abstract class Broker {
     private String tag;
     private DataTransferObject dto;
     private String file;
-    private HashMap<DataTransferObject, String> cacheMap;
+    private HashMap<String,DataTransferObject> cacheMap;
 
     public Broker(){}
     public void setFile(String file){
@@ -61,7 +61,7 @@ public abstract class Broker {
     public boolean updateCache(DataTransferObject dto, String tag){
         this.dto = dto;
         this.tag = tag;
-        this.cacheMap.put(dto, tag);
+        this.cacheMap.put(tag, dto);
         return true;
     }
     public DataTransferObject checkCache(String tag){
