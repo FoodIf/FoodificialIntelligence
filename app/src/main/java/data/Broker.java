@@ -17,13 +17,11 @@ public abstract class Broker<E> {
     private String tag;
     private E dto;
     private String file;
+    private HashMap<E, String> cacheMap;
 
     public Broker(E dto, String tag) {
         this.dto = dto;
         this.tag = tag;
-
-        /*HashMap<E, String> hashMap = new HashMap();
-        hashMap.put(dto, tag);*/
     }
     public void setFile(String file){
         this.file = file;
@@ -39,6 +37,7 @@ public abstract class Broker<E> {
             String dataRow;
             while((dataRow = reader.readLine()) != null){
                 if(dataRow.contains(input)){
+                    updateCache(dto, tag);
                     return dataRow;
                 }
                 else{
@@ -47,6 +46,18 @@ public abstract class Broker<E> {
             }
         } catch (IOException e){
             e.getMessage();
+        }
+        return null;
+    }
+    public boolean updateCache(E dto, String tag){
+        this.dto = dto;
+        this.tag = tag;
+        this.cacheMap.put(dto, tag);
+        return true;
+    }
+    public E checkCache(String tag){ //Metoden skickade en ArrayList innan, nu String. Hur vad?
+        if(cacheMap.containsKey(tag)) {
+            return cacheMap.get(tag);
         }
         return null;
     }

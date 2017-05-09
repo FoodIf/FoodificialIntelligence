@@ -48,15 +48,12 @@ public class StoreBroker<E> extends Broker {
     public void setStoresList(ArrayList<String> storesList){
         this.storesList = storesList;
     }*/
-    public ArrayList<String> addToStoresList(String store){
+    public void addToStoresList(String store){
         for(int i = 0; i < storesList.size(); i++){
             if(storesList.get(i).equals(store)){
                 System.out.print("The store already exists.");
             }
-            else {
-                storesList.add(store);
-            }
+            else { }
         }
-        return storesList;
     }
 }
