@@ -4,13 +4,13 @@ package data;
  * Created by albin_000 on 2017-05-04.
  */
 
-public class UserBroker<E> extends Broker {
+public class UserBroker extends Broker {
 
-    private E dto;
+    private DataTransferObject dto;
     private String tag;
     private String file = "userList.txt";
 
-    public UserBroker(E dto, String tag){
+    public UserBroker(DataTransferObject dto, String tag){
         super(dto, tag);
         this.dto = dto;
         this.tag = tag;

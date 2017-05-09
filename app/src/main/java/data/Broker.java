@@ -12,14 +12,19 @@ import domain.Store;
  * Created by albin_000 on 2017-05-04.
  */
 
-public abstract class Broker<E> {
+public abstract class Broker {
 
     private String tag;
-    private E dto;
+    private DataTransferObject dto;
     private String file;
-    private HashMap<E, String> cacheMap;
+    private HashMap<DataTransferObject, String> cacheMap;
 
-    public Broker(E dto, String tag) {
+    //save
+    //load
+    //remove
+    //Implementera metoder. Check i början av metod för att kontrollera taggen.
+
+    public Broker(DataTransferObject dto, String tag) {
         this.dto = dto;
         this.tag = tag;
     }
@@ -30,7 +35,7 @@ public abstract class Broker<E> {
      * Sök i databasen efter input värde och skicka tillbaka aktuell rad.
      * @param dto, tag
      */
-    public String searchDatabase(E dto, String tag){
+    public String searchDatabase(DataTransferObject dto, String tag){
         String input = dto.toString();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -49,13 +54,13 @@ public abstract class Broker<E> {
         }
         return null;
     }
-    public boolean updateCache(E dto, String tag){
+    public boolean updateCache(DataTransferObject dto, String tag){
         this.dto = dto;
         this.tag = tag;
         this.cacheMap.put(dto, tag);
         return true;
     }
-    public E checkCache(String tag){ //Metoden skickade en ArrayList innan, nu String. Hur vad?
+    public DataTransferObject checkCache(String tag){
         if(cacheMap.containsKey(tag)) {
             return cacheMap.get(tag);
         }

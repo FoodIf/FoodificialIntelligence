@@ -6,14 +6,14 @@ import java.util.ArrayList;
  * Created by albin_000 on 2017-05-04.
  */
 
-public class StoreBroker<E> extends Broker {
-    private E dto;
+public class StoreBroker extends Broker {
+    private DataTransferObject dto;
     private String tag;
     private String file;
     private ArrayList<String> storesList = new ArrayList<>();
 
 
-    public StoreBroker(E dto, String tag) {
+    public StoreBroker(DataTransferObject dto, String tag) {
         super(dto, tag);
         this.dto = dto;
         this.tag = tag;
