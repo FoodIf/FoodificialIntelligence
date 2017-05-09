@@ -4,18 +4,25 @@ import android.provider.ContactsContract;
 
 import java.util.ArrayList;
 
+import interfaces.Ifactory;
+
 /**
  * Created by Johan on 2017-05-04.
  */
 
-public class Factory {
+public class Factory implements Ifactory{
     private Broker[] brokerList;
     private Broker userBroker;
+    private Broker storeBroker;
+    private Broker productBroker;
 
     public Factory(){
         userBroker = new UserBroker();
-        brokerList = new Broker[]{userBroker};
+        storeBroker = new StoreBroker();
+        productBroker = new ProductBroker();
+        brokerList = new Broker[]{userBroker, storeBroker, productBroker};
     }
+    @Override
     public DataTransferObject control(DataTransferObject dto){
         if(dto.getOperation().equals("load")){
             for(Broker broker : brokerList){
@@ -29,8 +36,7 @@ public class Factory {
             for(Broker broker : brokerList){
                 return broker.remove(dto);
             }
-        }else{
-            return null;
         }
+        return null;
     }
 }
