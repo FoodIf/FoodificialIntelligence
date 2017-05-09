@@ -15,27 +15,22 @@ import domain.Store;
 public abstract class Broker {
 
     private String tag;
-    private DataTransferObject dto;
-    private String file;
     private HashMap<String,DataTransferObject> cacheMap;
 
     public Broker(){}
-    public void setFile(String file){
-        this.file = file;
-    }
     /**
      * Sök i databasen efter input värde och skicka tillbaka aktuell rad.
      * @param dto, tag
      */
-    /*public String searchDatabase(DataTransferObject dto, String tag){
+    public DataTransferObject searchDatabase(DataTransferObject dto, String file){
         String input = dto.toString();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String dataRow;
             while((dataRow = reader.readLine()) != null){
                 if(dataRow.contains(input)){
-                    updateCache(dto, tag);
-                    return dataRow;
+                    updateCache(dto);
+                    return dto;
                 }
                 else{
                     return null;
@@ -45,23 +40,47 @@ public abstract class Broker {
             e.getMessage();
         }
         return null;
-    }*/
+    }
     public DataTransferObject save(DataTransferObject dto){
+        checkTag(dto.getTag());
 
+        return dto;
     }
     public DataTransferObject load(DataTransferObject dto){
-
         for(int i = 0; i < cacheMap.size(); i++){
+            if(cacheMap.get(i).equals(dto)){
+                return dto;
+            }
+            else{
+                dto = getAdress(dto);
+            }
 
         }
+        return dto;
     }
     public DataTransferObject remove(DataTransferObject dto){
-
+        checkTag(dto.getTag());
+        return dto;
     }
-    public boolean updateCache(DataTransferObject dto, String tag){
-        this.dto = dto;
+    public boolean checkTag(String tag){
+        if(tag.equals(getTag())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public DataTransferObject getAdress(DataTransferObject dto){
+        return dto;
+    }
+    public void setTag(String tag){
         this.tag = tag;
-        this.cacheMap.put(tag, dto);
+    }
+    public String getTag(){
+        return tag;
+    }
+    public boolean updateCache(DataTransferObject dto){
+        this.cacheMap.put(dto.getTag(), dto);
         return true;
     }
     public DataTransferObject checkCache(String tag){

@@ -6,12 +6,16 @@ package data;
 
 public class UserBroker extends Broker {
 
-    //private DataTransferObject dto;
-    private String tag = "user";
     private String file = "userList.txt";
 
     public UserBroker(){
-        setFile(this.file);
-        //searchDatabase(this.dto, this.tag);
+
+    }
+    @Override
+    public DataTransferObject getAdress(DataTransferObject dto){
+        if(dto.getTag().equals("product")){
+            searchDatabase(dto, file);
+        }
+        return dto;
     }
 }
