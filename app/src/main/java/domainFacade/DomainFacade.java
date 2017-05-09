@@ -23,7 +23,9 @@ public class DomainFacade {
     public boolean comparePassword(String password){
         return main.comparePassword(password);
     }
-
+    public boolean compareUser(String password, String email){
+        return main.compareUser(password, email);
+    }
     public double compareDistance(LatLng latlnguser, LatLng latlngstore){
         return main.distance(latlnguser,latlngstore);
     }

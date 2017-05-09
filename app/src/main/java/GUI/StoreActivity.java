@@ -1,7 +1,5 @@
 package GUI;
 
-
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -18,7 +16,6 @@ import com.example.hannes.foodificialintelligence.R;
 
 import java.text.DecimalFormat;
 
-import domain.Store;
 import domainFacade.DomainFacade;
 
 /**
@@ -26,7 +23,6 @@ import domainFacade.DomainFacade;
  */
 
 public class StoreActivity extends FragmentActivity implements OnMapReadyCallback {
-    private Store store;
     private GoogleMap mMap;
     private DomainFacade domainFacade;
     private int storePicture;
@@ -35,8 +31,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
     private LatLng storelatlng;
     private LatLng userlatlng;
 
-     public StoreActivity(Store store, DomainFacade domainFacade, int storePicture, String storeName, String storeAddress, LatLng storelatlng, LatLng userlatlng) {
-         this.store=store;
+     public StoreActivity(DomainFacade domainFacade, int storePicture, String storeName, String storeAddress, LatLng storelatlng, LatLng userlatlng) {
          this.domainFacade=domainFacade;
          this.storePicture = storePicture;
          this.storeName=storeName;
@@ -65,7 +60,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
         //
         TextView distanceView = (TextView) findViewById(R.id.store_distance);
         distanceView.setText(valueResult + " km " + kmInDec
-                + " Meter " + meterInDec+ ".");
+                + " Meter " + meterInDec+ "                 .");
 
 
         ImageView storebild = (ImageView) findViewById(R.id.storepicture);

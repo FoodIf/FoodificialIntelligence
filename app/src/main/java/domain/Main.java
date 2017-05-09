@@ -40,7 +40,7 @@ public class Main {
         // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1",R.drawable.bildaddress,new LatLng(double,double)));
 
         chainList.add(new Chain("Ica"));
-        chainList.get(chainList.size()).newStore("Ica Alnö", "Raholmsvägen 13, 865 31 Alnö", R.drawable.icabild,new LatLng(62.4288926,17.4171566));
+        chainList.get(chainList.size()-1).newStore("Ica Alnö", "Raholmsvägen 13, 865 31 Alnö", R.drawable.icabild,new LatLng(62.4288926,17.4171566));
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
 
@@ -55,7 +55,12 @@ public class Main {
         return true;
     }
     public boolean comparePassword(String password){
+
         return true;
+    }
+    public boolean compareUser(String password, String email){
+//TODO jämför email och lösen med DB
+        return false;
     }
 
     /**
