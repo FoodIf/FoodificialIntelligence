@@ -19,15 +19,7 @@ public abstract class Broker {
     private String file;
     private HashMap<DataTransferObject, String> cacheMap;
 
-    //save
-    //load
-    //remove
-    //Implementera metoder. Check i början av metod för att kontrollera taggen.
-
-    public Broker(DataTransferObject dto, String tag) {
-        this.dto = dto;
-        this.tag = tag;
-    }
+    public Broker(){}
     public void setFile(String file){
         this.file = file;
     }
@@ -35,7 +27,7 @@ public abstract class Broker {
      * Sök i databasen efter input värde och skicka tillbaka aktuell rad.
      * @param dto, tag
      */
-    public String searchDatabase(DataTransferObject dto, String tag){
+    /*public String searchDatabase(DataTransferObject dto, String tag){
         String input = dto.toString();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -53,6 +45,18 @@ public abstract class Broker {
             e.getMessage();
         }
         return null;
+    }*/
+    public DataTransferObject save(DataTransferObject dto){
+
+    }
+    public DataTransferObject load(DataTransferObject dto){
+
+        for(int i = 0; i < cacheMap.size(); i++){
+
+        }
+    }
+    public DataTransferObject remove(DataTransferObject dto){
+
     }
     public boolean updateCache(DataTransferObject dto, String tag){
         this.dto = dto;

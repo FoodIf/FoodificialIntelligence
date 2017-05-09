@@ -6,15 +6,12 @@ package data;
 
 public class ProductBroker extends Broker {
 
-    private DataTransferObject dto;
-    private String tag;
+    //private DataTransferObject dto;
+    private String tag = "product";
     private String file = "productList.txt";
 
-    public ProductBroker(DataTransferObject dto, String tag){
-        super(dto, tag);
-        this.dto = dto;
-        this.tag = tag;
+    public ProductBroker(){
         setFile(this.file);
-        searchDatabase(this.dto, this.tag);
+        //searchDatabase(this.dto, this.tag);
     }
 }

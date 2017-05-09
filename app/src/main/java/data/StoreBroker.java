@@ -13,12 +13,8 @@ public class StoreBroker extends Broker {
     private ArrayList<String> storesList = new ArrayList<>();
 
 
-    public StoreBroker(DataTransferObject dto, String tag) {
-        super(dto, tag);
-        this.dto = dto;
-        this.tag = tag;
-
-
+    public StoreBroker() {
+        this.tag = dto.getTag();
         String store1 = "productsIcaMaxi.txt";
         String store2 = "productsCityGross.txt";
         String store3 = "productsCoop.txt";
@@ -28,7 +24,7 @@ public class StoreBroker extends Broker {
 
         getFile(this.tag);
         setFile(this.file);
-        searchDatabase(this.dto, this.tag);
+        //searchDatabase(this.dto, this.tag);
     }
     public String getFile(String tag){
         for(int i = 0; i < storesList.size(); i++){
@@ -42,12 +38,6 @@ public class StoreBroker extends Broker {
         }
         return null;
     }
-    /*public ArrayList<String> getStoresList(){
-        return storesList;
-    }
-    public void setStoresList(ArrayList<String> storesList){
-        this.storesList = storesList;
-    }*/
     public void addToStoresList(String store){
         for(int i = 0; i < storesList.size(); i++){
             if(storesList.get(i).equals(store)){
