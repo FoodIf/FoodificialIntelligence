@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import data.DataTransferObject;
 import data.Factory;
 import domain.Main;
+import interfaces.IdataFacade;
 
 /**
  * Created by Johan on 2017-05-02.
  */
 
-public class DataFacade<E> {
+public class DataFacade<E> implements IdataFacade<E>{
     private static final DataFacade instance = new DataFacade();
     private Main main;
     private Factory factory;
@@ -22,15 +23,18 @@ public class DataFacade<E> {
     public static DataFacade getInstance(){
         return instance;
     }
+    @Override
     public ArrayList<E> load(String tag, String operation){
         dto = factory.control(new DataTransferObject(tag, operation));
         return factory.control(dto).getValues();
     }
+    @Override
     public ArrayList<E> save(String tag, String operation, ArrayList<E> values){
         dto = factory.control(new DataTransferObject(tag, operation));
         dto.setValues(values);
         return factory.control(dto).getValues();
     }
+    @Override
     public ArrayList<E> remove(String tag, String operation, ArrayList<E> values){
         dto = factory.control(new DataTransferObject(tag, operation));
         dto.setValues(values);
