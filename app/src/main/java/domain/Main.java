@@ -60,6 +60,14 @@ public class Main {
     }
     public boolean compareUser(String password, String email){
 //TODO jämför email och lösen med DB
+        ArrayList<String> compare=dataFacade.load("user", "load");
+
+        for(int i=0;i<compare.size();i++) {
+            String[] userarray = compare.get(i).split(" | ");
+            if (userarray[0].equals(email) && userarray[1].equals(password)) {
+                return true;
+            }
+        }
         return false;
     }
 
