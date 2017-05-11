@@ -83,9 +83,6 @@ public abstract class Broker {
         return dto;
     }
     public DataTransferObject saveAdress(DataTransferObject dto) { return dto; }
-    public String getTag(){
-        return tag;
-    }
     public boolean updateCache(DataTransferObject dto){
         this.cacheMap.put(dto.getTag(), dto);
         return true;
