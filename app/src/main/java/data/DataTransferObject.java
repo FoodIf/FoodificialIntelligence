@@ -1,6 +1,5 @@
 package data;
 
-import android.view.GestureDetector;
 
 import java.util.ArrayList;
 
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public class DataTransferObject<E> {
     private String tag;
     private String operation;
-    private ArrayList<E> values; //HashMap istället.
+    private ArrayList<E> values;
 
      public DataTransferObject(String tag, String operation){
          this.tag = tag;

@@ -1,16 +1,14 @@
 package data;
 
-import android.provider.ContactsContract;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import domain.Store;
+import java.util.Scanner;
 
 /**
  * Created by albin_000 on 2017-05-04.
@@ -18,37 +16,42 @@ import domain.Store;
 
 public abstract class Broker {
 
-    private String tag;
-    private HashMap<String,DataTransferObject> cacheMap;
+    private HashMap<String,DataTransferObject> cacheMap = new HashMap<>();
 
     public Broker(){}
     /**
-     * Sök i databasen efter input värde och skicka tillbaka en Arraylist över detalagret.
+     * Sök i databasen efter input värde och skicka tillbaka en DTO med Arraylist över detalagret.
      * @param dto, file
      */
     public DataTransferObject searchDatabase(DataTransferObject dto, String file){
         ArrayList<String> databaseList = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            File thisFile = new File(file);
+            Scanner reader = new Scanner(thisFile);
             String dataRow;
-            while((dataRow = reader.readLine()) != null) {
+            while(reader.hasNext()){
+                dataRow = reader.nextLine();
                 databaseList.add(dataRow);
             }
             dto.setValues(databaseList);
+            reader.close();
             return dto;
-        } catch (IOException e){
+
+        } catch(IOException e){
             e.getMessage();
         }
         return null;
     }
     public DataTransferObject writeToFile(DataTransferObject dto, String file){
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            FileWriter writer = new FileWriter(new File(file), true);
             writer.write(dto.toString() + "\n");
+            writer.close();
         } catch (IOException e){
             e.getMessage();
         }
-            return dto;
+
+        return dto;
     }
     public DataTransferObject save(DataTransferObject dto){
         updateCache(dto);
@@ -88,8 +91,10 @@ public abstract class Broker {
         return true;
     }
     public DataTransferObject checkCache(String tag){
-        if(cacheMap.containsKey(tag)) {
-            return cacheMap.get(tag);
+        if (cacheMap != null) {
+            if (cacheMap.containsKey(tag)) {
+                return cacheMap.get(tag);
+            }
         }
         return null;
     }
