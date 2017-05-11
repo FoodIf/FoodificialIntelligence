@@ -60,4 +60,15 @@ public class StoreBroker extends Broker {
             this.tag = tag;
         return dto;
     }
+    @Override
+    public DataTransferObject saveAdress(DataTransferObject dto){
+        switch(dto.getTag()){
+            case "ica": writeToFile(dto, "productsIcaMaxi.txt");
+                break;
+            case "coop": writeToFile(dto, "productsCoop.txt");
+                break;
+            case "citygross": writeToFile(dto, "productsCityGross.txt");
+        }
+        return dto;
+    }
 }

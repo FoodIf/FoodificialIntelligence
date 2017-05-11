@@ -1,7 +1,11 @@
 package data;
 
+import android.provider.ContactsContract;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +24,7 @@ public abstract class Broker {
     public Broker(){}
     /**
      * Sök i databasen efter input värde och skicka tillbaka en Arraylist över detalagret.
-     * @param dto, tag
+     * @param dto, file
      */
     public DataTransferObject searchDatabase(DataTransferObject dto, String file){
         ArrayList<String> databaseList = new ArrayList<>();
@@ -37,25 +41,41 @@ public abstract class Broker {
         }
         return null;
     }
-    public DataTransferObject save(DataTransferObject dto){
-        checkTag(dto.getTag());
-
-        return dto;
+    public DataTransferObject writeToFile(DataTransferObject dto, String file){
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(dto.toString() + "\n");
+        } catch (IOException e){
+            e.getMessage();
+        }
+            return dto;
+    }
+    public void save(DataTransferObject dto){
+        cacheMap.put(dto.getTag(), dto);
+        saveAdress(dto);
     }
     public DataTransferObject load(DataTransferObject dto){
-        for(int i = 0; i < cacheMap.size(); i++){
-            if(cacheMap.get(i).equals(dto)){
-                return dto;
+        if(cacheMap.size() != 0){
+            for(int i = 0; i < cacheMap.size(); i++) {
+                if (cacheMap.get(i).equals(dto)) {
+                    return dto;
+                }
             }
-            else{
-                dto = getAdress(dto);
-            }
+        }
+        else{
+            cacheMap.put(dto.getTag(), dto);
+            dto = getAdress(dto);
         }
         return dto;
     }
-    public DataTransferObject remove(DataTransferObject dto){
-        checkTag(dto.getTag());
-        return dto;
+    public void remove(DataTransferObject dto){
+        if(cacheMap.size() != 0){
+            for(int i = 0; i < cacheMap.size(); i++){
+                if(cacheMap.get(i).equals(dto)){
+                    cacheMap.values().remove(dto);
+                }
+            }
+        }
     }
     public boolean checkTag(String tag){
         if(tag.equals(getTag())){
@@ -68,6 +88,7 @@ public abstract class Broker {
     public DataTransferObject getAdress(DataTransferObject dto){
         return dto;
     }
+    public DataTransferObject saveAdress(DataTransferObject dto) { return dto; }
     public void setTag(String tag){
         this.tag = tag;
     }
