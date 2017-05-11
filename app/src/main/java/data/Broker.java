@@ -51,7 +51,7 @@ public abstract class Broker {
             return dto;
     }
     public DataTransferObject save(DataTransferObject dto){
-        cacheMap.put(dto.getTag(), dto);
+        updateCache(dto);
         saveAdress(dto);
         return dto;
     }
@@ -64,7 +64,7 @@ public abstract class Broker {
             }
         }
         else{
-            cacheMap.put(dto.getTag(), dto);
+            updateCache(dto);
             dto = getAdress(dto);
         }
         return dto;
