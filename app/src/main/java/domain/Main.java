@@ -51,7 +51,7 @@ public class Main {
     
     }
     public boolean compareEmail(String email){
-        dataFacade.load("login", "load");
+        //dataFacade.load("login", "load");
         return true;
     }
     public boolean comparePassword(String password){
@@ -63,7 +63,7 @@ public class Main {
         ArrayList<String> compare=dataFacade.load("user", "load");
 
         for(int i=0;i<compare.size();i++) {
-            String[] userarray = compare.get(i).split(" | ");
+            String[] userarray = compare.get(i).split("|");
             if (userarray[0].equals(email) && userarray[1].equals(password)) {
                 return true;
             }

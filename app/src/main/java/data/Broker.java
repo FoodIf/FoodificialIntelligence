@@ -56,7 +56,7 @@ public abstract class Broker {
         return dto;
     }
     public DataTransferObject load(DataTransferObject dto){
-        if(cacheMap == null){
+        if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++) {
                 if (cacheMap.get(i).equals(dto)) {
                     return dto;
@@ -64,13 +64,13 @@ public abstract class Broker {
             }
         }
         else{
-            updateCache(dto);
+            //updateCache(dto);
             dto = getAdress(dto);
         }
         return dto;
     }
     public DataTransferObject remove(DataTransferObject dto){
-        if(cacheMap == null){
+        if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++){
                 if(cacheMap.get(i).equals(dto)){
                     cacheMap.values().remove(dto);

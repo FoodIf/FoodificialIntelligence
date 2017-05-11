@@ -185,7 +185,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isExistingUsers(email,password)) {
+        } else if (!isExistingUsers(password,email)) {
             mEmailView.setError("Your email or password was incorrect");
             focusView = mEmailView;
             cancel = true;
@@ -230,9 +230,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private boolean isExistingUsers(String password, String email) {
         //TODO: Replace this with your own logic
         boolean confirmed = false;
-        if(password.length() > 4){
             confirmed = domainFacade.compareUser(password,email);
-        }
         return confirmed;
     }
 
