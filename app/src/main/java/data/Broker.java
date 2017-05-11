@@ -30,6 +30,8 @@ public abstract class Broker {
             while((dataRow = reader.readLine()) != null) {
                 databaseList.add(dataRow);
             }
+            dto.setValues(databaseList);
+            return dto;
         } catch (IOException e){
             e.getMessage();
         }
@@ -48,7 +50,6 @@ public abstract class Broker {
             else{
                 dto = getAdress(dto);
             }
-
         }
         return dto;
     }
