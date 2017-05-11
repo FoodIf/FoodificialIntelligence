@@ -1,6 +1,7 @@
 package data;
 
 import android.provider.ContactsContract;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class Factory implements Ifactory{
     }
     @Override
     public DataTransferObject control(DataTransferObject dto){
+
         if(dto.getOperation().equals("load")){
             for(Broker broker : brokerList){
                 dto = broker.load(dto);

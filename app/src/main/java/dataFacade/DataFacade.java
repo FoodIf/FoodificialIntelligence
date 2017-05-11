@@ -26,7 +26,7 @@ public class DataFacade<E> implements IdataFacade<E>{
     @Override
     public ArrayList<E> load(String tag, String operation){
         dto = factory.control(new DataTransferObject(tag, operation));
-        return factory.control(dto).getValues();
+        return dto.getValues();
     }
     @Override
     public ArrayList<E> save(String tag, String operation, ArrayList<E> values){
