@@ -79,21 +79,10 @@ public abstract class Broker {
         }
         return dto;
     }
-    public boolean checkTag(String tag){
-        if(tag.equals(getTag())){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
     public DataTransferObject getAdress(DataTransferObject dto){
         return dto;
     }
     public DataTransferObject saveAdress(DataTransferObject dto) { return dto; }
-    public void setTag(String tag){
-        this.tag = tag;
-    }
     public String getTag(){
         return tag;
     }

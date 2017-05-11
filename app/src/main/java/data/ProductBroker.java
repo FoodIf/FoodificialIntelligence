@@ -1,5 +1,7 @@
 package data;
 
+import android.provider.ContactsContract;
+
 /**
  * Created by albin_000 on 2017-05-08.
  */
@@ -18,6 +20,11 @@ public class ProductBroker extends Broker {
         if(dto.getTag().equals("product")){
             searchDatabase(dto, file);
         }
+        return dto;
+    }
+    @Override
+    public DataTransferObject saveAdress(DataTransferObject dto){
+        writeToFile(dto, file);
         return dto;
     }
 }

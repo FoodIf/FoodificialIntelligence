@@ -18,4 +18,9 @@ public class UserBroker extends Broker {
         }
         return dto;
     }
+    @Override
+    public DataTransferObject saveAdress(DataTransferObject dto){
+        writeToFile(dto, file);
+        return dto;
+    }
 }
