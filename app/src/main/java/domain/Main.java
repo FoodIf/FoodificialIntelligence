@@ -61,6 +61,9 @@ public class Main {
     public boolean compareUser(String password, String email){
 //TODO jämför email och lösen med DB
         ArrayList<String> compare=dataFacade.load("user", "load");
+//test för att se om compare är tom
+        if(compare.size()==0)
+            return true;
 
         for(int i=0;i<compare.size();i++) {
             String[] userarray = compare.get(i).split("|");
@@ -68,6 +71,7 @@ public class Main {
                 return true;
             }
         }
+
         return false;
     }
 
