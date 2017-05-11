@@ -1,4 +1,3 @@
-Email | password
 hasselundmark@hot.com|hassekingen
 fiskfittan300@gmail.com|sloth
 growafro@hotdude.se|failarmy
