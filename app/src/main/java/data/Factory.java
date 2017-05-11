@@ -26,15 +26,24 @@ public class Factory implements Ifactory{
     public DataTransferObject control(DataTransferObject dto){
         if(dto.getOperation().equals("load")){
             for(Broker broker : brokerList){
-                return broker.load(dto);
+                dto = broker.load(dto);
+                if(dto.getState().equals("used")) {
+                    return dto;
+                }
             }
         }else if(dto.getOperation().equals("save")){
             for(Broker broker : brokerList){
-                return broker.save(dto);
+                dto = broker.save(dto);
+                if(dto.getState().equals("used")) {
+                    return dto;
+                }
             }
         }else if(dto.getOperation().equals("remove")){
             for(Broker broker : brokerList){
-                return broker.remove(dto);
+                dto = broker.remove(dto);
+                if(dto.getState().equals("used")){
+                    return dto;
+                }
             }
         }
         return null;

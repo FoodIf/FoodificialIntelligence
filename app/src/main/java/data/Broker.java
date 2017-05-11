@@ -33,8 +33,9 @@ public abstract class Broker {
                 dataRow = reader.nextLine();
                 databaseList.add(dataRow);
             }
-            dto.setValues(databaseList);
             reader.close();
+            dto.setValues(databaseList);
+            dto.setState("used");
             return dto;
 
         } catch(IOException e){
