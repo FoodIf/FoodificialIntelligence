@@ -50,9 +50,10 @@ public abstract class Broker {
         }
             return dto;
     }
-    public void save(DataTransferObject dto){
+    public DataTransferObject save(DataTransferObject dto){
         cacheMap.put(dto.getTag(), dto);
         saveAdress(dto);
+        return dto;
     }
     public DataTransferObject load(DataTransferObject dto){
         if(cacheMap.size() != 0){
@@ -68,7 +69,7 @@ public abstract class Broker {
         }
         return dto;
     }
-    public void remove(DataTransferObject dto){
+    public DataTransferObject remove(DataTransferObject dto){
         if(cacheMap.size() != 0){
             for(int i = 0; i < cacheMap.size(); i++){
                 if(cacheMap.get(i).equals(dto)){
@@ -76,6 +77,7 @@ public abstract class Broker {
                 }
             }
         }
+        return dto;
     }
     public boolean checkTag(String tag){
         if(tag.equals(getTag())){
