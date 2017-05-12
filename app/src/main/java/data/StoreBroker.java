@@ -12,11 +12,11 @@ public class StoreBroker extends Broker {
     @Override
     public DataTransferObject getAdress(DataTransferObject dto){
         switch(dto.getTag()){
-            case "ica": searchDatabase(dto, "productsIcaMaxi.txt");
+            case "ica": dto = searchDatabase(dto, "productsIcaMaxi.txt");
                 break;
-            case "coop": searchDatabase(dto, "productsCoop.txt");
+            case "coop": dto = searchDatabase(dto, "productsCoop.txt");
                 break;
-            case "citygross": searchDatabase(dto, "productsCityGross.txt");
+            case "citygross": dto = searchDatabase(dto, "productsCityGross.txt");
             }
         return dto;
     }

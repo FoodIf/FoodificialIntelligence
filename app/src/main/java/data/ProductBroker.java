@@ -13,7 +13,7 @@ public class ProductBroker extends Broker {
     @Override
     public DataTransferObject getAdress(DataTransferObject dto){
         if(dto.getTag().equals("product")){
-            searchDatabase(dto, file);
+            dto = searchDatabase(dto, file);
         }
         return dto;
     }
