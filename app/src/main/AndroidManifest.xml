@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> //skriva till fil
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> //läsa till fil
-    
+
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -26,7 +26,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name="GUI.MyApplication">
+
         <activity
             android:name="GUI.LoginActivity"
             android:label="@string/app_name">
@@ -44,6 +46,7 @@
             android:label="@string/app_name">
 
         </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
