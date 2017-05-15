@@ -1,13 +1,18 @@
 package data;
 
+import android.content.Context;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import MyAndroid.MyApplication;
 
 
 /**
@@ -27,15 +32,17 @@ public abstract class Broker {
      */
     public DataTransferObject searchDatabase(DataTransferObject dto, String file){
         ArrayList<String> databaseList = new ArrayList<>();
+        MyApplication myapplication;
         try {
-            File thisFile = new File(file);
+            myapplication=MyApplication.getInstance();
+            Context context= myapplication.getContext();
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(context.getAssets().open(file)));
 
-            Log.v("hej",thisFile.getAbsolutePath());
-            Scanner reader = new Scanner(thisFile);
+
             Log.v(dto.getTag(),dto.getOperation()+"2");
             String dataRow;
-            while(reader.hasNext()){
-                dataRow = reader.nextLine();
+            while((dataRow=reader.readLine())!=null){
                 databaseList.add(dataRow);
             }
             reader.close();

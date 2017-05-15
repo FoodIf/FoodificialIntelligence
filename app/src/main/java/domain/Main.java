@@ -14,10 +14,9 @@ import java.util.HashMap;
 
 import GUI.LoginActivity;
 import GUI.MainActivity;
+import MyAndroid.MyApplication;
 import dataFacade.DataFacade;
 import domainFacade.DomainFacade;
-
-import static com.example.hannes.foodificialintelligence.R.id.goToSettings_Button;
 
 /**
  * Created by olle_ on 2017-04-27.
@@ -49,6 +48,7 @@ public class Main {
 
     public static void main(String[] args){
         new Main();
+
     
     }
     public boolean compareEmail(String email){

@@ -22,9 +22,13 @@ public class MyApplication extends Application {
             this.context=getApplicationContext();
         }
 
-        //Eventuellt static
-    public Context getApplicationContext(){
-        return context;
+        public static Context getContext() {
+            //  return instance.getApplicationContext();
+            return context;
+        }
 
+
+    public static void setContext(Context contxt) {
+        context = contxt;
     }
 }

@@ -35,6 +35,7 @@ import com.example.hannes.foodificialintelligence.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import MyAndroid.MyApplication;
 import domainFacade.DomainFacade;
 
 import static android.Manifest.permission.READ_CONTACTS;
