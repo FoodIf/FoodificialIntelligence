@@ -28,11 +28,11 @@ public class DataTransferObject<E> {
      public String getState(){
          return state;
      }
-     public void setState(String state){
-         this.state = state;
-     }
      public void setValues(ArrayList<E> values){
          this.values = values;
+     }
+     public void setState(String state){
+         this.state = state;
      }
      public void addValue(E value){
          values.add(value);
