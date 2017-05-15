@@ -63,11 +63,9 @@ public class Main {
 //TODO jämför email och lösen med DB
         ArrayList<String> compare=dataFacade.load("user", "load");
 //test för att se om compare är tom
-        if(compare.size()==0)
-            return true;
-
+        Log.v("1","hej");
         for(int i=0;i<compare.size();i++) {
-            String[] userarray = compare.get(i).split("|");
+            String[] userarray = compare.get(i).split("\\|");
             if (userarray[0].equals(email) && userarray[1].equals(password)) {
                 return true;
             }

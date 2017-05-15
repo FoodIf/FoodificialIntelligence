@@ -36,14 +36,11 @@ public abstract class Broker {
         try {
             myapplication=MyApplication.getInstance();
             Context context= myapplication.getContext();
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(context.getAssets().open(file)));
+            Scanner reader = new Scanner(context.getAssets().open(file));
 
-
-            Log.v(dto.getTag(),dto.getOperation()+"2");
             String dataRow;
-            while((dataRow=reader.readLine())!=null){
-                databaseList.add(dataRow);
+            while(reader.hasNextLine()){
+                databaseList.add(reader.nextLine());
             }
             reader.close();
             dto.setValues(databaseList);
