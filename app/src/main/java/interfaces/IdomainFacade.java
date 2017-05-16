@@ -18,6 +18,6 @@ public interface IdomainFacade {
     public double compareDistance(LatLng latlnguser, LatLng latlngstore);
     public void setGasConsumption(double gasConsumption);
     public void setStandardList(ArrayList<String> standardList);
-    public ArrayList<MyList> getSavedLists(ArrayList<MyList> savedLists);
+    public ArrayList<MyList> getSavedLists();
     public ArrayList <String> deleteproduct(int s);
 }

@@ -43,8 +43,6 @@ public abstract class Broker {
         MyApplication myapplication;
         try {
             Scanner reader = new Scanner(MyApplication.getInstance().getContext().getAssets().open(file));
-
-            String dataRow;
             while(reader.hasNextLine()){
                 databaseList.add(reader.nextLine());
             }
@@ -77,10 +75,17 @@ public abstract class Broker {
         return null;
     }
     public DataTransferObject writeToFile(DataTransferObject dto, String file){
+        MyApplication myapplication;
         try {
-            FileWriter writer = new FileWriter(new File(file), true);
-            writer.write(dto.toString() + "\n");
-            writer.close();
+            myapplication = MyApplication.getInstance();
+            Context context = myapplication.getContext();
+            InputStream inputStream = context.getAssets().open(file);
+            FileWriter fileWriter = new FileWriter(new File(file));
+            fileWriter.write(dto.toString());
+            dto.setState("used");
+            inputStream.close();
+            fileWriter.close();
+            return dto;
         } catch (IOException e){
             e.getMessage();
         }

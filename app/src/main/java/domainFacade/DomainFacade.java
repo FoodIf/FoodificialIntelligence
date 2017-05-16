@@ -17,7 +17,6 @@ public class DomainFacade implements IdomainFacade{
 
     private DomainFacade(){
         this.main = new Main();
-        this.user = null;
     }
     public static DomainFacade getInstance(){
         return instance;
@@ -44,13 +43,13 @@ public class DomainFacade implements IdomainFacade{
     }
     @Override
     public void setGasConsumption(double gasConsumption){
-        if(user == null){
+        if(user != null){
             user.setGasConsumption(gasConsumption);
         }
     }
     @Override
     public void setStandardList(ArrayList<String> standardList){
-        if(user == null) {
+        if(user != null) {
             user.setStandardList(standardList);
         }
     }
@@ -59,7 +58,7 @@ public class DomainFacade implements IdomainFacade{
         return user.deleteproduct(position);
     }
     @Override
-    public ArrayList<MyList> getSavedLists(ArrayList<MyList> savedLists){
-        return savedLists;
+    public ArrayList<MyList> getSavedLists(){
+        return user.getSavedLists();
     }
 }

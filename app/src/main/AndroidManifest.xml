@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> //skriva till fil
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> //läsa till fil
 
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
