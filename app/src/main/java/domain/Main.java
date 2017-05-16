@@ -143,6 +143,6 @@ public class Main {
     }
 
     public ArrayList<String> deleteproduct(int position) {
-        return null;
+        return user.deleteproduct(position);
     }
 }

@@ -56,4 +56,10 @@ public class User implements Serializable {
     public void setSavedLists(ArrayList<MyList> savedLists) {
         this.savedLists = savedLists;
     }
+
+    public ArrayList<String> deleteproduct(int position) {
+        //Aktuell lista ta bort plats position;
+        //return Aktuell lista .getProducts();
+        return null;
+    }
 }
