@@ -16,13 +16,15 @@ public class User implements Serializable {
     private double gasConsumption;
     private ArrayList<MyList> savedLists;
     private MyList standardList;
-    private LatLng latlnguser;
+    private double lat;
+    private double lng;
     private MyList currentlist;
 
     public User(String email){
         this.email = email;
         //this.password = password;
-        this.latlnguser= new LatLng(58.40197,15.57681);
+        this.lat=58.40197;
+        this.lng=15.57681;
     }
     public void setStandardList(ArrayList<String> standardListSetting){
         this.standardList = new MyList("Standard", standardListSetting);
@@ -37,7 +39,8 @@ public class User implements Serializable {
         return gasConsumption;
     }
     public LatLng getLatlnguser(){
-        return latlnguser;
+
+        return new LatLng(lat,lng);
     }
     public String getEmail() {
         return email;

@@ -93,10 +93,13 @@ public abstract class Broker {
         Log.v(file, "utanför");
 
         try{
-            Log.v(user.getEmail(), "try");
-            FileOutputStream outputStream = new FileOutputStream(file);
+            myapplication = MyApplication.getInstance();
+            Context context = myapplication.getContext();
+            FileOutputStream outputStream = context.openFileOutput(file,context.MODE_PRIVATE);
             ObjectOutputStream output = new ObjectOutputStream(outputStream);
+            Log.v(user.getEmail(), "Innan");
             output.writeObject(dto.getValues());
+            Log.v(user.getEmail(), "Efter");
             output.close();
         }catch (FileNotFoundException e) {
             e.printStackTrace();
