@@ -16,7 +16,6 @@ public class MyList {
     private String name;
     private String date;
     private ArrayList <String> products;
-    AutoCompleteTextView addProduct;
 
 
 

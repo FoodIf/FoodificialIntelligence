@@ -13,6 +13,7 @@ public class User {
     private String password;
     private String userAddress;
     private double gasConsumption;
+    private ArrayList<MyList> savedLists;
     private MyList standardList;
     private LatLng latlnguser;
 
@@ -38,5 +39,11 @@ public class User {
     }
     public LatLng getLatlnguser(){
         return latlnguser;
+    }
+    public ArrayList<MyList> getSavedLists() {
+        return savedLists;
+    }
+    public void setSavedLists(ArrayList<MyList> savedLists) {
+        this.savedLists = savedLists;
     }
 }
