@@ -13,8 +13,13 @@ public class UserBroker extends Broker {
     }
     @Override
     public DataTransferObject getAdress(DataTransferObject dto){
-        if(dto.getTag().equals("user")){
-            dto=searchDatabase(dto, file);
+        switch(dto.getTag()) {
+            case "user":
+                dto = searchDatabase(dto, "userList.txt");
+                break;
+            case "userClass":
+                dto = searchDatabaseObject(dto, "userClasses.txt");
+                break;
         }
         return dto;
     }

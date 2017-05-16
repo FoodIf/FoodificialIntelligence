@@ -13,31 +13,31 @@ public class DataTransferObject<E> {
     private String state;
     private ArrayList<E> values;
 
-     public DataTransferObject(String tag, String operation){
+    public DataTransferObject(String tag, String operation){
          this.tag = tag;
          this.operation = operation;
          values = new ArrayList<E>();
          state = "unused";
-     }
-     public String getOperation(){
+    }
+    public String getOperation(){
          return operation;
      }
-     public String getTag(){
+    public String getTag(){
          return tag;
      }
-     public String getState(){
+    public String getState(){
          return state;
      }
-     public void setValues(ArrayList<E> values){
+    public void setValues(ArrayList<E> values){
          this.values = values;
-     }
-     public void setState(String state){
+    }
+    public void setState(String state){
          this.state = state;
-     }
-     public void addValue(E value){
+    }
+    public void addValue(E value){
          values.add(value);
      }
-     public ArrayList<E> getValues(){
+    public ArrayList<E> getValues(){
          return values;
      }
 }

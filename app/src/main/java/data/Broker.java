@@ -5,14 +5,18 @@ import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 import MyAndroid.MyApplication;
+import domain.User;
 
 
 /**
@@ -47,6 +51,24 @@ public abstract class Broker {
 
         } catch(IOException e){
             e.getMessage();
+        }
+        return null;
+    }
+    public DataTransferObject searchDatabaseObject(DataTransferObject dto, String file){
+        MyApplication myapplication;
+        try{
+            myapplication = MyApplication.getInstance();
+            Context context = myapplication.getContext();
+            InputStream inputStream = context.getAssets().open(file);
+            ObjectInputStream input = new ObjectInputStream(inputStream);
+            dto.setValues((ArrayList<User>)(input.readObject()));
+            dto.setState("used");
+            inputStream.close();
+            input.close();
+            return dto;
+
+        }catch(IOException | ClassNotFoundException ex){
+            ex.printStackTrace();
         }
         return null;
     }

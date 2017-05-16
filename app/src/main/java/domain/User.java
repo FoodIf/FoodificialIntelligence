@@ -2,6 +2,7 @@ package domain;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * Created by Johan on 2017-04-27.
  */
 
-public class User {
+public class User implements Serializable {
     private String email;
     private String password;
     private double gasConsumption;
@@ -41,6 +42,13 @@ public class User {
     }
     public LatLng getLatlnguser(){
         return latlnguser;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
     public ArrayList<MyList> getSavedLists() {
         return savedLists;

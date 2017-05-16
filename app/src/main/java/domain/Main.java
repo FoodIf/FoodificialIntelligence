@@ -65,11 +65,20 @@ public class Main {
         for(int i=0;i<compare.size();i++) {
             String[] userarray = compare.get(i).split("\\|");
             if (userarray[0].equals(email) && userarray[1].equals(password)) {
+                user = compareUserObject(userarray);
                 return true;
             }
         }
-
         return false;
+    }
+    public User compareUserObject(String[] userarray){
+        ArrayList<User> userObjectArray = dataFacade.load("userObject", "load");
+        for(int i = 0; i < userObjectArray.size(); i++){
+            if(userObjectArray.get(i).equals(userarray[0])){
+                return userObjectArray.get(i);
+            }
+        }
+        return null;
     }
 
     /**

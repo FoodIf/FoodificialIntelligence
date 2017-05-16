@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import data.DataTransferObject;
 import data.Factory;
 import domain.Main;
+import domain.User;
 import interfaces.IdataFacade;
 
 /**
@@ -25,7 +26,6 @@ public class DataFacade<E> implements IdataFacade<E>{
     }
     @Override
     public ArrayList<E> load(String tag, String operation){
-        //dto = new DataTransferObject(tag, operation);
         dto = new DataTransferObject(tag, operation);
         dto = factory.control(dto);
         return dto.getValues();

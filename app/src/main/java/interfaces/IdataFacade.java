@@ -2,6 +2,8 @@ package interfaces;
 
 import java.util.ArrayList;
 
+import domain.User;
+
 /**
  * Created by Johan on 2017-05-09.
  */
