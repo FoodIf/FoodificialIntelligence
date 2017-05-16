@@ -15,13 +15,15 @@ public class DomainFacade implements IdomainFacade{
     private Main main;
     private User user;
 
-    private DomainFacade(){
-        this.main = new Main();
-        this.user = user.getUser();
-    }
     public static DomainFacade getInstance(){
         return instance;
     }
+
+    private DomainFacade(){
+        this.main = new Main();
+        //this.user = user.getUser();
+    }
+
     @Override
     public boolean compareEmail(String email){
         return main.compareEmail(email);
@@ -48,6 +50,6 @@ public class DomainFacade implements IdomainFacade{
     }
     @Override
     public ArrayList <String> deleteproduct(int position){
-        return main.deleteproduct(position);
+        return user.deleteproduct(position);
     }
 }

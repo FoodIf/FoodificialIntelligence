@@ -147,8 +147,4 @@ public class Main {
 
         return sizeofearth * c;
     }
-
-    public ArrayList<String> deleteproduct(int position) {
-        return user.deleteproduct(position);
-    }
 }
