@@ -71,6 +71,9 @@ public class Main {
         }
         return false;
     }
+    public User getUser(){
+        return user;
+    }
 
     /**
      * Jämför userObjectets email med den inloggade emailen.

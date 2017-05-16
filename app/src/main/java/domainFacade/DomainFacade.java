@@ -32,7 +32,11 @@ public class DomainFacade implements IdomainFacade{
     }
     @Override
     public boolean compareUser(String password, String email){
-        return main.compareUser(password, email);
+        Boolean compareuser=main.compareUser(password, email);
+        if(compareuser){
+            user=main.getUser();
+        }
+        return compareuser;
     }
     @Override
     public double compareDistance(LatLng latlnguser, LatLng latlngstore){
