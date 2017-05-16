@@ -18,6 +18,7 @@ public class User implements Serializable {
     private MyList standardList;
     private ArrayList<String> standardListSetting;
     private LatLng latlnguser;
+    private MyList currentlist;
 
     public User(String email, String password){
         this.email = email;
@@ -56,6 +57,14 @@ public class User implements Serializable {
     public void setSavedLists(ArrayList<MyList> savedLists) {
         this.savedLists = savedLists;
     }
+    public void getSelectedList(String name){
+        for (MyList mylist: savedLists) {
+            if(mylist.getName().equals(name)){
+                currentlist= mylist;
+            }
+        }
+    }
+
 
     public ArrayList<String> deleteproduct(int position) {
         //Aktuell lista ta bort plats position;
