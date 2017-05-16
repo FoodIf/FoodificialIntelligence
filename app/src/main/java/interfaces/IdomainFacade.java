@@ -2,6 +2,8 @@ package interfaces;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+
 import domainFacade.DomainFacade;
 
 /**
@@ -13,4 +15,5 @@ public interface IdomainFacade {
     public boolean comparePassword(String password);
     public boolean compareUser(String password, String email);
     public double compareDistance(LatLng latlnguser, LatLng latlngstore);
+    public ArrayList <String> deleteproduct(int s);
 }

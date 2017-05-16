@@ -34,9 +34,7 @@ public abstract class Broker {
         ArrayList<String> databaseList = new ArrayList<>();
         MyApplication myapplication;
         try {
-            myapplication=MyApplication.getInstance();
-            Context context= myapplication.getContext();
-            Scanner reader = new Scanner(context.getAssets().open(file));
+            Scanner reader = new Scanner(MyApplication.getInstance().getContext().getAssets().open(file));
 
             String dataRow;
             while(reader.hasNextLine()){

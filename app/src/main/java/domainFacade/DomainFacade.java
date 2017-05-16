@@ -1,6 +1,8 @@
 package domainFacade;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+
 import domain.*;
 import interfaces.IdomainFacade;
 
@@ -34,4 +36,9 @@ public class DomainFacade implements IdomainFacade{
     public double compareDistance(LatLng latlnguser, LatLng latlngstore){
         return main.distance(latlnguser,latlngstore);
     }
+    @Override
+    public ArrayList <String> deleteproduct(int position){
+        return main.deleteproduct(position);
+    }
 }
+
