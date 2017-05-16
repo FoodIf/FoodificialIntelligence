@@ -15,5 +15,6 @@ public interface IdomainFacade {
     public boolean comparePassword(String password);
     public boolean compareUser(String password, String email);
     public double compareDistance(LatLng latlnguser, LatLng latlngstore);
+    public void setGasConsumption(double gasConsumption);
     public ArrayList <String> deleteproduct(int s);
 }
