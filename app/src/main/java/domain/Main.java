@@ -71,11 +71,17 @@ public class Main {
         }
         return false;
     }
+
+    /**
+     * Jämför userObjectets email med den inloggade emailen.
+     * @param userarray
+     * @return Ger tillbaka rätt user.
+     */
     public User compareUserObject(String[] userarray){
         ArrayList<User> userObjectArray = dataFacade.load("userObject", "load");
-        for(int i = 0; i < userObjectArray.size(); i++){
-            if(userObjectArray.get(i).equals(userarray[0])){
-                return userObjectArray.get(i);
+        for(User user : userObjectArray){
+            if(user.getEmail().equals(userarray[0])){
+                return user;
             }
         }
         return null;
