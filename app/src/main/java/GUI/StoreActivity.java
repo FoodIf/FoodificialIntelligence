@@ -31,6 +31,7 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
     private LatLng storelatlng;
     private LatLng userlatlng;
 
+    public StoreActivity(){}
      public StoreActivity(DomainFacade domainFacade, int storePicture, String storeName, String storeAddress, LatLng storelatlng, LatLng userlatlng) {
          this.domainFacade=domainFacade;
          this.storePicture = storePicture;

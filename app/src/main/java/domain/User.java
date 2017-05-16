@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class User {
     private String email;
     private String password;
-    private String userAddress;
     private double gasConsumption;
     private MyList standardList;
     private LatLng latlnguser;
@@ -21,8 +20,8 @@ public class User {
         this.password = password;
         this.latlnguser= new LatLng(58.40197,15.57681);
     }
-    public void setUserAddress(String userAddress){
-        this.userAddress = userAddress;
+    public User getUser(){
+        return this;
     }
     public void setStandardList(){
         this.standardList = new MyList("name");

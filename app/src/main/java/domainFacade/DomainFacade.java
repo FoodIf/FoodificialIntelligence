@@ -13,9 +13,11 @@ import interfaces.IdomainFacade;
 public class DomainFacade implements IdomainFacade{
     private static final DomainFacade instance = new DomainFacade();
     private Main main;
+    private User user;
 
     private DomainFacade(){
         this.main = new Main();
+        this.user = user.getUser();
     }
     public static DomainFacade getInstance(){
         return instance;
@@ -37,8 +39,11 @@ public class DomainFacade implements IdomainFacade{
         return main.distance(latlnguser,latlngstore);
     }
     @Override
+    public void setGasConsumption(double gasConsumption){
+        user.setGasConsumption(gasConsumption);
+    }
+    @Override
     public ArrayList <String> deleteproduct(int position){
         return main.deleteproduct(position);
     }
 }
-
