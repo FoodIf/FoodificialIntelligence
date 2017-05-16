@@ -6,11 +6,15 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -59,7 +63,7 @@ public abstract class Broker {
         try{
             myapplication = MyApplication.getInstance();
             Context context = myapplication.getContext();
-            InputStream inputStream = context.getAssets().open(file);
+            FileInputStream inputStream = context.openFileInput(file);
             ObjectInputStream input = new ObjectInputStream(inputStream);
             dto.setValues((ArrayList<User>)(input.readObject()));
             dto.setState("used");
@@ -82,8 +86,41 @@ public abstract class Broker {
         }
         return dto;
     }
+    public DataTransferObject writeObjectToFile(DataTransferObject dto, String file){
+        MyApplication myapplication;
+
+        User user = (User)dto.getValues().get(0);
+        Log.v(file, "utanför");
+
+        try{
+            Log.v(user.getEmail(), "try");
+            FileOutputStream outputStream = new FileOutputStream(file);
+            ObjectOutputStream output = new ObjectOutputStream(outputStream);
+            output.writeObject(dto.getValues());
+            output.close();
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /*try{
+            Log.v(user.getEmail(), "try");
+            myapplication = MyApplication.getInstance();
+            Context context = myapplication.getContext();
+            FileOutputStream outputStream = context.openFileOutput(file, context.MODE_PRIVATE);
+            ObjectOutputStream output = new ObjectOutputStream(outputStream);
+            output.writeObject(dto.getValues());
+            output.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+            user = (User)dto.getValues().get(0);
+            Log.v(user.getEmail(), "catch");
+        }*/
+        return null;
+    }
     public DataTransferObject save(DataTransferObject dto){
-        updateCache(dto);
+        //updateCache(dto);
         saveAdress(dto);
         return dto;
     }

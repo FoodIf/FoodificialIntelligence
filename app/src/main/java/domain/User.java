@@ -19,9 +19,9 @@ public class User implements Serializable {
     private LatLng latlnguser;
     private MyList currentlist;
 
-    public User(String email, String password){
+    public User(String email){
         this.email = email;
-        this.password = password;
+        //this.password = password;
         this.latlnguser= new LatLng(58.40197,15.57681);
     }
     public void setStandardList(ArrayList<String> standardListSetting){

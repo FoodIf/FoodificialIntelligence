@@ -44,6 +44,10 @@ public class Main {
         chainList.add(new Chain("Coop"));
         chainList.add(new Chain("Citygross"));
 
+        //Temp, ska bort senare #GrowAfro.
+        ArrayList<User> userList = new ArrayList<>();
+        userList.add(new User("growafro@hotdude.se"));
+        dataFacade.save("userClass", "save", userList);
     }
 
     public static void main(String[] args){
@@ -80,15 +84,15 @@ public class Main {
      * @param userarray
      * @return Ger tillbaka rätt user.
      */
-    /*public User compareUserObject(String[] userarray){
-        ArrayList<User> userObjectArray = dataFacade.load("userObject", "load");
+    public User compareUserObject(String[] userarray){
+        ArrayList<User> userObjectArray = dataFacade.load("userClass", "load");
         for(User user : userObjectArray){
             if(user.getEmail().equals(userarray[0])){
                 return user;
             }
         }
         return null;
-    }*/
+    }
 
     /**
      *

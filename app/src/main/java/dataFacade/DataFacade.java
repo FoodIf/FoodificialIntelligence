@@ -1,5 +1,7 @@
 package dataFacade;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import data.DataTransferObject;
@@ -31,11 +33,12 @@ public class DataFacade<E> implements IdataFacade<E>{
         return dto.getValues();
     }
     @Override
-    public ArrayList<E> save(String tag, String operation, ArrayList<E> values){
+    public ArrayList<E> save(String tag, String operation, ArrayList<User> values){
         dto = new DataTransferObject(tag, operation);
+
         dto.setValues(values);
         dto = factory.control(dto);
-        return dto.getValues();
+        return null;
     }
     @Override
     public ArrayList<E> remove(String tag, String operation, ArrayList<E> values){
