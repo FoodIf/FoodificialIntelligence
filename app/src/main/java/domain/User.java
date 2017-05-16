@@ -16,7 +16,6 @@ public class User implements Serializable {
     private double gasConsumption;
     private ArrayList<MyList> savedLists;
     private MyList standardList;
-    private ArrayList<String> standardListSetting;
     private LatLng latlnguser;
     private MyList currentlist;
 
@@ -29,8 +28,7 @@ public class User implements Serializable {
         return this;
     }
     public void setStandardList(ArrayList<String> standardListSetting){
-        //this.standardList = new MyList("name");
-        this.standardListSetting = standardListSetting;
+        this.standardList = new MyList("Standard", standardListSetting);
     }
     public MyList getStandardList(){
         return standardList;

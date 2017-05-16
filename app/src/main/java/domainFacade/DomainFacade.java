@@ -15,15 +15,13 @@ public class DomainFacade implements IdomainFacade{
     private Main main;
     private User user;
 
+    private DomainFacade(){
+        this.main = new Main();
+        this.user = null;
+    }
     public static DomainFacade getInstance(){
         return instance;
     }
-
-    private DomainFacade(){
-        this.main = new Main();
-        //this.user = user.getUser();
-    }
-
     @Override
     public boolean compareEmail(String email){
         return main.compareEmail(email);
@@ -42,11 +40,15 @@ public class DomainFacade implements IdomainFacade{
     }
     @Override
     public void setGasConsumption(double gasConsumption){
-        user.setGasConsumption(gasConsumption);
+        if(user == null){
+            user.setGasConsumption(gasConsumption);
+        }
     }
     @Override
     public void setStandardList(ArrayList<String> standardList){
-        user.setStandardList(standardList);
+        if(user == null) {
+            user.setStandardList(standardList);
+        }
     }
     @Override
     public ArrayList <String> deleteproduct(int position){

@@ -19,9 +19,10 @@ public class MyList {
 
 
 
-    public MyList(String name) {
+    public MyList(String name, ArrayList<String> products) {
         this.name = name;
         this.date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        this.products = products;
 
     }
     public ArrayList<String> getProducts() {

@@ -1,16 +1,12 @@
 package GUI;
 
 import android.app.Activity;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.hannes.foodificialintelligence.R;
@@ -26,6 +22,7 @@ import domain.MyList;
 public class MainActivity extends Activity {
     private String activeView;
     private DomainFacade domainFacade;
+    private MyList mylist;
 
     public MainActivity(){
         activeView = "main";
@@ -59,7 +56,10 @@ public class MainActivity extends Activity {
             addStandardItem.setAdapter(adapter);
             final String standardItem = addStandardItem.toString();
             standardList.add(standardItem);
-
+            /**
+             * Skicka in standardlistan och bensininställningar till User-objektet och
+             * MyList-objektet och spara där.
+             */
             Button save = (Button) findViewById(R.id.saveSettings_Button);
             save.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,20 +80,13 @@ public class MainActivity extends Activity {
                     setContentView(R.layout.activity_mainactivity);
                 }
             });
-
         }
         else if(activeView.equals("main")){
-            ArrayList<String> listList = new ArrayList();
-            String list1 = "Ett";
-            String list2 = "Två";
-            String list3 = "Tre";
+            ArrayList<MyList> myLists = new ArrayList();
 
-            listList.add(list1);
-            listList.add(list2);
-            listList.add(list3);
 
             ListView listView = (ListView) findViewById(R.id.setStandardList_listView);
-            ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listList);
+            ArrayAdapter adapter = new ArrayAdapter<MyList>(this,android.R.layout.simple_list_item_1, myLists);
             listView.setAdapter(adapter);
         }
     };
