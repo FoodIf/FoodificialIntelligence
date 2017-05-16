@@ -67,8 +67,7 @@ public class User implements Serializable {
 
 
     public ArrayList<String> deleteproduct(int position) {
-        //Aktuell lista ta bort plats position;
-        //return Aktuell lista .getProducts();
-        return null;
+        currentlist.getProducts().remove(position);
+        return currentlist.getProducts();
     }
 }
