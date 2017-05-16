@@ -46,18 +46,36 @@ public class MainActivity extends Activity {
         if(activeView.equals("settings")){
             setContentView(R.layout.activity_settings);
 
+            View v;
+            //Textview för att ställa in bensinförbrukning
+            EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
+            final Double gasConsumption = Double.parseDouble(gasComp.toString());
 
+            //ArrayAdapter för standardlistan
+            final ArrayList<String> standardList = new ArrayList();
+            AutoCompleteTextView addStandardItem = (AutoCompleteTextView)findViewById(R.id.addStandardProduct_actv);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.select_dialog_item, standardList);
+            addStandardItem.setThreshold(2);
+            addStandardItem.setAdapter(adapter);
+            final String standardItem = addStandardItem.toString();
+            standardList.add(standardItem);
 
             Button save = (Button) findViewById(R.id.saveSettings_Button);
             save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
-                    Double gasConsumption = Double.parseDouble(gasComp.toString());
-                    domainFacade.setGasConsumption(gasConsumption);
+                    if(gasConsumption == null) {
+                        domainFacade.setGasConsumption(0);
+                    }
+                    else if(gasConsumption != null){
+                        domainFacade.setGasConsumption(gasConsumption);
+                    }
+                    if(standardList == null){
 
-                    ArrayList<String> standardList = new ArrayList();
-
+                    }
+                    else if(standardList != null) {
+                        domainFacade.setStandardList(standardList);
+                    }
                     setActiveView("main");
                     setContentView(R.layout.activity_mainactivity);
                 }

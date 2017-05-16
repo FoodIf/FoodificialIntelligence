@@ -43,6 +43,10 @@ public class DomainFacade implements IdomainFacade{
         user.setGasConsumption(gasConsumption);
     }
     @Override
+    public void setStandardList(ArrayList<String> standardList){
+        user.setStandardList(standardList);
+    }
+    @Override
     public ArrayList <String> deleteproduct(int position){
         return main.deleteproduct(position);
     }

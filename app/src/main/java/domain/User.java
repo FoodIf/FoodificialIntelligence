@@ -2,6 +2,7 @@ package domain;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,7 @@ public class User {
     private String password;
     private double gasConsumption;
     private MyList standardList;
+    private ArrayList<String> standardListSetting;
     private LatLng latlnguser;
 
     public User(String email, String password){
@@ -23,8 +25,9 @@ public class User {
     public User getUser(){
         return this;
     }
-    public void setStandardList(){
-        this.standardList = new MyList("name");
+    public void setStandardList(ArrayList<String> standardListSetting){
+        //this.standardList = new MyList("name");
+        this.standardListSetting = standardListSetting;
     }
     public MyList getStandardList(){
         return standardList;
