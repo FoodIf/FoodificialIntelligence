@@ -83,7 +83,7 @@ public class MainActivity extends Activity {
         }
         else if(activeView.equals("main")){
             ArrayList<MyList> myLists = new ArrayList();
-
+            domainFacade.getSavedLists(myLists);
 
             ListView listView = (ListView) findViewById(R.id.setStandardList_listView);
             ArrayAdapter adapter = new ArrayAdapter<MyList>(this,android.R.layout.simple_list_item_1, myLists);

@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 
 import domainFacade.DomainFacade;
+import domain.MyList;
 
 /**
  * Created by Johan on 2017-05-09.
@@ -17,5 +18,6 @@ public interface IdomainFacade {
     public double compareDistance(LatLng latlnguser, LatLng latlngstore);
     public void setGasConsumption(double gasConsumption);
     public void setStandardList(ArrayList<String> standardList);
+    public ArrayList<MyList> getSavedLists(ArrayList<MyList> savedLists);
     public ArrayList <String> deleteproduct(int s);
 }

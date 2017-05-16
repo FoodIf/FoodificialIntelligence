@@ -24,9 +24,6 @@ public class User implements Serializable {
         this.password = password;
         this.latlnguser= new LatLng(58.40197,15.57681);
     }
-    public User getUser(){
-        return this;
-    }
     public void setStandardList(ArrayList<String> standardListSetting){
         this.standardList = new MyList("Standard", standardListSetting);
     }
