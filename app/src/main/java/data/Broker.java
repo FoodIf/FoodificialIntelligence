@@ -67,6 +67,8 @@ public abstract class Broker {
             dto.setState("used");
             inputStream.close();
             input.close();
+            User user = (User)dto.getValues().get(0);
+            Log.v(user.getEmail(), "Det funkar");
             return dto;
 
         }catch(IOException | ClassNotFoundException ex){
@@ -111,20 +113,6 @@ public abstract class Broker {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        /*try{
-            Log.v(user.getEmail(), "try");
-            myapplication = MyApplication.getInstance();
-            Context context = myapplication.getContext();
-            FileOutputStream outputStream = context.openFileOutput(file, context.MODE_PRIVATE);
-            ObjectOutputStream output = new ObjectOutputStream(outputStream);
-            output.writeObject(dto.getValues());
-            output.close();
-        }catch(IOException ex){
-            ex.printStackTrace();
-            user = (User)dto.getValues().get(0);
-            Log.v(user.getEmail(), "catch");
-        }*/
         return null;
     }
     public DataTransferObject save(DataTransferObject dto){
