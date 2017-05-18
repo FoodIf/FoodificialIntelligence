@@ -51,8 +51,7 @@ public class Main {
 
       //Temp, ska bort senare. Hämtar objekt. #GrowAfro.
        /* ArrayList<User> test = dataFacade.load("userClass", "load");
-        User user = (User)test.get(0);
-        Log.v(user.getEmail(), "Det fungerar på riktigt!!");*/
+        User user = (User)test.get(0);*/
     }
 
     public static void main(String[] args){
