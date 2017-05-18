@@ -37,7 +37,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         for (int i =0;i<list.size();i++){
             String[] splitarray = list.get(i).split("\\|");
             productlist.add(splitarray[0]);
-            productlist.add(splitarray[1]);
+            costlist.add(splitarray[1]);
         }
     }
 
@@ -68,7 +68,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         listItemText.setText(productlist.get(position));
 
         TextView listCostText = (TextView)view.findViewById(R.id.productcost);
-        listCostText.setText(String.valueOf(costlist.get(position)));
+        listCostText.setText(costlist.get(position));
 
         Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
 

@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.hannes.foodificialintelligence.R;
+
+import MyAndroid.MyApplication;
 import domainFacade.*;
 import java.util.ArrayList;
 
@@ -28,6 +30,7 @@ public class MainActivity extends Activity {
 
     public MainActivity(){
         activeView = "main";
+        domainFacade=DomainFacade.getInstance();
     }
 
     @Override
@@ -36,18 +39,18 @@ public class MainActivity extends Activity {
         if(activeView.equals("main")) {
             setContentView(R.layout.activity_mainactivity);
             ArrayList<String> list = new ArrayList<>();
-            String pony1 = "pony1";
-            String pony2 = "pony2";
-            String pony3 = "pony3";
-            String pony4 = "pony4";
-            String pony5 = "pony5";
-            String pony6 = "pony6";
-            String pony7 = "pony7";
-            String pony8 = "pony8";
-            String pony9 = "pony9";
-            String pony11 = "pony11";
-            String pony12 = "pony12";
-            String pony20 = "pony20";
+            String pony1 = "pony1|1";
+            String pony2 = "pony2|2";
+            String pony3 = "pony3|2";
+            String pony4 = "pony4|2";
+            String pony5 = "pony5|2";
+            String pony6 = "pony6|2";
+            String pony7 = "pony7|2";
+            String pony8 = "pony8|2";
+            String pony9 = "pony9|2";
+            String pony11 = "pony11|2";
+            String pony12 = "pony12|2";
+            String pony20 = "pony20|2";
 
             list.add(pony1);
             list.add(pony2);
@@ -64,7 +67,7 @@ public class MainActivity extends Activity {
 
             ListView listView = (ListView) findViewById(R.id.MyList_ListView);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list);
+            MyCustomAdapter adapter = new MyCustomAdapter(domainFacade,list,MyApplication.getContext());
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

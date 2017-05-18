@@ -18,7 +18,7 @@ public class UserBroker extends Broker {
                 dto = searchDatabase(dto, "userList.txt");
                 break;
             case "userClass":
-                dto = searchDatabaseObject(dto, "userClasses.txt");
+                dto = searchDatabaseObject(dto, "userClasses.dat");
                 break;
         }
         return dto;
@@ -27,7 +27,7 @@ public class UserBroker extends Broker {
     public DataTransferObject saveAdress(DataTransferObject dto){
         switch(dto.getTag()){
             case "userClass":
-                writeObjectToFile(dto, "userClasses.txt");
+                writeObjectToFile(dto, "userClasses.dat");
         }
         return dto;
     }
