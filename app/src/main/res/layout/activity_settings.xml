@@ -42,8 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.02"
-        android:hint="Lägg till produkt"
-        android:text="Lägg till produkt" />
+        android:hint="Lägg till produkt" />
 
     <Button
         android:id="@+id/saveSettings_Button"
