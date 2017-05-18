@@ -2,7 +2,6 @@ package GUI;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -26,11 +25,10 @@ import domain.MyList;
  * Created by Hannes on 2017-04-27.
  */
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends Activity {
     private String activeView;
     private DomainFacade domainFacade;
     private MyList mylist;
-    private View mainview, myview, activeview;
 
     public MainActivity() {
         if (activeView == null)
@@ -60,10 +58,7 @@ public class MainActivity extends FragmentActivity {
         if (activeView.equals("activelist")) {
 
         }
-
-    }
-
-    ;
+    };
 
     public void setActiveView(String activeView) {
         this.activeView = activeView;
@@ -72,27 +67,6 @@ public class MainActivity extends FragmentActivity {
     public String getActiveView() {
         return activeView;
     }
-    //public void showMyLists(Bundle savedInstanceState){
-    //@Override
-    /*protected void onCreate1(final Bundle savedInstanceState, String activeView) {
-        super.onCreate(savedInstanceState);
-
-    }*/
-
-    //public void showSettings(Bundle savedInstanceState){
-    //@Override
-    /*protected void onCreate2(final Bundle savedInstanceState, final String activeView) {
-        super.onCreate(savedInstanceState);
-
-    }*/
-    //public void showActiveList(Bundle savedInstanceState){
-    //@Override
-    /*protected void onCreate3(final Bundle savedInstanceState, String activeView) {
-        super.onCreate(savedInstanceState);
-
-
-    }*/
-
 
     public void myListview() {
         setContentView(R.layout.activity_mylists);
@@ -179,7 +153,6 @@ public class MainActivity extends FragmentActivity {
                     }
                 setActiveView("main");
                 mainactivityview();
-                //onCreate(savedInstanceState);
             }
         });
     }
@@ -194,7 +167,6 @@ public void mainactivityview(){
         public void onClick (View v){
         setActiveView("settings");
         settingview();
-        //onCreate2(savedInstanceState, activeView);
     }
     });
     Button allLists = (Button) findViewById(R.id.myLists_Button);
@@ -205,7 +177,6 @@ public void mainactivityview(){
         public void onClick (View v){
         setActiveView("mylists");
         myListview();
-        //onCreate1(savedInstanceState, activeView);
 
     }
     });
@@ -217,7 +188,6 @@ public void mainactivityview(){
         public void onClick (View v){
         setActiveView("activelist");
         setContentView(R.layout.activity_check_list);
-        //onCreate3(savedInstanceState, activeView);
     }
     });
 }

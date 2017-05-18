@@ -49,8 +49,7 @@ public class DomainFacade implements IdomainFacade{
     }
     @Override
     public double getGasConsumption(){
-            return user.getGasConsumption();
-
+        return user.getGasConsumption();
     }
     @Override
     public void setStandardList(ArrayList<String> standardList){
