@@ -34,23 +34,67 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if(activeView.equals("main")) {
             setContentView(R.layout.activity_mainactivity);
+
+            Button openSettings = (Button) findViewById(R.id.goToSettings_Button);
+            openSettings.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setActiveView("settings");
+                    setContentView(R.layout.activity_settings);
+                    onCreate1(savedInstanceState, activeView);
+                }
+            });
+            Button allLists = (Button) findViewById(R.id.myLists_Button);
+            allLists.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setActiveView("mylists");
+                    setContentView(R.layout.activity_mylists);
+                    onCreate2(savedInstanceState, activeView);
+                }
+            });
+            final Button activeList = (Button) findViewById(R.id.activeList_Button);
+            activeList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setActiveView("activelist");
+                    setContentView(R.layout.activity_check_list);
+                    onCreate3(savedInstanceState, activeView);
+                }
+            });
+        }
+    };
+    public void setActiveView(String activeView){
+        this.activeView = activeView;
+    }
+    public String getActiveView(){
+        return activeView;
+    }
+    //public void showMyLists(Bundle savedInstanceState){
+    //@Override
+    protected void onCreate1(final Bundle savedInstanceState, String activeView) {
+        super.onCreate(savedInstanceState);
+        if(activeView.equals("mylists")) {
+            setContentView(R.layout.activity_mylists);
+
             ArrayList<String> list = new ArrayList<>();
-            String pony1 = "pony1|1";
-            String pony2 = "pony2|2";
-            String pony3 = "pony3|2";
-            String pony4 = "pony4|2";
-            String pony5 = "pony5|2";
-            String pony6 = "pony6|2";
-            String pony7 = "pony7|2";
-            String pony8 = "pony8|2";
-            String pony9 = "pony9|2";
-            String pony11 = "pony11|2";
-            String pony12 = "pony12|2";
-            String pony20 = "pony20|2";
+            String pony1 = "pony1";
+            String pony2 = "pony2";
+            String pony3 = "pony3";
+            String pony4 = "pony4";
+            String pony5 = "pony5";
+            String pony6 = "pony6";
+            String pony7 = "pony7";
+            String pony8 = "pony8";
+            String pony9 = "pony9";
+            String pony11 = "pony11";
+            String pony12 = "pony12";
+            String pony20 = "pony20";
 
             list.add(pony1);
             list.add(pony2);
@@ -65,9 +109,9 @@ public class MainActivity extends Activity {
             list.add(pony12);
             list.add(pony20);
 
-            ListView listView = (ListView) findViewById(R.id.MyList_ListView);
+            ListView listView = (ListView) findViewById(R.id.myList_ListView);
 
-            MyCustomAdapter adapter = new MyCustomAdapter(domainFacade,list,MyApplication.getContext());
+            MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, list, MyApplication.getContext());
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -75,17 +119,14 @@ public class MainActivity extends Activity {
 
                 }
             });
-
-            Button openSettings = (Button) findViewById(R.id.goToSettings_Button);
-            openSettings.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    setActiveView("settings");
-                    setContentView(R.layout.activity_settings);
-                }
-            });
         }
-        if(activeView.equals("settings")){
+    }
+
+    //public void showSettings(Bundle savedInstanceState){
+    //@Override
+    protected void onCreate2(final Bundle savedInstanceState, final String activeView) {
+        super.onCreate(savedInstanceState);
+        if(activeView.equals("settings")) {
             setContentView(R.layout.activity_settings);
 
             //Textview för att ställa in bensinförbrukning
@@ -94,8 +135,8 @@ public class MainActivity extends Activity {
 
             //ArrayAdapter för standardlistan
             final ArrayList<String> standardList = new ArrayList();
-            AutoCompleteTextView addStandardItem = (AutoCompleteTextView)findViewById(R.id.addStandardProduct_actv);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.select_dialog_item, standardList);
+            AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, standardList);
             addStandardItem.setThreshold(2);
             addStandardItem.setAdapter(adapter);
             final String standardItem = addStandardItem.toString();
@@ -122,14 +163,18 @@ public class MainActivity extends Activity {
                     }*/
                     setActiveView("main");
                     setContentView(R.layout.activity_mainactivity);
+                    onCreate(savedInstanceState);
                 }
             });
         }
-    };
-    public void setActiveView(String activeView){
-        this.activeView = activeView;
     }
-    public String getActiveView(){
-        return activeView;
+    //public void showActiveList(Bundle savedInstanceState){
+    //@Override
+    protected void onCreate3(final Bundle savedInstanceState, String activeView) {
+        super.onCreate(savedInstanceState);
+        if(activeView.equals("activelist")){
+
+        }
+
     }
 }
