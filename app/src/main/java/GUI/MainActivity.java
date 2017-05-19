@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
     private String activeView;
     private DomainFacade domainFacade;
     private MyList mylist;
+    private ArrayAdapter<String> adapter;
 
     public MainActivity() {
         if (activeView == null)
@@ -126,8 +127,8 @@ public class MainActivity extends Activity {
      */
     public void newListView(){
         setContentView(R.layout.activity_addproducts);
-
-
+        //TODO Lägga till arrayadapter, productFiller-metoder. Läggs ut vägen till Broker, hämta ArrayList.
+        // = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         ArrayList<String> templist = new ArrayList<>();
         AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProduct_actv);
         ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
