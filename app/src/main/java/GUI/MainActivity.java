@@ -1,10 +1,7 @@
 package GUI;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,6 +35,11 @@ public class MainActivity extends Activity {
 
     }
 
+    /**
+     * onCreate håller reda på vilken vy som ska hanteras med variabeln activeView,
+     * och skickar användaren vidare till respektive vy.
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,14 +51,11 @@ public class MainActivity extends Activity {
         if (activeView.equals("mylists")) {
             myListview();
         }
-        //SETTINGS MENY OCH INSTÄLLNINGAR
         if (activeView.equals("settings")) {
             settingview();
         }
-        //MYLIST SPECIFIK LISTA
-        //TODO MyList plocka in aktuell lita, påbörjad lista.
-        if (activeView.equals("activelist")) {
-
+        if (activeView.equals("newlist")) {
+            newListView();
         }
     };
 
@@ -68,8 +67,20 @@ public class MainActivity extends Activity {
         return activeView;
     }
 
+    /**
+     * Hanterar användarens samtliga listor. Dessa går att välja, ta bort eller
+     * skapa en ny.
+     */
     public void myListview() {
         setContentView(R.layout.activity_mylists);
+        Button newList = (Button) findViewById(R.id.newList_Button);
+        newList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setActiveView("newlist");
+                newListView();
+            }
+        });
 
         ArrayList<String> list = new ArrayList<>();
         String pony1 = "pony1|hsd";
@@ -110,6 +121,27 @@ public class MainActivity extends Activity {
         });
     }
 
+    /**
+     * Hanterar skapandet av en ny lista, och visar vyn activity_addproducts.
+     */
+    public void newListView(){
+        setContentView(R.layout.activity_addproducts);
+
+
+        ArrayList<String> templist = new ArrayList<>();
+        EditText productInput = (EditText) findViewById(R.id.addProduct_actv);
+        ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
+        String product = "";
+        if(!productInput.getText().toString().isEmpty()) {
+            product = productInput.getText().toString();
+            templist.add(product);
+        }
+
+    }
+
+    /**
+     * Hanterar användarens personliga inställningar. Visar vyn activity_settings.
+     */
     public void settingview() {
         setContentView(R.layout.activity_settings);
 
@@ -129,7 +161,7 @@ public class MainActivity extends Activity {
         addStandardItem.setAdapter(adapter);
         final String standardItem = addStandardItem.toString();
         standardList.add(standardItem);
-        /**
+        /*
          * Skicka in standardlistan och bensininställningar till User-objektet och
          * MyList-objektet och spara där.
          */
@@ -156,39 +188,34 @@ public class MainActivity extends Activity {
             }
         });
     }
-public void mainactivityview(){
-    setContentView(R.layout.activity_mainactivity);
 
-    Button openSettings = (Button) findViewById(R.id.goToSettings_Button);
-            openSettings.setOnClickListener(new View.OnClickListener()
+    /**
+     * Hanterar navigeringsmenyn efter inlogg.
+     */
+    public void mainactivityview(){
+        setContentView(R.layout.activity_mainactivity);
 
-    {
-        @Override
-        public void onClick (View v){
-        setActiveView("settings");
-        settingview();
+        Button openSettings = (Button) findViewById(R.id.goToSettings_Button);
+                openSettings.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View v){
+            setActiveView("settings");
+            settingview();
+        }
+        });
+        Button allLists = (Button) findViewById(R.id.myLists_Button);
+                allLists.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View v){
+            setActiveView("mylists");
+            myListview();
+
+        }
+        });
+
     }
-    });
-    Button allLists = (Button) findViewById(R.id.myLists_Button);
-            allLists.setOnClickListener(new View.OnClickListener()
-
-    {
-        @Override
-        public void onClick (View v){
-        setActiveView("mylists");
-        myListview();
-
-    }
-    });
-    final Button activeList = (Button) findViewById(R.id.activeList_Button);
-            activeList.setOnClickListener(new View.OnClickListener()
-
-    {
-        @Override
-        public void onClick (View v){
-        setActiveView("activelist");
-        setContentView(R.layout.activity_check_list);
-    }
-    });
-}
 }

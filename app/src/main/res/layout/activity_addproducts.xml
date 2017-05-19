@@ -7,8 +7,8 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:layout_width="369dp"
-        android:layout_height="57dp"
+        android:layout_width="372dp"
+        android:layout_height="414dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="67dp"
         android:id="@+id/addedProducts_ListView" />
@@ -24,11 +24,11 @@
         app:layout_constraintTop_toBottomOf="@+id/addedProducts_ListView" />
 
     <AutoCompleteTextView
-        android:id="@+id/addProduct_ACTextView"
+        android:id="@+id/addProduct_actv"
         android:layout_width="369dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
-        android:text="Lägg till produkt"
+        android:hint="Lägg till produkt"
         app:layout_constraintBottom_toTopOf="@+id/addedProducts_ListView"
         tools:layout_editor_absoluteX="8dp" />
 
