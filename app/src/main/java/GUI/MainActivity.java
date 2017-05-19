@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
                 newListView();
             }
         });
-
+        //TODO Dessa litor ska tas bort och ersättas.
         ArrayList<String> list = new ArrayList<>();
         String pony1 = "pony1|hsd";
         String pony2 = "pony2|afdhga";
