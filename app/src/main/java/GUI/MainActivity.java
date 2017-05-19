@@ -132,6 +132,7 @@ public class MainActivity extends Activity {
         ArrayList<String> templist = new ArrayList<>();
         AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProduct_actv);
         ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
+        productInput.setAdapter(adapter);
         String product = "";
         if(!productInput.getText().toString().isEmpty()) {
             product = productInput.getText().toString();
