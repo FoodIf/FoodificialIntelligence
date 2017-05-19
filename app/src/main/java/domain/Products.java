@@ -1,8 +1,7 @@
 package domain;
 
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.IOException;
+import GUI.MyCustomAdapter;
+import dataFacade.DataFacade;
 import java.util.ArrayList;
 
 /**
@@ -12,35 +11,29 @@ import java.util.ArrayList;
 public class Products {
 
     private ArrayList<String> productList;
+    private DataFacade dataFacade;
 
     public Products(){
 
     }
 
-    public void readProductList(){
+    public ArrayList<String> readProductList(){
         if(productList == null) {
             productList = new ArrayList();
             setProductList(productList);
+            return productList;
         }
         else{
-            clearProductList(productList);
+            getProductList();
+            return productList;
         }
     }
 
     public void setProductList(ArrayList<String> productList){
-        try {
-            BufferedReader in = new BufferedReader(new FileReader("productList.txt"));
-            String productRow;
-            while ((productRow = in.readLine()) != null) {
-                productList.add(productRow);
-                for (int i = 0; i < productList.size(); i++) {
-                    System.out.print(productList.get(i));
-                }
-            }
-            in.close();
-        } catch (IOException e) {
-            e.getMessage();
-        }
+        String tag = "product";
+        String operation = "load";
+        dataFacade.load(tag, operation);
+        this.productList = productList;
     }
     public ArrayList<String> getProductList(){
         return productList;
