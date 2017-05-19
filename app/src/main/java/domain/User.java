@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by Johan on 2017-04-27.
  */
 
+
 public class User implements Serializable {
     private String email;
     private String password;
@@ -67,5 +68,18 @@ public class User implements Serializable {
     public ArrayList<String> deleteproduct(int position) {
         currentlist.getProducts().remove(position);
         return currentlist.getProducts();
+    }
+
+    public ArrayList<String> deleteList(int position) {
+        savedLists.remove(position);
+        ArrayList<String> stringList=convertListNames(savedLists);
+        return stringList;
+    }
+    public ArrayList<String> convertListNames(ArrayList<MyList> mylist){
+     ArrayList<String> stringList=new ArrayList<String>();
+        for(int i=0; i<mylist.size();i++){
+         stringList.add(mylist.get(i).getName());
+     }
+     return stringList;
     }
 }

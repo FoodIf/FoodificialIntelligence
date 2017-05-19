@@ -21,4 +21,5 @@ public interface IdomainFacade {
     public void setStandardList(ArrayList<String> standardList);
     public ArrayList<MyList> getSavedLists();
     public ArrayList <String> deleteproduct(int s);
+    public ArrayList<String> deleteList(int position);
 }

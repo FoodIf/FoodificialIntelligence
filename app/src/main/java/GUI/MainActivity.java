@@ -112,7 +112,7 @@ public class MainActivity extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.myList_ListView);
 
-        MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, list, MyApplication.getContext());
+        MyListsAdapter adapter = new MyListsAdapter(domainFacade, list, MyApplication.getContext());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
