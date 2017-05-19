@@ -65,4 +65,8 @@ public class DomainFacade implements IdomainFacade{
     public ArrayList<MyList> getSavedLists(){
         return user.getSavedLists();
     }
+    @Override
+    public ArrayList<String> deleteList(int position) {
+        return user.deleteList(position);
+    }
 }

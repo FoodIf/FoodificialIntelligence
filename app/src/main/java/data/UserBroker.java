@@ -1,5 +1,7 @@
 package data;
 
+import android.util.Log;
+
 /**
  * Created by albin_000 on 2017-05-04.
  */
@@ -25,6 +27,7 @@ public class UserBroker extends Broker {
     }
     @Override
     public DataTransferObject saveAdress(DataTransferObject dto){
+        Log.v(dto.getTag(), "utanför");
         switch(dto.getTag()){
             case "userClass":
                 writeObjectToFile(dto, "userClasses.dat");

@@ -63,7 +63,11 @@ public abstract class Broker {
             Context context = myapplication.getContext();
             FileInputStream inputStream = context.openFileInput(file);
             ObjectInputStream input = new ObjectInputStream(inputStream);
+
+            Log.v("hej", "Det funkar4");
+
             dto.setValues((ArrayList<User>)(input.readObject()));
+            Log.v("hej", "Det funkar5");
             dto.setState("used");
             inputStream.close();
             input.close();
@@ -95,18 +99,15 @@ public abstract class Broker {
     }
     public DataTransferObject writeObjectToFile(DataTransferObject dto, String file){
         MyApplication myapplication;
-
         User user = (User)dto.getValues().get(0);
-        Log.v(file, "utanför");
 
         try{
             myapplication = MyApplication.getInstance();
             Context context = myapplication.getContext();
             FileOutputStream outputStream = context.openFileOutput(file,context.MODE_PRIVATE);
             ObjectOutputStream output = new ObjectOutputStream(outputStream);
-            Log.v(user.getEmail(), "Innan");
+            dto.setState("used"); //Hannes test
             output.writeObject(dto.getValues());
-            Log.v(user.getEmail(), "Efter");
             output.close();
         }catch (FileNotFoundException e) {
             e.printStackTrace();
