@@ -27,18 +27,6 @@
         android:textColor="@android:color/black"
         />
 
-    <TextView
-        android:id="@+id/productcost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/productname"
-        android:layout_centerVertical="true"
-        android:paddingLeft="10dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        />
-
     <Button
         android:id="@+id/delete_btn"
         android:layout_width="wrap_content"

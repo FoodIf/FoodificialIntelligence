@@ -21,24 +21,13 @@ import domainFacade.DomainFacade;
 
 public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> productlist = new ArrayList<String>();
-    private ArrayList<String> costlist = new ArrayList<String>();
     private Context context;
     private DomainFacade domainFacade;
 
     public MyCustomAdapter(DomainFacade domainFacade, ArrayList<String> list, Context context) {
-        this.productlist=new ArrayList<String>();
-        this.costlist=new ArrayList<String>();
-        splitList(list);
+        this.productlist=list;
         this.domainFacade=domainFacade;
         this.context = context;
-    }
-
-    public void splitList(ArrayList<String> list){
-        for (int i =0;i<list.size();i++){
-            String[] splitarray = list.get(i).split("\\|");
-            productlist.add(splitarray[0]);
-            costlist.add(splitarray[1]);
-        }
     }
 
     @Override
@@ -67,16 +56,12 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         TextView listItemText = (TextView)view.findViewById(R.id.productname);
         listItemText.setText(productlist.get(position));
 
-        TextView listCostText = (TextView)view.findViewById(R.id.productcost);
-        listCostText.setText(costlist.get(position));
-
         Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
 
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ArrayList<String> list = domainFacade.deleteproduct(position);//ta bort produkt från listan
-                splitList(list);
+                productlist = domainFacade.deleteproduct(position);//ta bort produkt från listan
                 notifyDataSetChanged();
             }
         });
