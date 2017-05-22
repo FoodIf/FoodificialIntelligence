@@ -84,37 +84,10 @@ public class MainActivity extends Activity {
                 newListView();
             }
         });
-        //TODO Dessa litor ska tas bort och ersättas.
-        ArrayList<String> list = new ArrayList<>();
-        String pony1 = "pony1|hsd";
-        String pony2 = "pony2|afdhga";
-        String pony3 = "pony3|sadg";
-        String pony4 = "pony4|sdga";
-        String pony5 = "pony5|sjhg";
-        String pony6 = "pony6|jsf";
-        String pony7 = "pony7|sgjd";
-        String pony8 = "pony8|sgfjsf";
-        String pony9 = "pony9|sgfjs";
-        String pony11 = "pony11|sgfjsg";
-        String pony12 = "pony12|sfgjd";
-        String pony20 = "pony20|fgjsad";
-
-        list.add(pony1);
-        list.add(pony2);
-        list.add(pony3);
-        list.add(pony4);
-        list.add(pony5);
-        list.add(pony6);
-        list.add(pony7);
-        list.add(pony8);
-        list.add(pony9);
-        list.add(pony11);
-        list.add(pony12);
-        list.add(pony20);
 
         ListView listView = (ListView) findViewById(R.id.myList_ListView);
 
-        MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, list, MyApplication.getContext());
+        MyListAdapter adapter = new MyListAdapter(domainFacade, domainFacade.getSavedStringLists(), MyApplication.getContext());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -134,6 +107,7 @@ public class MainActivity extends Activity {
         tempList = domainFacade.getProductList();
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tempList);
 
+        ArrayList<String> templist = new ArrayList<>();
         AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProduct_actv);
         ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
         productInput.setThreshold(2);
@@ -165,11 +139,9 @@ public class MainActivity extends Activity {
         //ArrayAdapter för standardlistan
         final ArrayList<String> standardList = new ArrayList();
         AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, standardList);
         addStandardItem.setThreshold(2);
         addStandardItem.setAdapter(adapter);
-
         final String standardItem = addStandardItem.toString();
         standardList.add(standardItem);
         /*
