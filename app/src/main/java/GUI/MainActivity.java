@@ -60,6 +60,9 @@ public class MainActivity extends Activity {
         if (activeView.equals("newlist")) {
             newListView();
         }
+        if(activeView.equals("compared")){
+            compared();
+        }
     };
 
     public void setActiveView(String activeView) {
@@ -112,6 +115,24 @@ public class MainActivity extends Activity {
         ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
         productInput.setThreshold(2);
         productInput.setAdapter(adapter);
+        String product = "";
+        if(!productInput.getText().toString().isEmpty()) {
+            product = productInput.getText().toString();
+            templist.add(product);
+        }
+        Button compareList = (Button) findViewById(R.id.compareList_Button);
+        compareList.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View v){
+                setActiveView("comapred");
+                compared(templist);
+            }
+        });
+    }
+
+    public void compared(ArrayList<String> templist){
 
         productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
