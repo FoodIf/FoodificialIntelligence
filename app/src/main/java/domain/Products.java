@@ -1,6 +1,5 @@
 package domain;
 
-import GUI.MyCustomAdapter;
 import dataFacade.DataFacade;
 import java.util.ArrayList;
 
@@ -17,29 +16,25 @@ public class Products {
 
     }
 
-    public ArrayList<String> readProductList(){
-        if(productList == null) {
-            productList = new ArrayList();
-            setProductList(productList);
-            return productList;
-        }
-        else{
-            getProductList();
-            return productList;
-        }
-    }
+    public ArrayList<String> setProductList(ArrayList<String> productList){
+        this.productList = new ArrayList<>();
 
-    public void setProductList(ArrayList<String> productList){
         String tag = "product";
         String operation = "load";
         dataFacade.load(tag, operation);
+
         this.productList = productList;
+        return this.productList;
     }
     public ArrayList<String> getProductList(){
-        return productList;
-    }
-    public ArrayList<String> clearProductList(ArrayList<String> productList){
-        productList.clear();
-        return productList;
+        /*if (productList == null) {
+            setProductList(productList);
+            return productList;
+        }
+        else {
+            return productList;
+        }*/
+
+
     }
 }

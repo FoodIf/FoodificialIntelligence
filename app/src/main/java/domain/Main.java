@@ -45,12 +45,12 @@ public class Main {
         chainList.add(new Chain("Citygross"));
 
         //Temp, ska bort senare. Sparar objekt #GrowAfro.
-        /*ArrayList<User> userList = new ArrayList<>();
+        ArrayList<User> userList = new ArrayList<>();
         userList.add(new User("test@test.se"));
-        dataFacade.save("userClass", "save", userList);*/
+        dataFacade.save("userClass", "save", userList);
 
       //Temp, ska bort senare. Hämtar objekt. #GrowAfro.
-       /* ArrayList<User> test = dataFacade.load("userClass", "load");
+        /*ArrayList<User> test = dataFacade.load("userClass", "load");
         User user = (User)test.get(0);*/
     }
 

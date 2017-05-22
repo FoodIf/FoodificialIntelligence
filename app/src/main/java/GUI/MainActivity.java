@@ -27,12 +27,14 @@ public class MainActivity extends Activity {
     private DomainFacade domainFacade;
     private MyList mylist;
     private ArrayAdapter<String> adapter;
+    private ArrayList<String> tempList;
 
     public MainActivity() {
         if (activeView == null)
             activeView = "main";
 
         domainFacade = DomainFacade.getInstance();
+        tempList = new ArrayList<>();
 
     }
 
@@ -112,7 +114,7 @@ public class MainActivity extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.myList_ListView);
 
-        MyListsAdapter adapter = new MyListsAdapter(domainFacade, list, MyApplication.getContext());
+        MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, list, MyApplication.getContext());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -127,18 +129,23 @@ public class MainActivity extends Activity {
      */
     public void newListView(){
         setContentView(R.layout.activity_addproducts);
-        //TODO Lägga till arrayadapter, productFiller-metoder. Läggs ut vägen till Broker, hämta ArrayList.
-        // = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-        ArrayList<String> templist = new ArrayList<>();
+
+        //tempList = new ArrayList<>();
+        tempList = domainFacade.getProductList();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tempList);
+
         AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProduct_actv);
         ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
+        productInput.setThreshold(2);
         productInput.setAdapter(adapter);
-        String product = "";
-        if(!productInput.getText().toString().isEmpty()) {
-            product = productInput.getText().toString();
-            templist.add(product);
-        }
 
+        productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object item = parent.getItemAtPosition(position);
+                tempList.add(item.toString());
+            }
+        });
     }
 
     /**
@@ -158,9 +165,11 @@ public class MainActivity extends Activity {
         //ArrayAdapter för standardlistan
         final ArrayList<String> standardList = new ArrayList();
         AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, standardList);
         addStandardItem.setThreshold(2);
         addStandardItem.setAdapter(adapter);
+
         final String standardItem = addStandardItem.toString();
         standardList.add(standardItem);
         /*

@@ -14,6 +14,7 @@ public class DomainFacade implements IdomainFacade{
     private static final DomainFacade instance = new DomainFacade();
     private Main main;
     private User user;
+    private Products product;
 
     private DomainFacade(){
         this.main = new Main();
@@ -68,5 +69,9 @@ public class DomainFacade implements IdomainFacade{
     @Override
     public ArrayList<String> deleteList(int position) {
         return user.deleteList(position);
+    }
+    @Override
+    public ArrayList<String> getProductList(){
+        return product.getProductList();
     }
 }
