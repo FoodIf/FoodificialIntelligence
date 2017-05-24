@@ -56,6 +56,7 @@ public class SettingsActivity extends Activity {
 
         //Textview för att ställa in bensinförbrukning
         EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
+        //gasConsumption = Double.parseDouble(gasComp.getText().toString());
         Double tempdouble = gasConsumption;
         gasComp.setText(tempdouble.toString());
 

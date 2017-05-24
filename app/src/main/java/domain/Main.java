@@ -28,7 +28,6 @@ public class Main {
     private ArrayList<Store> storeList;
     private ArrayList<Chain> chainList;
     private ArrayList<String> productList;
-    private Products products;
     private String activeView;
 
     public Main() {
@@ -36,7 +35,6 @@ public class Main {
         //this.user = new User();
         this.storeList = new ArrayList<>();
         this.chainList = new ArrayList<>();
-        this.products = new Products();
 
         // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1",R.drawable.bildaddress,new LatLng(double,double)));
 
@@ -187,7 +185,21 @@ public class Main {
 
         return sizeofearth * c;
     }
-    public ArrayList<String> setProductList(){
-        return products.getProductList(productList, dataFacade);
+    public ArrayList<String> setProductList(ArrayList<String> productList){
+
+        String tag = "product";
+        String operation = "load";
+        productList = dataFacade.load(tag, operation);
+        this.productList = productList;
+        return this.productList;
+    }
+    public ArrayList<String> getProductList(){
+        if (productList == null) {
+            productList = setProductList(productList);
+            return productList;
+        }
+        else {
+            return productList;
+        }
     }
 }
