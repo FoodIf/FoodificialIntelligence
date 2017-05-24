@@ -124,6 +124,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
+                //TODO lägg till i en MyList
             }
         });
         String product = "";
@@ -160,9 +161,7 @@ public class MainActivity extends Activity {
      */
     public void settingview() {
         setContentView(R.layout.activity_settings);
-        if(productAutoFill != null){
-            domainFacade.getProductList();
-        }
+        productAutoFill = domainFacade.getProductList();
 
         //Textview för att ställa in bensinförbrukning
         EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
@@ -175,12 +174,10 @@ public class MainActivity extends Activity {
         //ArrayAdapter för standardlistan
         final ArrayList<String> standardList = new ArrayList();
         AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, productAutoFill);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
         addStandardItem.setThreshold(2);
         addStandardItem.setAdapter(adapter);
-        /**
-         * OnItemClick på förslagen tagna från productList.txt
-         */
+
         addStandardItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
