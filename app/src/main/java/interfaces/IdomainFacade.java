@@ -28,4 +28,5 @@ public interface IdomainFacade {
     public void setNewCurrentList(MyList list);
     public void addSavedLists(MyList list);
     public MyList getCurrentList();
+    public ArrayList<String> getStandardList();
 }

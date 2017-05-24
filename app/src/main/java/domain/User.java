@@ -1,5 +1,7 @@
 package domain;
 
+import android.util.Log;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
@@ -13,9 +15,9 @@ import java.util.ArrayList;
 public class User implements Serializable {
     private String email;
     private String password;
-    private double gasConsumption;
+    private double gasConsumption = 0;
     private ArrayList<MyList> savedLists;
-    private MyList standardList;
+    private ArrayList<String> standardList = new ArrayList<>();
     private double lat;
     private double lng;
     private MyList currentlist;
@@ -35,10 +37,11 @@ public class User implements Serializable {
         return nerByStore;
     }
 
-    public void setStandardList(ArrayList<String> standardListSetting){
-        this.standardList = new MyList("Standard");
+    public void setStandardList(ArrayList<String> standardList){
+        Log.v("SETSTANDARDLIST I USER", "SIZE" + standardList.size());
+        this.standardList = standardList;
     }
-    public MyList getStandardList(){
+    public ArrayList<String> getStandardList(){
         return standardList;
     }
     public void setGasConsumption(double gasConsumption){

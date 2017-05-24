@@ -37,11 +37,14 @@ public class SettingsActivity extends Activity {
     private DomainFacade domainFacade;
     private ArrayList<String> productAutoFill;
     private ArrayList<String> standardList = new ArrayList<>();
-    private double gasConsumption = 0.0;
+    private double gasConsumption;
 
     public SettingsActivity() {
         domainFacade = DomainFacade.getInstance();
         productAutoFill = new ArrayList<>();
+        standardList = domainFacade.getStandardList();
+        gasConsumption = domainFacade.getGasConsumption();
+
     }
 
     @Override
@@ -55,6 +58,7 @@ public class SettingsActivity extends Activity {
         EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
         Double tempdouble = 0.0;
         if (!gasComp.getText().toString().isEmpty()) {
+            gasComp.setText(tempdouble.toString());
             tempdouble = Double.parseDouble(gasComp.getText().toString());
         }
         gasConsumption = tempdouble;
@@ -99,7 +103,7 @@ public class SettingsActivity extends Activity {
                     domainFacade.setGasConsumption(gasConsumption);
                 }
                 if (standardList == null) {
-
+                    domainFacade.setStandardList(null);
                 } else if (standardList != null) {
                     Log.v("SET STANDARD SIZE = " + standardList.size(), "TROLLOLOLOLOLOL");
                     domainFacade.setStandardList(standardList);

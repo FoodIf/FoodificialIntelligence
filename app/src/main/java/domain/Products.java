@@ -19,7 +19,6 @@ public class Products {
     }
 
     public ArrayList<String> setProductList(ArrayList<String> productList, DataFacade dataFacade){
-        Log.v("på plats", "i Products.setProductList, Fyll lista");
 
         String tag = "product";
         String operation = "load";
@@ -30,7 +29,6 @@ public class Products {
     public ArrayList<String> getProductList(ArrayList<String> productList, DataFacade dataFacade){
         if (productList == null) {
             productList = setProductList(productList, dataFacade);
-            Log.v("på plats", "i Products.getProductList, if product = null, do....");
             return productList;
         }
         else {

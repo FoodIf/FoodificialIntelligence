@@ -98,4 +98,8 @@ public class DomainFacade implements IdomainFacade{
     public MyList getCurrentList(){
         return user.getCurrentlist();
     }
+    @Override
+    public ArrayList<String> getStandardList(){
+        return user.getStandardList();
+    }
 }

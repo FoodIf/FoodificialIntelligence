@@ -30,7 +30,6 @@ public class DataFacade<E> implements IdataFacade<E>{
     public ArrayList<E> load(String tag, String operation){
         dto = new DataTransferObject(tag, operation);
         dto = factory.control(dto);
-        Log.v("DATAFACADE " + dto.getValues().size(), "STORLEK PÅ ARRAY");
         return dto.getValues();
     }
     @Override
