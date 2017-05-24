@@ -2,7 +2,6 @@ package GUI;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,7 +27,7 @@ public class MainActivity extends Activity {
     private DomainFacade domainFacade;
     private MyList mylist;
     private ArrayAdapter<String> adapter;
-    private ArrayList<String> productAutofill;
+    private ArrayList<String> productAutoFill;
     private ArrayList<String> comparedList;
 
     public MainActivity() {
@@ -36,7 +35,7 @@ public class MainActivity extends Activity {
             activeView = "main";
 
         domainFacade = DomainFacade.getInstance();
-        productAutofill = new ArrayList<>();
+        productAutoFill = new ArrayList<>();
         comparedList = new ArrayList<>();
 
     }
@@ -109,9 +108,9 @@ public class MainActivity extends Activity {
     public void newListView(){
         setContentView(R.layout.activity_addproducts);
 
-        //productAutofill = new ArrayList<>();
-        productAutofill = domainFacade.getProductList();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutofill);
+        //productAutoFill = new ArrayList<>();
+        productAutoFill = domainFacade.getProductList();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
 
         final ArrayList<String> templist = new ArrayList<>();
         AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProduct_actv);
@@ -141,7 +140,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object item = parent.getItemAtPosition(position);
-                productAutofill.add(item.toString());
+                productAutoFill.add(item.toString());
             }
         });*/
     }
