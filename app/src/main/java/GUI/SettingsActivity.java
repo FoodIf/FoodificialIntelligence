@@ -1,19 +1,24 @@
 package GUI;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.hannes.foodificialintelligence.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import domain.MyList;
 import domainFacade.DomainFacade;
@@ -31,6 +36,8 @@ public class SettingsActivity extends Activity {
 
     private DomainFacade domainFacade;
     private ArrayList<String> productAutoFill;
+    private ArrayList<String> standardList = new ArrayList<>();
+    private double gasConsumption = 0.0;
 
     public SettingsActivity() {
         domainFacade = DomainFacade.getInstance();
@@ -41,14 +48,8 @@ public class SettingsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    /**
-     * Hanterar användarens personliga inställningar. Visar vyn activity_settings.
-     */
-
         setContentView(R.layout.activity_settings);
-        if (productAutoFill != null) {
-            domainFacade.getProductList();
-        }
+        productAutoFill = domainFacade.getProductList();
 
         //Textview för att ställa in bensinförbrukning
         EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
@@ -56,11 +57,11 @@ public class SettingsActivity extends Activity {
         if (!gasComp.getText().toString().isEmpty()) {
             tempdouble = Double.parseDouble(gasComp.getText().toString());
         }
-        final Double gasConsumption = tempdouble;
+        gasConsumption = tempdouble;
 
+        //ListView standardListView = (ListView) findViewById(R.id.)
         //ArrayAdapter för standardlistan
-        final ArrayList<String> standardList = new ArrayList();
-        AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
+        final AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, productAutoFill);
         addStandardItem.setThreshold(2);
         addStandardItem.setAdapter(adapter);
@@ -72,11 +73,15 @@ public class SettingsActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
-                standardList.add(productAutoFill.get(pos));
+                standardList.add(selectedItem);
+                Context context = getApplicationContext();
+                CharSequence text = selectedItem + " tillagd!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                addStandardItem.setText("");
             }
         });
-        final String standardItem = addStandardItem.toString();
-        standardList.add(standardItem);
         /*
          * Skicka in standardlistan och bensininställningar till User-objektet och
          * MyList-objektet och spara där.
@@ -85,14 +90,16 @@ public class SettingsActivity extends Activity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (gasConsumption == null) {
+                if (gasConsumption <= 0) {
                     domainFacade.setGasConsumption(0);
-                } else if (gasConsumption != null) {
+                } else if (gasConsumption > 0) {
+                    Log.v("SET GAS CONSUMPTION = " + gasConsumption, "TROLLOLOLOLOLOL");
                     domainFacade.setGasConsumption(gasConsumption);
                 }
                 if (standardList == null) {
 
                 } else if (standardList != null) {
+                    Log.v("SET STANDARD SIZE = " + standardList.size(), "TROLLOLOLOLOLOL");
                     domainFacade.setStandardList(standardList);
                 }
                 Intent myIntent = new Intent(v.getContext(), MainActivity.class);
