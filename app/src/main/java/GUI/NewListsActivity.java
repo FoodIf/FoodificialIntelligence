@@ -30,27 +30,15 @@ public class NewListsActivity extends Activity {
      * Created by Hannes on 2017-04-27.
      */
 
-        private String activeView;
         private DomainFacade domainFacade;
-        private MyList mylist;
         private ArrayAdapter<String> adapter;
         private ArrayList<String> productAutoFill;
-        private ArrayList<String> comparedList;
 
         public NewListsActivity() {
-
-
             domainFacade = DomainFacade.getInstance();
             productAutoFill = new ArrayList<>();
-            comparedList = new ArrayList<>();
-
         }
 
-        /**
-         * onCreate håller reda på vilken vy som ska hanteras med variabeln activeView,
-         * och skickar användaren vidare till respektive vy.
-         * @param savedInstanceState
-         */
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -87,14 +75,8 @@ public class NewListsActivity extends Activity {
 
             ListView listView = (ListView) findViewById(R.id.myList_ListView);
 
-            MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, domainFacade.getProductList(), MyApplication.getContext());
+            MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
             listView.setAdapter(adapter);
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                }
-            });
 
             Button compareList = (Button) findViewById(R.id.compareList_Button);
 

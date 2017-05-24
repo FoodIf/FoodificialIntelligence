@@ -24,9 +24,10 @@ public interface IdomainFacade {
     public ArrayList<String> deleteList(int position);
     public ArrayList<String> getSavedStringLists();
     public ArrayList<String> getProductList();
+    public ArrayList<String> getCurrentStringList();
     public void setCurrentList(int position);
     public void setNewCurrentList(MyList list);
-    public void addSavedLists(MyList list);
+    public void addSavedLists(String name);
     public MyList getCurrentList();
     public ArrayList<String> getStandardList();
 }

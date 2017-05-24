@@ -26,6 +26,7 @@ public class User implements Serializable {
     public User(String email){
         this.email = email;
         //this.password = password;
+        savedLists=new ArrayList<MyList>();
         this.lat=58.40197;
         this.lng=15.57681;
     }
@@ -108,5 +109,24 @@ public class User implements Serializable {
 
     public MyList getCurrentlist() {
         return currentlist;
+    }
+
+    public ArrayList<String> getCurrentStringList() {
+        return convertcurrentlist();
+    }
+
+    private ArrayList<String> convertcurrentlist() {
+        ArrayList<String> stringList=new ArrayList<String>();
+        if(currentlist!=null) {
+            for (int i = 0; i < currentlist.getProducts().size(); i++) {
+                stringList.add(currentlist.getProducts().get(i));
+            }
+        }
+        return stringList;
+    }
+    public void addSavedLists(String name){
+        MyList newlist= new MyList(name);
+        savedLists.add(newlist);
+        setCurrentList(savedLists.size()-1);
     }
 }

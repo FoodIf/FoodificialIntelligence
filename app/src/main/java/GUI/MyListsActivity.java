@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -61,7 +62,7 @@ public class MyListsActivity extends Activity{
             newList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Context cont = getApplicationContext();
+                    Context cont = MyListsActivity.this;
                     AlertDialog.Builder builder = new AlertDialog.Builder(cont);
                     builder.setTitle("Namn på lista");
                     final EditText input = new EditText(cont);
@@ -70,19 +71,19 @@ public class MyListsActivity extends Activity{
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            domainFacade.setNewCurrentList(new MyList(input.getText().toString()));
-                            domainFacade.addSavedLists(domainFacade.getCurrentList());
+                            domainFacade.addSavedLists(input.getText().toString());
+                            Intent myIntent = new Intent(MyListsActivity.this, NewListsActivity.class);
+                            startActivityForResult(myIntent, 0);
                         }
                     });
-                    builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener(){
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
                         @Override
                         public void onClick(DialogInterface dialog, int which){
                             dialog.cancel();
                         }
                     });
                     builder.show();
-                    Intent myIntent = new Intent(v.getContext(), NewListsActivity.class);
-                    startActivityForResult(myIntent, 0);
+
                 }
             });
 

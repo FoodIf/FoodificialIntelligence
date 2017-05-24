@@ -1,6 +1,7 @@
 package GUI;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,8 +65,9 @@ import domainFacade.DomainFacade;
             listItemText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.v("OnClick","Funkar");
                     domainFacade.setCurrentList(position);
+                    Intent i = new Intent(v.getContext(), NewListsActivity.class);
+                    context.startActivity(i);
                 }
             });
 

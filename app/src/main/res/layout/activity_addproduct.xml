@@ -20,4 +20,8 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_dark"
         android:text="Jämför priser" />
+    <ListView
+        android:id="@+id/myList_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="630dp" />
 </LinearLayout>

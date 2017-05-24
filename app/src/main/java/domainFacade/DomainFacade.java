@@ -85,14 +85,16 @@ public class DomainFacade implements IdomainFacade{
         user.setCurrentList(position);
     }
     @Override
+    public ArrayList<String> getCurrentStringList(){
+        return user.getCurrentStringList();
+    }
+    @Override
     public void setNewCurrentList(MyList name){
         user.setNewCurrentList(name);
     }
     @Override
-    public void addSavedLists(MyList list){
-        ArrayList<MyList> temp = user.getSavedLists();
-        temp.add(list);
-        user.setSavedLists(temp);
+    public void addSavedLists(String name){
+        user.addSavedLists(name);
     }
     @Override
     public MyList getCurrentList(){
