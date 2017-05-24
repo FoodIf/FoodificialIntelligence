@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
         {
             @Override
             public void onClick (View v){
-                setActiveView("comapred");
+                setActiveView("compared");
                 compared(templist);
             }
         });
