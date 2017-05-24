@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -20,35 +19,35 @@ import domainFacade.DomainFacade;
  */
 
 public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
-    private ArrayList<String> productlist = new ArrayList<String>();
-    private ArrayList<String> costlist = new ArrayList<String>();
+    private ArrayList<String> nameList = new ArrayList<String>();
+    private ArrayList<String> priceList = new ArrayList<String>();
     private Context context;
     private DomainFacade domainFacade;
+    private String[] storeList;
 
     public MyComparedAdapter(DomainFacade domainFacade, ArrayList<String> list, Context context) {
-        this.productlist=new ArrayList<String>();
-        this.costlist=new ArrayList<String>();
+        this.nameList =new ArrayList<String>();
+        this.priceList =new ArrayList<String>();
         splitList(list);
         this.domainFacade=domainFacade;
         this.context = context;
     }
-
     public void splitList(ArrayList<String> list){
         for (int i =0;i<list.size();i++){
             String[] splitarray = list.get(i).split("\\|");
-            productlist.add(splitarray[0]);
-            costlist.add(splitarray[1]);
+            nameList.add(splitarray[0]);
+            priceList.add(splitarray[1]);
         }
     }
 
     @Override
     public int getCount() {
-        return productlist.size();
+        return nameList.size();
     }
 
     @Override
     public Object getItem(int pos) {
-        return productlist.get(pos);
+        return nameList.get(pos);
     }
 
     @Override
@@ -61,15 +60,15 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
         View view = convertView;
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.customadapter, null);
+            view = inflater.inflate(R.layout.mycomparedadapter, null);
         }
 
         TextView listItemText = (TextView)view.findViewById(R.id.productname);
-        listItemText.setText(productlist.get(position));
+        listItemText.setText(nameList.get(position));
 
-        /*TextView listCostText = (TextView)view.findViewById(R.id.productcost);
-        listCostText.setText(costlist.get(position));
-*/
+        TextView listCostText = (TextView)view.findViewById(R.id.price);
+        listCostText.setText(priceList.get(position));
+
         return view;
     }
 }

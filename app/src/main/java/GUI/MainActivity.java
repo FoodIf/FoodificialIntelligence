@@ -8,12 +8,7 @@ import android.widget.Button;
 
 import com.example.hannes.foodificialintelligence.R;
 
-import MyAndroid.MyApplication;
 import domainFacade.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import domain.MyList;
 
 /**
  * Created by Hannes on 2017-04-27.
@@ -51,7 +46,7 @@ public class MainActivity extends Activity {
         {
             @Override
             public void onClick (View v){
-                Intent myIntent = new Intent(v.getContext(), MyListsActivity.class);
+                Intent myIntent = new Intent(v.getContext(), test.class);
                 startActivityForResult(myIntent, 0);
         }
         });

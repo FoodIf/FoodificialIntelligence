@@ -5,7 +5,7 @@
     android:weightSum="1">
 
     <TextView
-        android:id="@+id/listName"
+        android:id="@+id/productname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -17,7 +17,7 @@
         />
 
     <TextView
-        android:id="@+id/sum"
+        android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
