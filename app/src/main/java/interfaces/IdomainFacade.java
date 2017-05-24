@@ -30,4 +30,5 @@ public interface IdomainFacade {
     public void addSavedLists(String name);
     public MyList getCurrentList();
     public ArrayList<String> getStandardList();
+    public void clearStandardList(ArrayList<String> standardList);
 }

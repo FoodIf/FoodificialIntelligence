@@ -45,6 +45,10 @@ public class User implements Serializable {
     public ArrayList<String> getStandardList(){
         return standardList;
     }
+    public void clearStandardList(ArrayList<String> standardList){
+        this.standardList = standardList;
+        this.standardList.clear();
+    }
     public void setGasConsumption(double gasConsumption){
         this.gasConsumption = gasConsumption;
     }

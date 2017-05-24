@@ -59,8 +59,10 @@ public class SettingsActivity extends Activity {
         Double tempdouble = gasConsumption;
         gasComp.setText(tempdouble.toString());
 
-        ListView standardListView = (ListView) findViewById(R.id.setStandardList_listView);
+        final ListView standardListView = (ListView) findViewById(R.id.setStandardList_listView);
         standardListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, standardList));
+
+
         //ArrayAdapter för standardlistan
         final AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, productAutoFill);
@@ -100,6 +102,23 @@ public class SettingsActivity extends Activity {
                 }
                 Context context = getApplicationContext();
                 CharSequence text = "Inställningar sparade!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
+                Intent myIntent = new Intent(v.getContext(), MainActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+        Button clearButton = (Button) findViewById(R.id.clearStandardList_Button);
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                domainFacade.setGasConsumption(0);
+                domainFacade.clearStandardList(standardList);
+
+                Context context = getApplicationContext();
+                CharSequence text = "Inställningar borttagna!";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
