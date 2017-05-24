@@ -27,14 +27,16 @@ public class MainActivity extends Activity {
     private DomainFacade domainFacade;
     private MyList mylist;
     private ArrayAdapter<String> adapter;
-    private ArrayList<String> tempList;
+    private ArrayList<String> productAutofill;
+    private ArrayList<String> comparedList;
 
     public MainActivity() {
         if (activeView == null)
             activeView = "main";
 
         domainFacade = DomainFacade.getInstance();
-        tempList = new ArrayList<>();
+        productAutofill = new ArrayList<>();
+        comparedList = new ArrayList<>();
 
     }
 
@@ -61,7 +63,7 @@ public class MainActivity extends Activity {
             newListView();
         }
         if(activeView.equals("compared")){
-            compared();
+            compared(comparedList);
         }
     };
 
@@ -106,11 +108,11 @@ public class MainActivity extends Activity {
     public void newListView(){
         setContentView(R.layout.activity_addproducts);
 
-        //tempList = new ArrayList<>();
-        tempList = domainFacade.getProductList();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tempList);
+        //productAutofill = new ArrayList<>();
+        productAutofill = domainFacade.getProductList();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutofill);
 
-        ArrayList<String> templist = new ArrayList<>();
+        final ArrayList<String> templist = new ArrayList<>();
         AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProduct_actv);
         ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
         productInput.setThreshold(2);
@@ -120,27 +122,27 @@ public class MainActivity extends Activity {
             product = productInput.getText().toString();
             templist.add(product);
         }
-        Button compareList = (Button) findViewById(R.id.compareList_Button);
+        final Button compareList = (Button) findViewById(R.id.compareList_Button);
         compareList.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
             public void onClick (View v){
-                setActiveView("comapred");
-                compared(templist);
+                comparedList = templist;
+                setActiveView("compared");
             }
         });
     }
 
-    public void compared(ArrayList<String> templist){
+    public void compared(ArrayList<String> comparedList){
 
-        productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object item = parent.getItemAtPosition(position);
-                tempList.add(item.toString());
+                productAutofill.add(item.toString());
             }
-        });
+        });*/
     }
 
     /**
