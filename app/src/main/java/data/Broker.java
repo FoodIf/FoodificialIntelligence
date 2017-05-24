@@ -30,7 +30,7 @@ import domain.User;
 public abstract class Broker {
 
     //TODO skapa hashmapen nedan sen när problem med scannern är löst
-    private HashMap<String,DataTransferObject> cacheMap = null;//new HashMap<>();
+    private HashMap<String,DataTransferObject> cacheMap = new HashMap<>();
 
     public Broker(){
     }
@@ -129,10 +129,10 @@ public abstract class Broker {
                 }
             }
         }
-        else{
+
             //updateCache(dto);
             dto = getAdress(dto);
-        }
+
         return dto;
     }
     public DataTransferObject remove(DataTransferObject dto){
