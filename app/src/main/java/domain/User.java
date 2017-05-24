@@ -86,4 +86,8 @@ public class User implements Serializable {
         savedLists.remove(position);
         return convertList(savedLists);
     }
+
+    public void setCurrentList(int position) {
+        currentlist=savedLists.get(position);
+    }
 }

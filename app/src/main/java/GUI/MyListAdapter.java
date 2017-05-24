@@ -1,6 +1,7 @@
 package GUI;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,12 +61,20 @@ import domainFacade.DomainFacade;
             TextView listItemText = (TextView)view.findViewById(R.id.listName);
             listItemText.setText(listName.get(position));
 
+            listItemText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.v("OnClick","Funkar");
+                    domainFacade.setCurrentList(position);
+                }
+            });
+
             Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
 
             deleteBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    ArrayList<String> list = domainFacade.deleteList(position);
+                    listName = domainFacade.deleteList(position);
                     notifyDataSetChanged();
                 }
             });
@@ -74,5 +83,4 @@ import domainFacade.DomainFacade;
         }
 
 
-
-}
+    }

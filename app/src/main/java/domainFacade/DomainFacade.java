@@ -81,4 +81,8 @@ public class DomainFacade implements IdomainFacade{
         return main.setProductList();
 
     }
+    @Override
+    public void setCurrentList(int position){
+        user.setCurrentList(position);
+    }
 }

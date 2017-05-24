@@ -50,6 +50,7 @@ public class Main {
         userList.add(new User("test@test.se"));
         dataFacade.save("userClass", "save", userList);
 
+
       //Temp, ska bort senare. Hämtar objekt. #GrowAfro.
         /*ArrayList<User> test = dataFacade.load("userClass", "load");
         User user = (User)test.get(0);*/
@@ -74,6 +75,31 @@ public class Main {
             String[] userarray = compare.get(i).split("\\|");
             if (userarray[0].equals(email) && userarray[1].equals(password)) {
                 user = compareUserObject(userarray);
+
+
+
+
+
+
+
+//Testar listorna- Hannes 24 maj
+                ArrayList<String>templist=new ArrayList<String>();
+                templist.add("Vara 1");
+                ArrayList<MyList> temptemplist = new ArrayList<MyList>();
+                temptemplist.add(new MyList("Testlista",templist));
+                temptemplist.add(new MyList("Testlista2",templist));
+                temptemplist.add(new MyList("Testlista3",templist));
+                user.setSavedLists(temptemplist);
+  //hit
+
+
+
+
+
+
+
+
+
                 return true;
             }
         }
