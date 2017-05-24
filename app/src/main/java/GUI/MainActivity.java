@@ -2,6 +2,7 @@ package GUI;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -61,7 +62,7 @@ public class MainActivity extends Activity {
             newListView();
         }
         if(activeView.equals("compared")){
-            compared();
+            //compared();
         }
     };
 
@@ -107,6 +108,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_addproducts);
 
         //tempList = new ArrayList<>();
+        Log.v("Lol","Hejsan i newListView");
         tempList = domainFacade.getProductList();
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tempList);
 

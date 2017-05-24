@@ -1,4 +1,6 @@
 package domainFacade;
+import android.util.Log;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class DomainFacade implements IdomainFacade{
 
     private DomainFacade(){
         this.main = new Main();
+        this.product = new Products();
     }
     public static DomainFacade getInstance(){
         return instance;
@@ -76,6 +79,9 @@ public class DomainFacade implements IdomainFacade{
     }
     @Override
     public ArrayList<String> getProductList(){
+        Log.v("På plats", "i DomainFacade");
+
         return product.getProductList();
+
     }
 }

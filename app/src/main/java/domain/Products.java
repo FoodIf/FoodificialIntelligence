@@ -1,5 +1,7 @@
 package domain;
 
+import android.util.Log;
+
 import dataFacade.DataFacade;
 import java.util.ArrayList;
 
@@ -13,11 +15,11 @@ public class Products {
     private DataFacade dataFacade;
 
     public Products(){
-
+        productList = new ArrayList<>();
     }
 
     public ArrayList<String> setProductList(ArrayList<String> productList){
-        this.productList = new ArrayList<>();
+        Log.v("på plats", "i Products.setProductLsit, Fyll lista");
 
         String tag = "product";
         String operation = "load";
@@ -27,14 +29,15 @@ public class Products {
         return this.productList;
     }
     public ArrayList<String> getProductList(){
-        /*if (productList == null) {
+        if (productList == null) {
             setProductList(productList);
+            Log.v("på plats", "i Products.getProductLsit, if product = null, do....");
             return productList;
         }
         else {
             return productList;
-        }*/
-return null;
+        }
+
 
     }
 }
