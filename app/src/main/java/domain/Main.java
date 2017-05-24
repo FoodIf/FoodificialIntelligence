@@ -83,14 +83,14 @@ public class Main {
 
 
 //Testar listorna- Hannes 24 maj
-                ArrayList<String>templist=new ArrayList<String>();
+                /*ArrayList<String>templist=new ArrayList<String>();
                 templist.add("Vara 1");
                 ArrayList<MyList> temptemplist = new ArrayList<MyList>();
                 temptemplist.add(new MyList("Testlista",templist));
                 temptemplist.add(new MyList("Testlista2",templist));
                 temptemplist.add(new MyList("Testlista3",templist));
                 user.setSavedLists(temptemplist);
-  //hit
+  //hit*/
 
 
 

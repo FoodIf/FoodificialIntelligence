@@ -59,7 +59,8 @@ public class SettingsActivity extends Activity {
         }
         gasConsumption = tempdouble;
 
-        //ListView standardListView = (ListView) findViewById(R.id.)
+        ListView standardListView = (ListView) findViewById(R.id.setStandardList_listView);
+        standardListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, standardList));
         //ArrayAdapter för standardlistan
         final AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, productAutoFill);
@@ -80,6 +81,7 @@ public class SettingsActivity extends Activity {
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
                 addStandardItem.setText("");
+                Log.v("ITEMCLICK SIZE ARRAY: " + standardList.size(), "HOLA SENOR");
             }
         });
         /*

@@ -36,7 +36,7 @@ public class User implements Serializable {
     }
 
     public void setStandardList(ArrayList<String> standardListSetting){
-        this.standardList = new MyList("Standard", standardListSetting);
+        this.standardList = new MyList("Standard");
     }
     public MyList getStandardList(){
         return standardList;

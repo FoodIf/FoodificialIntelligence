@@ -35,7 +35,8 @@
     <ListView
         android:id="@+id/setStandardList_listView"
         android:layout_width="wrap_content"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+        android:layout_weight="0.57" />
 
     <AutoCompleteTextView
         android:id="@+id/addStandardProduct_actv"
