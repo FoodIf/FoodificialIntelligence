@@ -67,9 +67,9 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
         TextView listItemText = (TextView)view.findViewById(R.id.productname);
         listItemText.setText(productlist.get(position));
 
-        TextView listCostText = (TextView)view.findViewById(R.id.productcost);
+        /*TextView listCostText = (TextView)view.findViewById(R.id.productcost);
         listCostText.setText(costlist.get(position));
-
+*/
         return view;
     }
 }

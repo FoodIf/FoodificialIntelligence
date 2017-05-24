@@ -2,6 +2,7 @@ package GUI;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,7 @@ import com.example.hannes.foodificialintelligence.R;
 import MyAndroid.MyApplication;
 import domainFacade.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import domain.MyList;
 
@@ -106,17 +108,24 @@ public class MainActivity extends Activity {
      * Hanterar skapandet av en ny lista, och visar vyn activity_addproducts.
      */
     public void newListView(){
-        setContentView(R.layout.activity_addproducts);
+        setContentView(R.layout.activity_addproduct);
 
-        //productAutoFill = new ArrayList<>();
         productAutoFill = domainFacade.getProductList();
+
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
 
         final ArrayList<String> templist = new ArrayList<>();
-        AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProduct_actv);
+        AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProductNew_actv);
         ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
         productInput.setThreshold(2);
         productInput.setAdapter(adapter);
+        productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = (String) parent.getItemAtPosition(position);
+                int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
+            }
+        });
         String product = "";
         if(!productInput.getText().toString().isEmpty()) {
             product = productInput.getText().toString();
@@ -130,6 +139,7 @@ public class MainActivity extends Activity {
             public void onClick (View v){
                 comparedList = templist;
                 setActiveView("compared");
+                compared(templist);
             }
         });
     }
@@ -150,6 +160,9 @@ public class MainActivity extends Activity {
      */
     public void settingview() {
         setContentView(R.layout.activity_settings);
+        if(productAutoFill != null){
+            domainFacade.getProductList();
+        }
 
         //Textview för att ställa in bensinförbrukning
         EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
@@ -162,9 +175,20 @@ public class MainActivity extends Activity {
         //ArrayAdapter för standardlistan
         final ArrayList<String> standardList = new ArrayList();
         AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, standardList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, productAutoFill);
         addStandardItem.setThreshold(2);
         addStandardItem.setAdapter(adapter);
+        /**
+         * OnItemClick på förslagen tagna från productList.txt
+         */
+        addStandardItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = (String) parent.getItemAtPosition(position);
+                int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
+                standardList.add(productAutoFill.get(pos));
+            }
+        });
         final String standardItem = addStandardItem.toString();
         standardList.add(standardItem);
         /*
@@ -172,9 +196,7 @@ public class MainActivity extends Activity {
          * MyList-objektet och spara där.
          */
         Button save = (Button) findViewById(R.id.saveSettings_Button);
-        save.setOnClickListener(new View.OnClickListener()
-
-        {
+        save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                     if(gasConsumption == null) {

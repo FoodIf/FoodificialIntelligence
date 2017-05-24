@@ -39,6 +39,7 @@ public abstract class Broker {
      * @param dto, file
      */
     public DataTransferObject searchDatabase(DataTransferObject dto, String file){
+        Log.v("På plats i Broker", " SEARCH DATABASE-metoden");
         ArrayList<String> databaseList = new ArrayList<>();
         MyApplication myapplication;
         try {
@@ -122,13 +123,13 @@ public abstract class Broker {
         return dto;
     }
     public DataTransferObject load(DataTransferObject dto){
-        if(cacheMap != null){
+        /*if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++) {
                 if (cacheMap.get(i).equals(dto)) {
                     return dto;
                 }
             }
-        }
+        }*/
 
             //updateCache(dto);
             dto = getAdress(dto);

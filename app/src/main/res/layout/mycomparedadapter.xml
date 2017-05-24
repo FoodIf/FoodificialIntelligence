@@ -15,6 +15,7 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         />
+
     <TextView
         android:id="@+id/sum"
         android:layout_width="wrap_content"
@@ -22,9 +23,8 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:paddingLeft="5dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
         android:textColor="@android:color/black"
-        />
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

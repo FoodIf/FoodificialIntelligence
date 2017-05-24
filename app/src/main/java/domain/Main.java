@@ -27,6 +27,7 @@ public class Main {
     private User user;
     private ArrayList<Store> storeList;
     private ArrayList<Chain> chainList;
+    private ArrayList<String> productList;
     private Products products;
     private String activeView;
 
@@ -157,5 +158,8 @@ public class Main {
 
 
         return sizeofearth * c;
+    }
+    public ArrayList<String> setProductList(){
+        return products.getProductList(productList, dataFacade);
     }
 }

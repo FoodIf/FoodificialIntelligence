@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <AutoCompleteTextView
+        android:id="@+id/addProductNew_actv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lägg till produkt" />
+
+    <ListView
+        android:id="@+id/addedProducts_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="415dp" />
+
+    <Button
+        android:id="@+id/compareList_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_dark"
+        android:text="Jämför priser" />
+</LinearLayout>

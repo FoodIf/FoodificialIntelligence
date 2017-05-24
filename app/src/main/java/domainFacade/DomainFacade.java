@@ -16,11 +16,9 @@ public class DomainFacade implements IdomainFacade{
     private static final DomainFacade instance = new DomainFacade();
     private Main main;
     private User user;
-    private Products product;
 
     private DomainFacade(){
         this.main = new Main();
-        this.product = new Products();
     }
     public static DomainFacade getInstance(){
         return instance;
@@ -80,8 +78,7 @@ public class DomainFacade implements IdomainFacade{
     @Override
     public ArrayList<String> getProductList(){
         Log.v("På plats", "i DomainFacade");
-
-        return product.getProductList();
+        return main.setProductList();
 
     }
 }
