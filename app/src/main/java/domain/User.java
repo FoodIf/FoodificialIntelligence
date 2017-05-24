@@ -19,6 +19,7 @@ public class User implements Serializable {
     private double lat;
     private double lng;
     private MyList currentlist;
+    private ArrayList<Store> nerByStore;
 
     public User(String email){
         this.email = email;
@@ -26,6 +27,14 @@ public class User implements Serializable {
         this.lat=58.40197;
         this.lng=15.57681;
     }
+    public void setNerbyStore(Store store){
+        nerByStore.add(store);
+    }
+
+    public ArrayList<Store> getNerByStore() {
+        return nerByStore;
+    }
+
     public void setStandardList(ArrayList<String> standardListSetting){
         this.standardList = new MyList("Standard", standardListSetting);
     }
@@ -89,5 +98,12 @@ public class User implements Serializable {
 
     public void setCurrentList(int position) {
         currentlist=savedLists.get(position);
+    }
+    public void setNewCurrentList(MyList list){
+        currentlist= list;
+    }
+
+    public MyList getCurrentlist() {
+        return currentlist;
     }
 }

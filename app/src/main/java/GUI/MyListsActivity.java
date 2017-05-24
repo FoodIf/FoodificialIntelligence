@@ -1,8 +1,12 @@
 package GUI;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,6 +61,26 @@ public class MyListsActivity extends Activity{
             newList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Context cont = getApplicationContext();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(cont);
+                    builder.setTitle("Namn på lista");
+                    final EditText input = new EditText(cont);
+                    input.setInputType(InputType.TYPE_CLASS_TEXT);
+                    builder.setView(input);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            domainFacade.setNewCurrentList(new MyList(input.getText().toString()));
+                            domainFacade.addSavedLists(domainFacade.getCurrentList());
+                        }
+                    });
+                    builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener(){
+                        @Override
+                        public void onClick(DialogInterface dialog, int which){
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
                     Intent myIntent = new Intent(v.getContext(), NewListsActivity.class);
                     startActivityForResult(myIntent, 0);
                 }
