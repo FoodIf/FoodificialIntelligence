@@ -56,12 +56,8 @@ public class SettingsActivity extends Activity {
 
         //Textview för att ställa in bensinförbrukning
         EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
-        Double tempdouble = 0.0;
-        if (!gasComp.getText().toString().isEmpty()) {
-            gasComp.setText(tempdouble.toString());
-            tempdouble = Double.parseDouble(gasComp.getText().toString());
-        }
-        gasConsumption = tempdouble;
+        Double tempdouble = gasConsumption;
+        gasComp.setText(tempdouble.toString());
 
         ListView standardListView = (ListView) findViewById(R.id.setStandardList_listView);
         standardListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, standardList));
@@ -79,11 +75,7 @@ public class SettingsActivity extends Activity {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
                 standardList.add(selectedItem);
-                Context context = getApplicationContext();
-                CharSequence text = selectedItem + " tillagd!";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+
                 addStandardItem.setText("");
                 Log.v("ITEMCLICK SIZE ARRAY: " + standardList.size(), "HOLA SENOR");
             }
@@ -99,15 +91,19 @@ public class SettingsActivity extends Activity {
                 if (gasConsumption <= 0) {
                     domainFacade.setGasConsumption(0);
                 } else if (gasConsumption > 0) {
-                    Log.v("SET GAS CONSUMPTION = " + gasConsumption, "TROLLOLOLOLOLOL");
                     domainFacade.setGasConsumption(gasConsumption);
                 }
                 if (standardList == null) {
                     domainFacade.setStandardList(null);
                 } else if (standardList != null) {
-                    Log.v("SET STANDARD SIZE = " + standardList.size(), "TROLLOLOLOLOLOL");
                     domainFacade.setStandardList(standardList);
                 }
+                Context context = getApplicationContext();
+                CharSequence text = "Inställningar sparade!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
                 Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                 startActivityForResult(myIntent, 0);
             }
