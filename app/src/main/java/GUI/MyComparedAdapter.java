@@ -20,8 +20,8 @@ import domainFacade.DomainFacade;
  */
 
 public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
-    private ArrayList<String> nameList = new ArrayList<String>();
-    private ArrayList<String> priceList = new ArrayList<String>();
+    private ArrayList<String> nameList;
+    private ArrayList<String> priceList;
     private Context context;
     private DomainFacade domainFacade;
     private String[] storeList;
