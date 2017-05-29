@@ -1,6 +1,7 @@
 package GUI;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -51,17 +52,19 @@ public class NewListsActivity extends Activity {
 
             setContentView(R.layout.activity_addproduct);
 
+            ListView listView = (ListView) findViewById(R.id.myList_ListView);
+            MyCustomAdapter adapter1 = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
+            listView.setAdapter(adapter1);
+
+            //TODO denna funkar inte- malte är med o fixar //Hannes
             TextView listName = (TextView) findViewById(R.id.listName);
             listName.setText(domainFacade.getListName());
 
-            //productAutoFill = new ArrayList<>();
             productAutoFill = domainFacade.getProductList();
-
-            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
+            adapter =new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
 
             ArrayList<String> templist = new ArrayList<>();
             final AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProductNew_actv);
-            ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
             productInput.setThreshold(2);
             productInput.setAdapter(adapter);
             productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,42 +82,15 @@ public class NewListsActivity extends Activity {
 
                 }
             });
-            String product = "";
-            if(!productInput.getText().toString().isEmpty()) {
-                product = productInput.getText().toString();
-                templist.add(product);
-            }
-
-            ListView listView = (ListView) findViewById(R.id.myList_ListView);
-
-            MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
-            listView.setAdapter(adapter);
 
             Button compareList = (Button) findViewById(R.id.compareList_Button);
-
-        /*
-        Button compareList = (Button) findViewById(R.id.compareList_Button);
-        compareList.setOnClickListener(new View.OnClickListener()
-
-        {
-            @Override
-            public void onClick (View v){
-                comparedList = templist;
-                setActiveView("compared");
-                compared(templist);
-            }
-        });
+            compareList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ComparedActivity comparedActivity = new ComparedActivity();
+                    Intent myIntent = new Intent(v.getContext(), ComparedActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
+            });
     }
-
-    public void compared(ArrayList<String> comparedList){
-
-        /*productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Object item = parent.getItemAtPosition(position);
-                productAutoFill.add(item.toString());
-            }
-        });*/
-        }
-
 }

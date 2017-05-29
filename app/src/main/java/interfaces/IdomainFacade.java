@@ -3,6 +3,7 @@ package interfaces;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import domainFacade.DomainFacade;
 import domain.MyList;
@@ -32,6 +33,6 @@ public interface IdomainFacade {
     public ArrayList<String> getStandardList();
     public String getListName();
     public void clearStandardList(ArrayList<String> standardList);
-
+    public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map);
     public ArrayList<String> addProduct(String product);
 }

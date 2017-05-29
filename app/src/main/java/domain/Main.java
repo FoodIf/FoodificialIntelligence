@@ -216,4 +216,11 @@ public class Main {
             return productList;
         }
     }
+    public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map) {
+        ArrayList<String> storenPrice = new ArrayList<String>();
+        storenPrice.add("Ica|" + map.get("Ica").get(map.get("Ica").size() - 1));
+        storenPrice.add("Coop|" + map.get("Coop").get(map.get("Coop").size() - 1));
+        storenPrice.add("Citygross|" + map.get("Citygross").get(map.get("Citygross").size() - 1));
+        return storenPrice;
+    }
 }

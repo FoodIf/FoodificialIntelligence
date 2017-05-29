@@ -6,6 +6,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.hannes.foodificialintelligence.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import MyAndroid.MyApplication;
@@ -22,11 +23,11 @@ public class ComparedActivity extends Activity{
 
     private String activeView;
     private DomainFacade domainFacade;
-    private HashMap<String, MyList> comparedLists;
+    private HashMap<String, ArrayList<String>> comparedLists;
 
-    public ComparedActivity(HashMap<String, MyList> comparedLists) {
+    public ComparedActivity() {
         domainFacade = DomainFacade.getInstance();
-        this.comparedLists = comparedLists;
+
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,10 @@ public class ComparedActivity extends Activity{
 
         setContentView(activity_compared);
 
-        ListView listView = (ListView) findViewById(R.id.myList_ListView);
+        ListView listView = (ListView) findViewById(R.id.compareList_ListView);
 
-        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.getSavedStringLists(), MyApplication.getContext());
+
+        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.storeBuilder(comparedLists), MyApplication.getContext());
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

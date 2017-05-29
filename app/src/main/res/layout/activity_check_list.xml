@@ -9,7 +9,8 @@
         android:id="@+id/chosenStore_ListView"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        tools:listitem="@android:layout/simple_list_item_checked" />
+        tools:listitem="@android:layout/simple_list_item_checked"
+        android:layout_weight="0.64" />
 
     <Button
         android:id="@+id/finishedShopping_Button"

@@ -1,6 +1,7 @@
 package GUI;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +28,12 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
 
     public MyComparedAdapter(DomainFacade domainFacade, ArrayList<String> list, Context context) {
         this.nameList =new ArrayList<String>();
+        Log.v("ARRAYSIZE: ", nameList.size() + "NAMELIST");
+
         this.priceList =new ArrayList<String>();
-        splitList(list);
+        Log.v("ARRAYSIZE: ", priceList.size() + "PRICELIST");
+
+        //splitList(list);
         this.domainFacade=domainFacade;
         this.context = context;
     }

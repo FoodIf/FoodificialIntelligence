@@ -18,9 +18,6 @@ import com.example.hannes.foodificialintelligence.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import domain.MyList;
 import domainFacade.DomainFacade;
 
 /**
@@ -45,7 +42,6 @@ public class SettingsActivity extends Activity {
         productAutoFill = new ArrayList<>();
         standardList = domainFacade.getStandardList();
         gasConsumption = domainFacade.getGasConsumption();
-
     }
 
     @Override
@@ -57,9 +53,9 @@ public class SettingsActivity extends Activity {
 
         //Textview för att ställa in bensinförbrukning
         gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
-
         gasComp.setText(Double.toString(domainFacade.getGasConsumption()));
 
+        //Listview för StandardLista med tillhöra adapter för autocomplete
         final ListView standardListView = (ListView) findViewById(R.id.setStandardList_listView);
         standardListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, standardList));
 
@@ -90,7 +86,6 @@ public class SettingsActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Log.v("GASCONSUPTION", "IF BIGGER THAN 0");
                 String temp = gasComp.getText().toString();
                 gasConsumption = Double.parseDouble(temp);
                 domainFacade.setGasConsumption(gasConsumption);

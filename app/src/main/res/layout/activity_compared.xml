@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <ListView
+        android:id="@+id/compareList_ListView"
         android:layout_width="372dp"
         android:layout_height="414dp"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="67dp"
-        android:id="@+id/addedProducts_ListView" />
+        tools:layout_editor_absoluteY="67dp" />
 
 </LinearLayout>

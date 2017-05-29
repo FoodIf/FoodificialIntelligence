@@ -4,6 +4,7 @@ import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import domain.*;
 import interfaces.IdomainFacade;
@@ -110,6 +111,10 @@ public class DomainFacade implements IdomainFacade{
     @Override
     public void clearStandardList(ArrayList<String> standardList){
         user.clearStandardList(standardList);
+    }
+    @Override
+    public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map){
+        return storeBuilder(map);
     }
     @Override
     public ArrayList<String> addProduct(String product){
