@@ -1,6 +1,8 @@
 package GUI;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.hannes.foodificialintelligence.R;
 
@@ -36,5 +38,16 @@ public class ComparedActivity extends Activity{
 
         MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.getSavedStringLists(), MyApplication.getContext());
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                //TODO sätt rätt lista som custom. Lättare att göra när vi vet att vi kan se listorna. - Hannes
+
+
+            }
+        });
     }
 }

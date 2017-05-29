@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.hannes.foodificialintelligence.R;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -97,14 +98,49 @@ public class Main {
         }
         return null;
     }
+    /**
+     *
+     * @return HashMap<String, ArrayList<String>>
+     */
+    public HashMap<String, ArrayList<String>> compareStores(){
+        MyList userList = user.getCurrentlist();
+        HashMap<String, ArrayList<String>> comparedLists = new HashMap<>();
+        ArrayList<String> comparedList = new ArrayList<>();
+
+        for(Chain chain : chainList){
+            for(Store store : chain.getStoreList()){
+                comparedList = compareStoreList(userList, store.getProductList());
+                comparedLists.put(chain.getChainName(), comparedList);
+            }
+        }
+        comparedLists.get("Ica");
+        return comparedLists;
+    }
+    private ArrayList<String> compareStoreList(MyList userList, ArrayList<String> productList){
+        ArrayList<String> comparedList = new ArrayList<>();
+        int intSum = 0;
+        String stringSum = "";
+
+        for(String userProduct : userList.getProducts()){
+            for(String storeProduct : productList){
+                if(storeProduct.contains(userProduct)){
+                    comparedList.add(storeProduct);
+                    intSum += Double.parseDouble(storeProduct.substring(storeProduct.indexOf("|")));
+                }
+            }
+        }
+        stringSum = String.valueOf(intSum);
+        comparedList.add(stringSum);
+        return comparedList;
+    }
 
     /**
      *
-     * @param usedList
-     * @param nearBy
+     * @param //usedList
+     * @param //nearBy
      * @return Ger tillbaka en hashmap med Store name som key och en "Arraylist<String>" där summan av alla varoar är utskrivan på sista raden i Arrayn.
      */
-    public static HashMap<String, ArrayList<String>> storesToComp(MyList usedList, ArrayList<Store> nearBy){
+    /*public static HashMap<String, ArrayList<String>> storesToComp(MyList usedList, ArrayList<Store> nearBy){
         ArrayList<String> newList;
         HashMap<String, ArrayList<String>> sortedStores = new HashMap<String, ArrayList<String>>();
         for (Store list:nearBy){
@@ -138,7 +174,7 @@ public class Main {
             combo[0] = store;
         }
         return combo;
-    }
+    }*/
     public double distance(LatLng latlnguser, LatLng latlngstore) {
         int sizeofearth = 6371;
         double lat1 = latlnguser.latitude;
