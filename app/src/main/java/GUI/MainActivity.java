@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         {
             @Override
             public void onClick (View v){
-                Intent myIntent = new Intent(v.getContext(), test.class);
+                Intent myIntent = new Intent(v.getContext(), MyListsActivity.class);
                 startActivityForResult(myIntent, 0);
         }
         });*/

@@ -9,6 +9,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.hannes.foodificialintelligence.R;
 
@@ -49,6 +50,10 @@ public class NewListsActivity extends Activity {
          */
 
             setContentView(R.layout.activity_addproduct);
+
+            //TODO denna funkar inte- malte är med o fixar //Hannes
+            TextView listName = (TextView) findViewById(R.id.listName);
+            listName.setText(domainFacade.getListName());
 
             //productAutoFill = new ArrayList<>();
             productAutoFill = domainFacade.getProductList();

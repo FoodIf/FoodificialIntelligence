@@ -58,6 +58,24 @@ public class MyListsActivity extends Activity{
              */
 
             setContentView(R.layout.activity_mylists);
+
+
+            ListView listView = (ListView) findViewById(R.id.myList_ListView);
+
+            MyListAdapter adapter = new MyListAdapter(domainFacade, domainFacade.getSavedStringLists(), MyApplication.getContext());
+            listView.setAdapter(adapter);
+
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                    //TODO sätt rätt lista som custom. Lättare att göra när vi vet att vi kan se listorna. - Hannes
+
+
+                }
+            });
             Button newList = (Button) findViewById(R.id.newList_Button);
             newList.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -86,24 +104,6 @@ public class MyListsActivity extends Activity{
 
                 }
             });
-
-            ListView listView = (ListView) findViewById(R.id.myList_ListView);
-
-            MyListAdapter adapter = new MyListAdapter(domainFacade, domainFacade.getSavedStringLists(), MyApplication.getContext());
-            listView.setAdapter(adapter);
-
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-                    //TODO sätt rätt lista som custom. Lättare att göra när vi vet att vi kan se listorna. - Hannes
-
-
-                }
-            });
-
         }
 
 

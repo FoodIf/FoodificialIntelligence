@@ -104,6 +104,10 @@ public class DomainFacade implements IdomainFacade{
         return user.getStandardList();
     }
     @Override
+    public String getListName(){
+        return user.getListName();
+    }
+    @Override
     public void clearStandardList(ArrayList<String> standardList){
         user.clearStandardList(standardList);
     }

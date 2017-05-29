@@ -17,7 +17,7 @@ public class User implements Serializable {
     private String password;
     private double gasConsumption;
     private ArrayList<MyList> savedLists;
-    private ArrayList<String> standardList = new ArrayList<>();
+    private ArrayList<String> standardList;
     private double lat;
     private double lng;
     private MyList currentlist;
@@ -29,6 +29,7 @@ public class User implements Serializable {
         savedLists=new ArrayList<MyList>();
         this.lat=58.40197;
         this.lng=15.57681;
+        standardList = new ArrayList<>();
     }
     public void setNerbyStore(Store store){
         nerByStore.add(store);
@@ -120,17 +121,18 @@ public class User implements Serializable {
     }
 
     private ArrayList<String> convertcurrentlist() {
-        ArrayList<String> stringList=new ArrayList<String>();
-        if(currentlist!=null) {
-            for (int i = 0; i < currentlist.getProducts().size(); i++) {
-                stringList.add(currentlist.getProducts().get(i));
-            }
-        }
-        return stringList;
+        return currentlist.getProducts();
     }
     public void addSavedLists(String name){
         MyList newlist= new MyList(name);
+
+
         savedLists.add(newlist);
         setCurrentList(savedLists.size()-1);
+    }
+
+    public String getListName() {
+        //TODO denna och metoden lite högre upp ska in i MyList o hämta listnamnen
+        return currentlist.getName();
     }
 }
