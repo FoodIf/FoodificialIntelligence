@@ -56,13 +56,17 @@ public class SettingsActivity extends Activity {
 
         //Textview för att ställa in bensinförbrukning
         EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
-        //gasConsumption = Double.parseDouble(gasComp.getText().toString());
-        Double tempdouble = gasConsumption;
-        gasComp.setText(tempdouble.toString());
+        try {
+            String temp = gasComp.getText().toString();
+            gasConsumption = Double.parseDouble(temp);
+            domainFacade.setGasConsumption(gasConsumption);
+        } catch (NumberFormatException e){
+            Log.v("Can't find the value", "Value: " + gasConsumption);
+        }
+        gasComp.setText(Double.toString(gasConsumption));
 
         final ListView standardListView = (ListView) findViewById(R.id.setStandardList_listView);
         standardListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, standardList));
-
 
         //ArrayAdapter för standardlistan
         final AutoCompleteTextView addStandardItem = (AutoCompleteTextView) findViewById(R.id.addStandardProduct_actv);
@@ -92,8 +96,10 @@ public class SettingsActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (gasConsumption <= 0) {
+                    Log.v("GASCONSUPTION", "IF ZERO OR LESS");
                     domainFacade.setGasConsumption(0);
                 } else if (gasConsumption > 0) {
+                    Log.v("GASCONSUMPTION", "IF BIGGER THAN 0");
                     domainFacade.setGasConsumption(gasConsumption);
                 }
                 if (standardList == null) {

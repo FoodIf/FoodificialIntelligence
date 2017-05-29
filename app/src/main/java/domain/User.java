@@ -27,7 +27,6 @@ public class User implements Serializable {
         this.email = email;
         //this.password = password;
         savedLists=new ArrayList<MyList>();
-        gasConsumption = 0;
         this.lat=58.40197;
         this.lng=15.57681;
     }
