@@ -38,6 +38,7 @@ public class SettingsActivity extends Activity {
     private ArrayList<String> productAutoFill;
     private ArrayList<String> standardList = new ArrayList<>();
     private double gasConsumption;
+    EditText gasComp;
 
     public SettingsActivity() {
         domainFacade = DomainFacade.getInstance();
@@ -55,15 +56,9 @@ public class SettingsActivity extends Activity {
         productAutoFill = domainFacade.getProductList();
 
         //Textview för att ställa in bensinförbrukning
-        EditText gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
-        try {
-            String temp = gasComp.getText().toString();
-            gasConsumption = Double.parseDouble(temp);
-            domainFacade.setGasConsumption(gasConsumption);
-        } catch (NumberFormatException e){
-            Log.v("Can't find the value", "Value: " + gasConsumption);
-        }
-        gasComp.setText(Double.toString(gasConsumption));
+        gasComp = (EditText) findViewById(R.id.gasConsumption_EditText);
+
+        gasComp.setText(Double.toString(domainFacade.getGasConsumption()));
 
         final ListView standardListView = (ListView) findViewById(R.id.setStandardList_listView);
         standardListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, standardList));
@@ -84,7 +79,6 @@ public class SettingsActivity extends Activity {
                 standardList.add(selectedItem);
 
                 addStandardItem.setText("");
-                Log.v("ITEMCLICK SIZE ARRAY: " + standardList.size(), "HOLA SENOR");
             }
         });
         /*
@@ -95,13 +89,12 @@ public class SettingsActivity extends Activity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (gasConsumption <= 0) {
-                    Log.v("GASCONSUPTION", "IF ZERO OR LESS");
-                    domainFacade.setGasConsumption(0);
-                } else if (gasConsumption > 0) {
-                    Log.v("GASCONSUMPTION", "IF BIGGER THAN 0");
-                    domainFacade.setGasConsumption(gasConsumption);
-                }
+
+                Log.v("GASCONSUPTION", "IF BIGGER THAN 0");
+                String temp = gasComp.getText().toString();
+                gasConsumption = Double.parseDouble(temp);
+                domainFacade.setGasConsumption(gasConsumption);
+
                 if (standardList == null) {
                     domainFacade.setStandardList(null);
                 } else if (standardList != null) {
