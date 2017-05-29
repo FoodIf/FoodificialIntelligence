@@ -120,13 +120,13 @@ public abstract class Broker {
     }
     public DataTransferObject load(DataTransferObject dto){
         //TODO varför är denna bortmarkerad igen?
-        /*if(cacheMap != null){
+        if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++) {
                 if (cacheMap.get(i).equals(dto)) {
                     return dto;
                 }
             }
-        }*/
+        }
 
             //updateCache(dto);
             dto = getAdress(dto);
