@@ -93,6 +93,7 @@ public class Main {
      * @param userarray
      * @return Ger tillbaka rätt user.
      */
+
     public User compareUserObject(String[] userarray){
         ArrayList<User> userObjectArray = dataFacade.load("userClass", "load");
         for(User user : userObjectArray){

@@ -2,6 +2,7 @@ package GUI;
 
 import android.content.Context;
 import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,17 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
 
         TextView listCostText = (TextView)view.findViewById(R.id.price);
         listCostText.setText(priceList.get(position));
+        listItemText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(v.getContext(), ComparedProductsActvity.class);
+                // TODO skapa getComparedList i domainfacade för att få tag i listan
+
+              //  i.putExtra("lista",); //domainFacade.getComparedList(nameList.get(position)));
+                context.startActivity(i);
+            }
+        });
 
         return view;
     }
