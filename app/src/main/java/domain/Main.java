@@ -47,6 +47,8 @@ public class Main {
         chainList.get(chainList.size()-1).newStore("citygross", "Djurgården 58, 581 28 Linköping", R.drawable.citygrossbild,new LatLng(58.386855,15.588012));
 
 
+        //TODO SPARA ANVÄNDAREN OCH DESS LISTOR VID FÖRÄNDRING I LISTOR
+
         //Temp, ska bort senare. Sparar objekt #GrowAfro.
         /*ArrayList<User> userList = new ArrayList<>();
         userList.add(new User("test@test.se"));

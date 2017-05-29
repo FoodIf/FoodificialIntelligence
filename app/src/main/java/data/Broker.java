@@ -114,12 +114,11 @@ public abstract class Broker {
         return null;
     }
     public DataTransferObject save(DataTransferObject dto){
-        //updateCache(dto);
+        updateCache(dto);
         saveAdress(dto);
         return dto;
     }
     public DataTransferObject load(DataTransferObject dto){
-        //TODO varför är denna bortmarkerad igen?
         if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++) {
                 if (cacheMap.get(i).equals(dto)) {
@@ -128,7 +127,7 @@ public abstract class Broker {
             }
         }
 
-            //updateCache(dto);
+            checkCache(dto.getTag());
             dto = getAdress(dto);
 
         return dto;
