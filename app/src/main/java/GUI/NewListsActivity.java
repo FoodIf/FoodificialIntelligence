@@ -51,7 +51,6 @@ public class NewListsActivity extends Activity {
 
             setContentView(R.layout.activity_addproduct);
 
-            //TODO denna funkar inte- malte är med o fixar //Hannes
             TextView listName = (TextView) findViewById(R.id.listName);
             listName.setText(domainFacade.getListName());
 
@@ -61,7 +60,7 @@ public class NewListsActivity extends Activity {
             adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
 
             ArrayList<String> templist = new ArrayList<>();
-            AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProductNew_actv);
+            final AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProductNew_actv);
             ListView productList = (ListView) findViewById(R.id.addedProducts_ListView);
             productInput.setThreshold(2);
             productInput.setAdapter(adapter);
@@ -70,6 +69,8 @@ public class NewListsActivity extends Activity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String selectedItem = (String) parent.getItemAtPosition(position);
                     int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
+                    domainFacade.addProduct(selectedItem);
+                    productInput.setText("");
                 }
             });
             String product = "";

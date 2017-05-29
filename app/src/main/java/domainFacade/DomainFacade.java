@@ -111,4 +111,8 @@ public class DomainFacade implements IdomainFacade{
     public void clearStandardList(ArrayList<String> standardList){
         user.clearStandardList(standardList);
     }
+    @Override
+    public ArrayList<String> addProduct(String product){
+        return user.addProduct(product);
+    }
 }

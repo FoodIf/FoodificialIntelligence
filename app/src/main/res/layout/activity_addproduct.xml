@@ -7,27 +7,29 @@
         android:id="@+id/listName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_weight="0.02"
-        android:text="Böna"
+        android:layout_marginTop="40dp"
+        android:textSize="40dp"
+        android:textColor="@android:color/holo_purple"
         />
 
     <AutoCompleteTextView
         android:id="@+id/addProductNew_actv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lägg till produkt" />
+        android:hint="Lägg till produkt" />
 
     <ListView
         android:id="@+id/myList_ListView"
         android:layout_width="match_parent"
-        android:layout_height="630dp" />
+        android:layout_height="403dp" />
 
     <Button
         android:id="@+id/compareList_Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_dark"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:text="Jämför priser" />
 
 </LinearLayout>

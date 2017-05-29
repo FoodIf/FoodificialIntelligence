@@ -65,7 +65,7 @@ public class MyListsActivity extends Activity{
             MyListAdapter adapter = new MyListAdapter(domainFacade, domainFacade.getSavedStringLists(), MyApplication.getContext());
             listView.setAdapter(adapter);
 
-
+/*
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -75,7 +75,7 @@ public class MyListsActivity extends Activity{
 
 
                 }
-            });
+            });*/
             Button newList = (Button) findViewById(R.id.newList_Button);
             newList.setOnClickListener(new View.OnClickListener() {
                 @Override

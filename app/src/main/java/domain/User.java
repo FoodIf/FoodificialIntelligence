@@ -23,15 +23,16 @@ public class User implements Serializable {
     private MyList currentlist;
     private ArrayList<Store> nerByStore;
 
-    public User(String email){
+    public User(String email) {
         this.email = email;
         //this.password = password;
-        savedLists=new ArrayList<MyList>();
-        this.lat=58.40197;
-        this.lng=15.57681;
+        savedLists = new ArrayList<MyList>();
+        this.lat = 58.40197;
+        this.lng = 15.57681;
         standardList = new ArrayList<>();
     }
-    public void setNerbyStore(Store store){
+
+    public void setNerbyStore(Store store) {
         nerByStore.add(store);
     }
 
@@ -39,26 +40,32 @@ public class User implements Serializable {
         return nerByStore;
     }
 
-    public void setStandardList(ArrayList<String> standardList){
+    public void setStandardList(ArrayList<String> standardList) {
         this.standardList = standardList;
     }
-    public ArrayList<String> getStandardList(){
+
+    public ArrayList<String> getStandardList() {
         return standardList;
     }
-    public void clearStandardList(ArrayList<String> standardList){
+
+    public void clearStandardList(ArrayList<String> standardList) {
         this.standardList = standardList;
         this.standardList.clear();
     }
-    public void setGasConsumption(double gasConsumption){
+
+    public void setGasConsumption(double gasConsumption) {
         this.gasConsumption = gasConsumption;
     }
-    public double getGasConsumption(){
+
+    public double getGasConsumption() {
         return gasConsumption;
     }
-    public LatLng getLatlnguser(){
 
-        return new LatLng(lat,lng);
+    public LatLng getLatlnguser() {
+
+        return new LatLng(lat, lng);
     }
+
     public String getEmail() {
         return email;
     }
@@ -66,19 +73,23 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public ArrayList<MyList> getSavedLists() {
         return savedLists;
     }
+
     public void setSavedLists(ArrayList<MyList> savedLists) {
         this.savedLists = savedLists;
     }
+
     public ArrayList<String> getSavedStringLists() {
         return convertList(savedLists);
     }
-    public void getSelectedList(String name){
-        for (MyList mylist: savedLists) {
-            if(mylist.getName().equals(name)){
-                currentlist= mylist;
+
+    public void getSelectedList(String name) {
+        for (MyList mylist : savedLists) {
+            if (mylist.getName().equals(name)) {
+                currentlist = mylist;
             }
         }
     }
@@ -89,9 +100,9 @@ public class User implements Serializable {
         return currentlist.getProducts();
     }
 
-    public ArrayList<String> convertList(ArrayList<MyList> mylist){
-        ArrayList<String> stringList=new ArrayList<String>();
-        if(mylist!=null) {
+    public ArrayList<String> convertList(ArrayList<MyList> mylist) {
+        ArrayList<String> stringList = new ArrayList<String>();
+        if (mylist != null) {
             for (int i = 0; i < mylist.size(); i++) {
                 stringList.add(mylist.get(i).getName());
             }
@@ -105,10 +116,11 @@ public class User implements Serializable {
     }
 
     public void setCurrentList(int position) {
-        currentlist=savedLists.get(position);
+        currentlist = savedLists.get(position);
     }
-    public void setNewCurrentList(MyList list){
-        currentlist= list;
+
+    public void setNewCurrentList(MyList list) {
+        currentlist = list;
     }
 
     public MyList getCurrentlist() {
@@ -122,16 +134,22 @@ public class User implements Serializable {
     private ArrayList<String> convertcurrentlist() {
         return currentlist.getProducts();
     }
-    public void addSavedLists(String name){
-        MyList newlist= new MyList(name);
+
+    public void addSavedLists(String name) {
+        MyList newlist = new MyList(name);
         newlist.setProducts(new ArrayList<String>(standardList));
 
         savedLists.add(newlist);
-        setCurrentList(savedLists.size()-1);
+        setCurrentList(savedLists.size() - 1);
     }
 
     public String getListName() {
-        //TODO denna och metoden lite högre upp ska in i MyList o hämta listnamnen
         return currentlist.getName();
     }
+
+    public ArrayList<String> addProduct(String product) {
+        currentlist.addProducts(product);
+        return convertcurrentlist();
+    }
+
 }

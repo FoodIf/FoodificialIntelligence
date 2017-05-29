@@ -32,4 +32,6 @@ public interface IdomainFacade {
     public ArrayList<String> getStandardList();
     public String getListName();
     public void clearStandardList(ArrayList<String> standardList);
+
+    public ArrayList<String> addProduct(String product);
 }
