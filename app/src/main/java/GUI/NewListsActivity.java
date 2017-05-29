@@ -71,6 +71,12 @@ public class NewListsActivity extends Activity {
                     int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
                     domainFacade.addProduct(selectedItem);
                     productInput.setText("");
+
+                    ListView listView = (ListView) findViewById(R.id.myList_ListView);
+
+                    MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
+                    listView.setAdapter(adapter);
+
                 }
             });
             String product = "";

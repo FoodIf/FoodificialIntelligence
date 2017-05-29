@@ -39,15 +39,18 @@ public class Main {
 
         // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1",R.drawable.bildaddress,new LatLng(double,double)));
 
-        chainList.add(new Chain("Ica"));
-        chainList.get(chainList.size()-1).newStore("Ica Alnö", "Raholmsvägen 13, 865 31 Alnö", R.drawable.icabild,new LatLng(62.4288926,17.4171566));
-        chainList.add(new Chain("Coop"));
-        chainList.add(new Chain("Citygross"));
+        chainList.add(new Chain("ica"));
+        chainList.get(chainList.size()-1).newStore("ica", "Raholmsvägen 13, 865 31 Alnö", R.drawable.icabild,new LatLng(62.4288926,17.4171566));
+        chainList.add(new Chain("coop"));
+        chainList.get(chainList.size()-1).newStore("coop", "Tornby 7, 582 31 Linköping", R.drawable.coopbild,new LatLng(58.432222,15.590758));
+        chainList.add(new Chain("citygross"));
+        chainList.get(chainList.size()-1).newStore("citygross", "Djurgården 58, 581 28 Linköping", R.drawable.citygrossbild,new LatLng(58.386855,15.588012));
+
 
         //Temp, ska bort senare. Sparar objekt #GrowAfro.
-        ArrayList<User> userList = new ArrayList<>();
+        /*ArrayList<User> userList = new ArrayList<>();
         userList.add(new User("test@test.se"));
-        dataFacade.save("userClass", "save", userList);
+        dataFacade.save("userClass", "save", userList);*/
 
 
       //Temp, ska bort senare. Hämtar objekt. #GrowAfro.

@@ -26,4 +26,7 @@ public class Chain {
     public ArrayList<Store> getStoreList(){
         return stores;
     }
+    public ArrayList<String> getProductList(int position){
+        return stores.get(position).getProductList();
+    }
 }

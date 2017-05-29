@@ -29,7 +29,6 @@ import domain.User;
 
 public abstract class Broker {
 
-    //TODO skapa hashmapen nedan sen när problem med scannern är löst
     private HashMap<String,DataTransferObject> cacheMap = new HashMap<>();
 
     public Broker(){
@@ -65,15 +64,12 @@ public abstract class Broker {
             FileInputStream inputStream = context.openFileInput(file);
             ObjectInputStream input = new ObjectInputStream(inputStream);
 
-            Log.v("hej", "Det funkar4");
 
             dto.setValues((ArrayList<User>)(input.readObject()));
-            Log.v("hej", "Det funkar5");
             dto.setState("used");
             inputStream.close();
             input.close();
             User user = (User)dto.getValues().get(0);
-            Log.v(user.getEmail(), "Det funkar");
             return dto;
 
         }catch(IOException | ClassNotFoundException ex){
@@ -123,6 +119,7 @@ public abstract class Broker {
         return dto;
     }
     public DataTransferObject load(DataTransferObject dto){
+        //TODO varför är denna bortmarkerad igen?
         /*if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++) {
                 if (cacheMap.get(i).equals(dto)) {
