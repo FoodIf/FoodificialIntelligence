@@ -38,7 +38,7 @@ public class ComparedActivity extends Activity{
 
         ListView listView = (ListView) findViewById(R.id.compareList_ListView);
 
-
+        //TODO Här någonstans kraschar skiten... Måste lösas.
         MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.storeBuilder(comparedLists), MyApplication.getContext());
         listView.setAdapter(adapter);
 

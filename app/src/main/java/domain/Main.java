@@ -130,7 +130,7 @@ public class Main {
             for(String storeProduct : productList){
                 if(storeProduct.contains(userProduct)){
                     comparedList.add(storeProduct);
-                    intSum += Double.parseDouble(storeProduct.substring(storeProduct.indexOf("|")));
+                    intSum += Double.parseDouble(storeProduct.substring(storeProduct.indexOf("|") +1));
                 }
             }
         }
@@ -217,6 +217,7 @@ public class Main {
         }
     }
     public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map) {
+        Log.v("HASHMAP STOREBUILDER", "STRL" + map.size());
         ArrayList<String> storenPrice = new ArrayList<String>();
         storenPrice.add("Ica|" + map.get("Ica").get(map.get("Ica").size() - 1));
         storenPrice.add("Coop|" + map.get("Coop").get(map.get("Coop").size() - 1));
