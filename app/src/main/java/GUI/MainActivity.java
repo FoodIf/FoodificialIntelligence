@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
                 startActivityForResult(myIntent, 0);
         }
         });
-        /*Button allLists = (Button) findViewById(R.id.myLists_Button);
+        Button allLists = (Button) findViewById(R.id.myLists_Button);
                 allLists.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
                 Intent myIntent = new Intent(v.getContext(), MyListsActivity.class);
                 startActivityForResult(myIntent, 0);
         }
-        });*/
+        });
 
     }
 }

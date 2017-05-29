@@ -40,7 +40,6 @@ public class User implements Serializable {
     }
 
     public void setStandardList(ArrayList<String> standardList){
-        Log.v("SETSTANDARDLIST I USER", "SIZE" + standardList.size());
         this.standardList = standardList;
     }
     public ArrayList<String> getStandardList(){
@@ -125,7 +124,7 @@ public class User implements Serializable {
     }
     public void addSavedLists(String name){
         MyList newlist= new MyList(name);
-
+        newlist.setProducts(new ArrayList<String>(standardList));
 
         savedLists.add(newlist);
         setCurrentList(savedLists.size()-1);
