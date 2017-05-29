@@ -27,6 +27,7 @@ public class ComparedActivity extends Activity{
 
     public ComparedActivity() {
         domainFacade = DomainFacade.getInstance();
+        comparedLists = domainFacade.compareStores();
 
     }
     @Override

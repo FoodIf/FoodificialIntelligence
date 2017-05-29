@@ -118,7 +118,6 @@ public class Main {
                 comparedLists.put(chain.getChainName(), comparedList);
             }
         }
-        comparedLists.get("Ica");
         return comparedLists;
     }
     private ArrayList<String> compareStoreList(MyList userList, ArrayList<String> productList){

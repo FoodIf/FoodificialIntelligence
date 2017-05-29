@@ -35,4 +35,5 @@ public interface IdomainFacade {
     public void clearStandardList(ArrayList<String> standardList);
     public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map);
     public ArrayList<String> addProduct(String product);
+    public HashMap<String, ArrayList<String>> compareStores();
 }

@@ -1,5 +1,4 @@
 package domainFacade;
-import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -114,10 +113,14 @@ public class DomainFacade implements IdomainFacade{
     }
     @Override
     public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map){
-        return storeBuilder(map);
+        return main.storeBuilder(map);
     }
     @Override
     public ArrayList<String> addProduct(String product){
         return user.addProduct(product);
+    }
+    @Override
+    public HashMap<String, ArrayList<String>> compareStores(){
+        return main.compareStores();
     }
 }
