@@ -135,7 +135,7 @@ public class Main {
             }
         }
         stringSum = String.valueOf(intSum);
-        comparedList.add(stringSum);
+        comparedList.add(stringSum + " kr");
         return comparedList;
     }
 
