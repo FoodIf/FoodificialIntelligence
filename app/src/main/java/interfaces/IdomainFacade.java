@@ -36,4 +36,6 @@ public interface IdomainFacade {
     public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map);
     public ArrayList<String> addProduct(String product);
     public HashMap<String, ArrayList<String>> compareStores();
+    public String getProductListKey();
+    public void setProductListKey(String key);
 }

@@ -34,7 +34,7 @@ public class ComparedActivity extends Activity{
         domainFacade = DomainFacade.getInstance();
         comparedLists = domainFacade.compareStores();
         chosenStore = new ChosenStoreActivity();
-
+        Log.v("ComparedActivity", String.valueOf(comparedLists.size()));
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,11 +52,12 @@ public class ComparedActivity extends Activity{
 
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 int pos = Arrays.asList(domainFacade.storeBuilder(comparedLists)).indexOf(selectedItem);
-                Log.v("PRINTER: ", "VÄRDE " + comparedLists.get(selectedItem));
+                /*Log.v("PRINTER: ", "VÄRDE " + comparedLists.get(selectedItem));
                 Log.v("SIZE: ", "" + comparedLists.size());
-                Log.v("SELECTED ITEM: ", "VÄRDE: " + selectedItem);
+                Log.v("SELECTED ITEM: ", "VÄRDE: " + selectedItem);*/
+                domainFacade.setProductListKey(selectedItem);
 
-                chosenStore = new ChosenStoreActivity(comparedLists.get(selectedItem));
+                chosenStore = new ChosenStoreActivity(/*comparedLists.get(selectedItem)*/);
                 Intent myIntent = new Intent(view.getContext(), ChosenStoreActivity.class);
                 startActivityForResult(myIntent, 0);
 

@@ -74,7 +74,7 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
 
         TextView listCostText = (TextView)view.findViewById(R.id.price);
         listCostText.setText(priceList.get(position));
-        listItemText.setOnClickListener(new View.OnClickListener() {
+    /*    listItemText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -84,7 +84,7 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
               //  i.putExtra("lista",); //domainFacade.getComparedList(nameList.get(position)));
                 context.startActivity(i);
             }
-        });
+        });*/
 
         return view;
     }

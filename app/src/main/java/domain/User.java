@@ -22,6 +22,7 @@ public class User implements Serializable {
     private double lng;
     private MyList currentlist;
     private ArrayList<Store> nerByStore;
+    private String productListKey;
 
     public User(String email) {
         this.email = email;
@@ -150,6 +151,12 @@ public class User implements Serializable {
     public ArrayList<String> addProduct(String product) {
         currentlist.addProducts(product);
         return convertcurrentlist();
+    }
+    public void setProductListKey(String key){
+        productListKey = key;
+    }
+    public String getProductListKey(){
+        return productListKey;
     }
 
 }

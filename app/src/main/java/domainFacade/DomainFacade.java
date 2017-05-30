@@ -123,4 +123,14 @@ public class DomainFacade implements IdomainFacade{
     public HashMap<String, ArrayList<String>> compareStores(){
         return main.compareStores();
     }
+
+    @Override
+    public String getProductListKey() {
+        return user.getProductListKey();
+    }
+
+    @Override
+    public void setProductListKey(String key) {
+        user.setProductListKey(key);
+    }
 }

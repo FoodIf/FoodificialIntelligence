@@ -25,19 +25,14 @@ public class ChosenStoreActivity extends Activity {
     private DomainFacade domainFacade;
     private HashMap<String, ArrayList<String>> comparedLists;
     private ArrayList<String> storeList;
+    private String key;
+
 
     public ChosenStoreActivity(){
-
-    }
-    public ChosenStoreActivity(ArrayList<String> storeList) {
         domainFacade = DomainFacade.getInstance();
         comparedLists = domainFacade.compareStores();
-        this.storeList = storeList;
-        //Log.v("CHOSENSTORELIST: ", "SIZE: " + storeList.get(0));
-        Log.v("CHOSENSTORELIST: ", "CONTENT: " + this.storeList);
-
+        key = domainFacade.getProductListKey();
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +40,7 @@ public class ChosenStoreActivity extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.chosenStore_ListView);
 
-        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, this.storeList, MyApplication.getContext());
+        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, comparedLists.get(key), MyApplication.getContext());
         listView.setAdapter(adapter);
     }
 
