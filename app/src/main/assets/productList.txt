@@ -1,7 +1,5 @@
 Ketchup Heinz
-Ketchup Felix
 Tomater
-Tomatpuré
 Mellanmjölk
 Smör
 Kycklingfilé
@@ -10,7 +8,6 @@ Blåbär
 Kalles Kaviar
 Snickers
 Ost
-Filmjölk
 Lax
 Bröd
 Falukorv
@@ -18,5 +15,4 @@ Gifflar
 Bearnaise
 Toalettpapper
 Chips
-Grill
 Bregott
