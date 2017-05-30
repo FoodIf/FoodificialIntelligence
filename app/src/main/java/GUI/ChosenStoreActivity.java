@@ -24,7 +24,7 @@ public class ChosenStoreActivity extends Activity {
 
     private DomainFacade domainFacade;
     private HashMap<String, ArrayList<String>> comparedLists;
-    private ArrayList<String> storeList;
+    private ArrayList<String> storeProductList;
     private String key;
 
 
@@ -39,6 +39,10 @@ public class ChosenStoreActivity extends Activity {
         setContentView(activity_check_list);
 
         ListView listView = (ListView) findViewById(R.id.chosenStore_ListView);
+
+        storeProductList = comparedLists.get(key);
+        int size = storeProductList.size()-1;
+        storeProductList.remove(size);
 
         MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, comparedLists.get(key), MyApplication.getContext());
         listView.setAdapter(adapter);
