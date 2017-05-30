@@ -129,7 +129,7 @@ public class Main {
         for(String userProduct : userList.getProducts()){
             for(String storeProduct : productList){
                 if(storeProduct.contains(userProduct)){
-                    comparedList.add(storeProduct);
+                    comparedList.add(storeProduct + " kr");
                     intSum += Double.parseDouble(storeProduct.substring(storeProduct.indexOf("|") +1));
                 }
             }
