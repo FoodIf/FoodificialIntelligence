@@ -1,12 +1,15 @@
 package GUI;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.example.hannes.foodificialintelligence.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import MyAndroid.MyApplication;
@@ -28,6 +31,7 @@ public class ComparedActivity extends Activity{
     public ComparedActivity() {
         domainFacade = DomainFacade.getInstance();
         comparedLists = domainFacade.compareStores();
+        Log.v("DOMFACADE COMPSTORE", "SIZE: " + domainFacade.compareStores().size());
 
     }
     @Override
@@ -38,16 +42,15 @@ public class ComparedActivity extends Activity{
 
         ListView listView = (ListView) findViewById(R.id.compareList_ListView);
 
-        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.storeBuilder(comparedLists), MyApplication.getContext());
-        listView.setAdapter(adapter);
-
+        //MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.storeBuilder(comparedLists), MyApplication.getContext());
+        //listView.setAdapter(adapter);
+        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, domainFacade.storeBuilder(comparedLists)));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-                //TODO sätt rätt lista som custom. Lättare att göra när vi vet att vi kan se listorna. - Hannes
-
+                String selectedItem = (String) parent.getItemAtPosition(position);
+                int pos = Arrays.asList(domainFacade.storeBuilder(comparedLists)).indexOf(selectedItem);
 
             }
         });

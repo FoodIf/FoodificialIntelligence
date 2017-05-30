@@ -34,7 +34,7 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
         this.priceList =new ArrayList<String>();
         Log.v("ARRAYSIZE: ", priceList.size() + "PRICELIST");
 
-        //splitList(list);
+        splitList(list);
         this.domainFacade=domainFacade;
         this.context = context;
     }

@@ -217,11 +217,10 @@ public class Main {
         }
     }
     public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map) {
-        Log.v("HASHMAP STOREBUILDER", "STRL" + map.size());
-        ArrayList<String> storenPrice = new ArrayList<String>();
-        storenPrice.add("ica|" + map.get("ica").get(map.get("ica").size() - 1));
-        storenPrice.add("coop|" + map.get("coop").get(map.get("coop").size() - 1));
-        storenPrice.add("citygross|" + map.get("citygross").get(map.get("citygross").size() - 1));
-        return storenPrice;
+        ArrayList<String> storePrice = new ArrayList<String>();
+        storePrice.add("Ica|" + map.get("ica").get(map.get("ica").size() - 1));
+        storePrice.add("Coop|" + map.get("coop").get(map.get("coop").size() - 1));
+        storePrice.add("Citygross|" + map.get("citygross").get(map.get("citygross").size() - 1));
+        return storePrice;
     }
 }
