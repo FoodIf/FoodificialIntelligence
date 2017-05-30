@@ -50,9 +50,9 @@ public class Main {
         //TODO SPARA ANVÄNDAREN OCH DESS LISTOR VID FÖRÄNDRING I LISTOR
 
         //Temp, ska bort senare. Sparar objekt #GrowAfro.
-        /*ArrayList<User> userList = new ArrayList<>();
+        ArrayList<User> userList = new ArrayList<>();
         userList.add(new User("test@test.se"));
-        dataFacade.save("userClass", "save", userList);*/
+        dataFacade.save("userClass", "save", userList);
 
 
       //Temp, ska bort senare. Hämtar objekt. #GrowAfro.
@@ -219,9 +219,9 @@ public class Main {
     public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map) {
         Log.v("HASHMAP STOREBUILDER", "STRL" + map.size());
         ArrayList<String> storenPrice = new ArrayList<String>();
-        storenPrice.add("Ica|" + map.get("Ica").get(map.get("Ica").size() - 1));
-        storenPrice.add("Coop|" + map.get("Coop").get(map.get("Coop").size() - 1));
-        storenPrice.add("Citygross|" + map.get("Citygross").get(map.get("Citygross").size() - 1));
+        storenPrice.add("ica|" + map.get("ica").get(map.get("ica").size() - 1));
+        storenPrice.add("coop|" + map.get("coop").get(map.get("coop").size() - 1));
+        storenPrice.add("citygross|" + map.get("citygross").get(map.get("citygross").size() - 1));
         return storenPrice;
     }
 }

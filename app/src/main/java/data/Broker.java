@@ -29,17 +29,16 @@ import domain.User;
 
 public abstract class Broker {
 
-    //TODO skapa hashmapen nedan sen när problem med scannern är löst
-    private HashMap<String,DataTransferObject> cacheMap = new HashMap<>();
+    private HashMap<String,DataTransferObject> cacheMap;
 
     public Broker(){
+        cacheMap = new HashMap<>();
     }
     /**
      * Sök i databasen efter input värde och skicka tillbaka en DTO med Arraylist över detalagret.
      * @param dto, file
      */
     public DataTransferObject searchDatabase(DataTransferObject dto, String file){
-        Log.v("På plats i Broker", " SEARCH DATABASE-metoden");
         ArrayList<String> databaseList = new ArrayList<>();
         MyApplication myapplication;
         try {
@@ -122,8 +121,10 @@ public abstract class Broker {
     public DataTransferObject load(DataTransferObject dto){
         if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++) {
-                if (cacheMap.get(i).equals(dto)) {
-                    return dto;
+                if(cacheMap.get(i)!=null) {
+                  if (cacheMap.get(i).getTag().equals(dto.getTag())) {
+                       return cacheMap.get(i);
+                  }
                 }
             }
         }
