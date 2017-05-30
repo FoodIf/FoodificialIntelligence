@@ -1,5 +1,6 @@
 package GUI;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,11 +28,12 @@ public class ComparedActivity extends Activity{
     private String activeView;
     private DomainFacade domainFacade;
     private HashMap<String, ArrayList<String>> comparedLists;
+    private ChosenStoreActivity chosenStore;
 
     public ComparedActivity() {
         domainFacade = DomainFacade.getInstance();
         comparedLists = domainFacade.compareStores();
-        Log.v("DOMFACADE COMPSTORE", "SIZE: " + domainFacade.compareStores().size());
+        chosenStore = new ChosenStoreActivity();
 
     }
     @Override
@@ -42,15 +44,22 @@ public class ComparedActivity extends Activity{
 
         ListView listView = (ListView) findViewById(R.id.compareList_ListView);
 
-        //MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.storeBuilder(comparedLists), MyApplication.getContext());
-        //listView.setAdapter(adapter);
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, domainFacade.storeBuilder(comparedLists)));
+        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, domainFacade.storeBuilder(comparedLists), MyApplication.getContext());
+        listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 int pos = Arrays.asList(domainFacade.storeBuilder(comparedLists)).indexOf(selectedItem);
+                Log.v("PRINTER: ", "VÄRDE " + comparedLists.get(selectedItem));
+                Log.v("SIZE: ", "" + comparedLists.size());
+                Log.v("SELECTED ITEM: ", "VÄRDE: " + selectedItem);
+
+                chosenStore = new ChosenStoreActivity(comparedLists.get(selectedItem));
+                Intent myIntent = new Intent(view.getContext(), ComparedActivity.class);
+                startActivityForResult(myIntent, 0);
+
 
             }
         });
