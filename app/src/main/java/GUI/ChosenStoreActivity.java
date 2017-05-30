@@ -2,6 +2,7 @@ package GUI;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.example.hannes.foodificialintelligence.R;
@@ -32,6 +33,8 @@ public class ChosenStoreActivity extends Activity {
         domainFacade = DomainFacade.getInstance();
         comparedLists = domainFacade.compareStores();
         this.storeList = storeList;
+        //Log.v("CHOSENSTORELIST: ", "SIZE: " + storeList.get(0));
+        Log.v("CHOSENSTORELIST: ", "CONTENT: " + this.storeList);
 
     }
 
@@ -42,7 +45,7 @@ public class ChosenStoreActivity extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.chosenStore_ListView);
 
-        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, storeList, MyApplication.getContext());
+        MyComparedAdapter adapter = new MyComparedAdapter(domainFacade, this.storeList, MyApplication.getContext());
         listView.setAdapter(adapter);
     }
 

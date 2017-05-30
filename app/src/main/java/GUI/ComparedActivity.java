@@ -57,7 +57,7 @@ public class ComparedActivity extends Activity{
                 Log.v("SELECTED ITEM: ", "VÄRDE: " + selectedItem);
 
                 chosenStore = new ChosenStoreActivity(comparedLists.get(selectedItem));
-                Intent myIntent = new Intent(view.getContext(), ComparedActivity.class);
+                Intent myIntent = new Intent(view.getContext(), ChosenStoreActivity.class);
                 startActivityForResult(myIntent, 0);
 
 

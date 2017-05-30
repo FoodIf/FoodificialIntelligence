@@ -29,10 +29,10 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
 
     public MyComparedAdapter(DomainFacade domainFacade, ArrayList<String> list, Context context) {
         this.nameList =new ArrayList<String>();
-        Log.v("ARRAYSIZE: ", nameList.size() + "NAMELIST");
+        Log.v("ARRAYSIZE: ", list.size() + "STRL");
 
         this.priceList =new ArrayList<String>();
-        Log.v("ARRAYSIZE: ", priceList.size() + "PRICELIST");
+        Log.v("ARRAYSIZE: ", list + "CONTENT");
 
         splitList(list);
         this.domainFacade=domainFacade;
@@ -78,7 +78,7 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(v.getContext(), ComparedProductsActvity.class);
+                Intent i = new Intent(v.getContext(), ChosenStoreActivity.class);
                 // TODO skapa getComparedList i domainfacade för att få tag i listan
 
               //  i.putExtra("lista",); //domainFacade.getComparedList(nameList.get(position)));

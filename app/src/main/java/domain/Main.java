@@ -176,9 +176,9 @@ public class Main {
     }
     public ArrayList<String> storeBuilder(HashMap<String, ArrayList<String>> map) {
         ArrayList<String> storePrice = new ArrayList<String>();
-        storePrice.add("Ica|" + map.get("ica").get(map.get("ica").size() - 1));
-        storePrice.add("Coop|" + map.get("coop").get(map.get("coop").size() - 1));
-        storePrice.add("Citygross|" + map.get("citygross").get(map.get("citygross").size() - 1));
+        storePrice.add("ica|" + map.get("ica").get(map.get("ica").size() - 1));
+        storePrice.add("coop|" + map.get("coop").get(map.get("coop").size() - 1));
+        storePrice.add("citygross|" + map.get("citygross").get(map.get("citygross").size() - 1));
         return storePrice;
     }
 }
