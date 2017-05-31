@@ -17,7 +17,7 @@ public class StoreBroker extends Broker {
             case "coop": dto = searchDatabase(dto, "productsCoop.txt");
                 break;
             case "citygross": dto = searchDatabase(dto, "productsCityGross.txt");
-            }
+        }
         return dto;
     }
     @Override

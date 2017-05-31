@@ -14,18 +14,18 @@ public class MyApplication extends Application {
         return ourInstance;
     }
 
-        private static Context context;
+    private static Context context;
 
-        @Override
-        public void onCreate(){
-            super.onCreate();
-            this.context=getApplicationContext();
-        }
+    @Override
+    public void onCreate(){
+        super.onCreate();
+        this.context=getApplicationContext();
+    }
 
-        public static Context getContext() {
-            //  return instance.getApplicationContext();
-            return context;
-        }
+    public static Context getContext() {
+        //  return instance.getApplicationContext();
+        return context;
+    }
 
 
     public static void setContext(Context contxt) {

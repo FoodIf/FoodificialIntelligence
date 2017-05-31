@@ -18,8 +18,6 @@ public class MyList implements Serializable{
     private String date;
     private ArrayList <String> products;
 
-
-
     public MyList(String name) {
         this.name = name;
         this.date = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());

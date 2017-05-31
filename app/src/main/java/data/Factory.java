@@ -1,9 +1,5 @@
 package data;
 
-import android.provider.ContactsContract;
-import android.util.Log;
-
-import java.util.ArrayList;
 
 import interfaces.Ifactory;
 

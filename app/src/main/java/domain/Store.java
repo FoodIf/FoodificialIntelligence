@@ -1,6 +1,5 @@
 package domain;
 
-import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 

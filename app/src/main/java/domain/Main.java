@@ -1,23 +1,13 @@
 package domain;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.hannes.foodificialintelligence.R;
 import com.google.android.gms.maps.model.LatLng;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import GUI.LoginActivity;
-import GUI.MainActivity;
-import MyAndroid.MyApplication;
 import dataFacade.DataFacade;
-import domainFacade.DomainFacade;
 
 /**
  * Created by olle_ on 2017-04-27.
@@ -29,15 +19,11 @@ public class Main {
     private ArrayList<Store> storeList;
     private ArrayList<Chain> chainList;
     private ArrayList<String> productList;
-    private String activeView;
 
     public Main() {
         this.dataFacade = DataFacade.getInstance();
-        //this.user = new User();
         this.storeList = new ArrayList<>();
         this.chainList = new ArrayList<>();
-
-        // storeList.add(new Store("Rogers Livs", "Pillesnoppvägen 1",R.drawable.bildaddress,new LatLng(double,double)));
 
         chainList.add(new Chain("ica"));
         chainList.get(chainList.size()-1).newStore("ica", "Raholmsvägen 13, 865 31 Alnö", R.drawable.icabild,new LatLng(62.4288926,17.4171566));
@@ -45,33 +31,10 @@ public class Main {
         chainList.get(chainList.size()-1).newStore("coop", "Tornby 7, 582 31 Linköping", R.drawable.coopbild,new LatLng(58.432222,15.590758));
         chainList.add(new Chain("citygross"));
         chainList.get(chainList.size()-1).newStore("citygross", "Djurgården 58, 581 28 Linköping", R.drawable.citygrossbild,new LatLng(58.386855,15.588012));
-
-
-        //TODO SPARA ANVÄNDAREN OCH DESS LISTOR VID FÖRÄNDRING I LISTOR
-
-        //Temp, ska bort senare. Sparar objekt #GrowAfro.
-        /*ArrayList<User> userList = new ArrayList<>();
-        userList.add(new User("test@test.se"));
-        dataFacade.save("userClass", "save", userList);*/
-
-
-      //Temp, ska bort senare. Hämtar objekt. #GrowAfro.
-        /*ArrayList<User> test = dataFacade.load("userClass", "load");
-        User user = (User)test.get(0);*/
     }
 
     public static void main(String[] args){
         new Main();
-
-    
-    }
-    public boolean compareEmail(String email){
-        //dataFacade.load("login", "load");
-        return true;
-    }
-    public boolean comparePassword(String password){
-
-        return true;
     }
     public boolean compareUser(String password, String email){
         ArrayList<String> compare=dataFacade.load("user", "load");
@@ -152,7 +115,6 @@ public class Main {
                 * Math.sin(dLon / 2);
 
         double c = 2 * Math.asin(Math.sqrt(a));
-
 
         return sizeofearth * c;
     }

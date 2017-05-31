@@ -24,14 +24,6 @@ public class DomainFacade implements IdomainFacade{
         return instance;
     }
     @Override
-    public boolean compareEmail(String email){
-        return main.compareEmail(email);
-    }
-    @Override
-    public boolean comparePassword(String password){
-        return main.comparePassword(password);
-    }
-    @Override
     public boolean compareUser(String password, String email){
         Boolean compareuser=main.compareUser(password, email);
         if(compareuser){

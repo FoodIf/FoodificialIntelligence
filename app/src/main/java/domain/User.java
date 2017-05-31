@@ -1,11 +1,7 @@
 package domain;
 
-import android.util.Log;
-
 import com.google.android.gms.maps.model.LatLng;
-
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -26,7 +22,6 @@ public class User implements Serializable {
 
     public User(String email) {
         this.email = email;
-        //this.password = password;
         savedLists = new ArrayList<MyList>();
         this.lat = 58.40197;
         this.lng = 15.57681;

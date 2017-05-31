@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import MyAndroid.MyApplication;
-import domain.MyList;
 import domainFacade.DomainFacade;
 
 /**
@@ -33,73 +31,73 @@ public class NewListsActivity extends Activity {
      * Created by Hannes on 2017-04-27.
      */
 
-        private DomainFacade domainFacade;
-        private ArrayAdapter<String> adapter;
-        private ArrayList<String> productAutoFill;
+    private DomainFacade domainFacade;
+    private ArrayAdapter<String> adapter;
+    private ArrayList<String> productAutoFill;
 
-        public NewListsActivity() {
-            domainFacade = DomainFacade.getInstance();
-            productAutoFill = new ArrayList<>();
-        }
+    public NewListsActivity() {
+        domainFacade = DomainFacade.getInstance();
+        productAutoFill = new ArrayList<>();
+    }
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
 
         /**
          * Hanterar skapandet av en ny lista, och visar vyn activity_addproducts.
          */
 
-            setContentView(R.layout.activity_addproduct);
+        setContentView(R.layout.activity_addproduct);
 
-            ListView listView = (ListView) findViewById(R.id.myList_ListView);
-            MyCustomAdapter adapter1 = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
-            listView.setAdapter(adapter1);
+        ListView listView = (ListView) findViewById(R.id.myList_ListView);
+        MyCustomAdapter adapter1 = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
+        listView.setAdapter(adapter1);
 
-            TextView listName = (TextView) findViewById(R.id.listName);
-            listName.setText(domainFacade.getListName());
+        TextView listName = (TextView) findViewById(R.id.listName);
+        listName.setText(domainFacade.getListName());
 
-            productAutoFill = domainFacade.getProductList();
-            adapter =new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
+        productAutoFill = domainFacade.getProductList();
+        adapter =new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productAutoFill);
 
-            ArrayList<String> templist = new ArrayList<>();
-            final AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProductNew_actv);
-            productInput.setThreshold(2);
-            productInput.setAdapter(adapter);
-            productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String selectedItem = (String) parent.getItemAtPosition(position);
-                    int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
-                    domainFacade.addProduct(selectedItem);
-                    productInput.setText("");
+        ArrayList<String> templist = new ArrayList<>();
+        final AutoCompleteTextView productInput = (AutoCompleteTextView) findViewById(R.id.addProductNew_actv);
+        productInput.setThreshold(2);
+        productInput.setAdapter(adapter);
+        productInput.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = (String) parent.getItemAtPosition(position);
+                int pos = Arrays.asList(productAutoFill).indexOf(selectedItem);
+                domainFacade.addProduct(selectedItem);
+                productInput.setText("");
 
-                    ListView listView = (ListView) findViewById(R.id.myList_ListView);
+                ListView listView = (ListView) findViewById(R.id.myList_ListView);
 
-                    MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
-                    listView.setAdapter(adapter);
+                MyCustomAdapter adapter = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
+                listView.setAdapter(adapter);
 
-                }
-            });
+            }
+        });
 
-            Button compareList = (Button) findViewById(R.id.compareList_Button);
-            compareList.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ComparedActivity comparedActivity = new ComparedActivity();
-                    Intent myIntent = new Intent(v.getContext(), ComparedActivity.class);
-                    startActivityForResult(myIntent, 0);
-                }
-            });
-            FloatingActionButton back = (FloatingActionButton) findViewById(R.id.backbtn);
-            back.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    Intent myIntent;
-                    myIntent = new Intent(v.getContext(), MyListsActivity.class);
-                    startActivityForResult(myIntent, 0);
-                }
-            });
+        Button compareList = (Button) findViewById(R.id.compareList_Button);
+        compareList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ComparedActivity comparedActivity = new ComparedActivity();
+                Intent myIntent = new Intent(v.getContext(), ComparedActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+        FloatingActionButton back = (FloatingActionButton) findViewById(R.id.backbtn);
+        back.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent myIntent;
+                myIntent = new Intent(v.getContext(), MyListsActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
     }
 }

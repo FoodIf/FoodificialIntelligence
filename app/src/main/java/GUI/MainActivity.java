@@ -25,30 +25,30 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
 
-    /**
-     * Hanterar navigeringsmenyn efter inlogg.
-     */
+        /**
+         * Hanterar navigeringsmenyn efter inlogg.
+         */
 
         setContentView(R.layout.activity_mainactivity);
 
         Button openSettings = (Button) findViewById(R.id.goToSettings_Button);
-                openSettings.setOnClickListener(new View.OnClickListener()
+        openSettings.setOnClickListener(new View.OnClickListener()
 
         {
             @Override
             public void onClick (View v){
                 Intent myIntent = new Intent(v.getContext(), SettingsActivity.class);
                 startActivityForResult(myIntent, 0);
-        }
+            }
         });
         Button allLists = (Button) findViewById(R.id.myLists_Button);
-                allLists.setOnClickListener(new View.OnClickListener()
+        allLists.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick (View v){
                 Intent myIntent = new Intent(v.getContext(), MyListsActivity.class);
                 startActivityForResult(myIntent, 0);
-        }
+            }
         });
         Button save = (Button) findViewById(R.id.save_btn);
         save.setOnClickListener(new View.OnClickListener()

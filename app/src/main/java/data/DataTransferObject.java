@@ -14,30 +14,30 @@ public class DataTransferObject<E> {
     private ArrayList<E> values;
 
     public DataTransferObject(String tag, String operation){
-         this.tag = tag;
-         this.operation = operation;
-         values = new ArrayList<E>();
-         state = "unused";
+        this.tag = tag;
+        this.operation = operation;
+        values = new ArrayList<E>();
+        state = "unused";
     }
     public String getOperation(){
-         return operation;
-     }
+        return operation;
+    }
     public String getTag(){
-         return tag;
-     }
+        return tag;
+    }
     public String getState(){
-         return state;
-     }
+        return state;
+    }
     public void setValues(ArrayList<E> values){
-         this.values = values;
+        this.values = values;
     }
     public void setState(String state){
-         this.state = state;
+        this.state = state;
     }
     public void addValue(E value){
-         values.add(value);
-     }
+        values.add(value);
+    }
     public ArrayList<E> getValues(){
-         return values;
-     }
+        return values;
+    }
 }

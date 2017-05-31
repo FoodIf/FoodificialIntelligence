@@ -42,7 +42,7 @@ public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
         for (int i =0;i<list.size();i++){
             String[] splitarray = list.get(i).split("\\|");
             nameList.add(splitarray[0]);
-                priceList.add(splitarray[1]);
+            priceList.add(splitarray[1]);
         }
     }
 

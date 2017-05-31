@@ -34,8 +34,6 @@ import com.example.hannes.foodificialintelligence.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import MyAndroid.MyApplication;
 import domainFacade.DomainFacade;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -170,14 +168,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
         }
 
-        // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
@@ -193,12 +189,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
+
             focusView.requestFocus();
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
+
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
@@ -211,7 +205,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         for(String match : matches) {
             if (email.contains(match)) {
                 if(email.contains("@")){
-                    confirmed = domainFacade.compareEmail(email);
+                    confirmed = true;
                     break;
                 }
             }
@@ -223,7 +217,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         //TODO: Replace this with your own logic
         boolean confirmed = false;
         if(password.length() > 4){
-            confirmed = domainFacade.comparePassword(password);
+            confirmed = true;
         }
         return confirmed;
     }
@@ -231,7 +225,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private boolean isExistingUsers(String password, String email) {
         //TODO: Replace this with your own logic
         boolean confirmed = false;
-            confirmed = domainFacade.compareUser(password,email);
+        confirmed = domainFacade.compareUser(password,email);
         return confirmed;
     }
 
@@ -264,8 +258,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             });
         } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
+
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
@@ -274,17 +267,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return new CursorLoader(this,
-                // Retrieve data rows for the device user's 'profile' contact.
                 Uri.withAppendedPath(ContactsContract.Profile.CONTENT_URI,
                         ContactsContract.Contacts.Data.CONTENT_DIRECTORY), ProfileQuery.PROJECTION,
 
-                // Select only email addresses.
                 ContactsContract.Contacts.Data.MIMETYPE +
                         " = ?", new String[]{ContactsContract.CommonDataKinds.Email
-                                                                     .CONTENT_ITEM_TYPE},
+                .CONTENT_ITEM_TYPE},
 
-                // Show primary email addresses first. Note that there won't be
-                // a primary email address if the user hasn't specified one.
+
                 ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
     }
 
