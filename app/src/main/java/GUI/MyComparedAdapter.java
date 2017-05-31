@@ -20,6 +20,11 @@ import domainFacade.DomainFacade;
  * Created by Johan on 2017-05-22.
  */
 
+/**
+ * Decorator-mönstret. Adapter-klassen bygger ut grundklassen med fler dekorativa funktionaliteter.
+ * I vårt fall finns funktionalitet för en vanlig lista i standardklassen adaptern medför fler
+ * kolumner och knappar till listan.
+ */
 public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> nameList;
     private ArrayList<String> priceList;

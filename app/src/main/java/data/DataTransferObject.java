@@ -7,6 +7,10 @@ import java.util.ArrayList;
  * Created by Johan on 2017-05-04.
  */
 
+/**
+ * Dto-mönster. En klass som håller i och transportera olika data vilka ska laddas och sparas.
+ * @param <E>
+ */
 public class DataTransferObject<E> {
     private String tag;
     private String operation;

@@ -19,6 +19,11 @@ import java.util.ArrayList;
 
 import domainFacade.DomainFacade;
 
+/**
+ * Decorator-mönstret. Adapter-klassen bygger ut grundklassen med fler dekorativa funktionaliteter.
+ * I vårt fall finns funktionalitet för en vanlig lista i standardklassen adaptern medför fler
+ * kolumner och knappar till listan.
+ */
 public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> productlist = new ArrayList<String>();
     private Context context;

@@ -23,6 +23,12 @@ import domain.User;
  * Created by albin_000 on 2017-05-04.
  */
 
+/**
+ * Broker-mönstret. Brokern är den klass som hanterar läsning och skrivining till långtidslager.
+ *
+ * Template Method-mönstret. Vi har metoder i den abstrakta klassen "Broker" och varje broker som
+ * ärver från den abstrkta brokern har egna implementationer av "getAdress()" och "saveAdress(DataTransferObject dto)"
+ */
 public abstract class Broker {
 
     private HashMap<String,DataTransferObject> cacheMap;
@@ -114,6 +120,14 @@ public abstract class Broker {
         saveAdress(dto);
         return dto;
     }
+
+    /**
+     * Simple Cache-mönstret. Cachen kollas innan långtidslagret kontrolleras. Om den eftersökta
+     * datan finns i cachen slipper man ladda datan från sitt långtidslager. Cachen förekommer på flera
+     * ställen i brokern, vid sparning, laddning och borttagning, nedan är ett exempel.
+     * @param dto
+     * @return
+     */
     public DataTransferObject load(DataTransferObject dto){
         if(cacheMap != null){
             for(int i = 0; i < cacheMap.size(); i++) {
@@ -140,8 +154,18 @@ public abstract class Broker {
         }
         return dto;
     }
-    public abstract DataTransferObject getAdress(DataTransferObject dto);
 
+    /**
+     * Object Identifier-mönstret. Metoden tar reda på vad som finns i dto:n, om det är en user, produktlista osv.
+     * @param dto
+     * @return
+     */
+    public abstract DataTransferObject getAdress(DataTransferObject dto);
+    /**
+     * Object Identifier-mönstret. Metoden tar reda på vad som finns i dto:n, om det är en user, produktlista osv.
+     * @param dto
+     * @return
+     */
     public DataTransferObject saveAdress(DataTransferObject dto) { return dto; }
     public boolean updateCache(DataTransferObject dto){
         this.cacheMap.put(dto.getTag(), dto);

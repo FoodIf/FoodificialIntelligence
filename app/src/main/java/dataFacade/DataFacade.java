@@ -13,6 +13,16 @@ import interfaces.IdataFacade;
  * Created by Johan on 2017-05-02.
  */
 
+/**
+ * Facade-mönstret. Hanterar all kommunikation mellan datalagret och domänlagret, vilket gör det
+ * enkelt att byta ut exempelvis datalagret.
+ *
+ * Mediator-mönstret. De olika klasserna i domänlagret och datalagret kommunicerar med varandra via facade-klassen,
+ * vilket gör att den fungerar som en mediator. klasserna som pratar med varandra känner endast till fasaden.
+ *
+ * Singleton-mönstret. Klassen kan inte initialiseras mer än en gång och initialiseringen sker när applikationen startas.
+ * @param <E>
+ */
 public class DataFacade<E> implements IdataFacade<E>{
     private static final DataFacade instance = new DataFacade();
     private Main main;

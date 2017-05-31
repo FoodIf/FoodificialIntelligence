@@ -12,6 +12,15 @@ import interfaces.IdomainFacade;
  * Created by Johan on 2017-05-02.
  */
 
+/**
+ * Facade-mönstret. Hanterar all kommunikation mellan guilagret och domänlagret. Det gör att det
+ * blir relativt enkelt att byta ut exempelvis guilagret.
+ *
+ * Mediator-mönstret. De olika klasserna i domänlagret och guilagret kommunicerar med varandra via facade-klassen,
+ * vilket gör att den fungerar som en mediator. klasserna som pratar med varandra känner endast till fasaden.
+ *
+ * Singleton-mönstret. Klassen kan inte initialiseras mer än en gång och initialiseringen sker när applikationen startas.
+ */
 public class DomainFacade implements IdomainFacade{
     private static final DomainFacade instance = new DomainFacade();
     private Main main;

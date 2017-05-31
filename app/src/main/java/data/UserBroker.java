@@ -27,7 +27,6 @@ public class UserBroker extends Broker {
     }
     @Override
     public DataTransferObject saveAdress(DataTransferObject dto){
-        Log.v(dto.getTag(), "utanför");
         switch(dto.getTag()){
             case "userClass":
                 writeObjectToFile(dto, "userClasses.dat");

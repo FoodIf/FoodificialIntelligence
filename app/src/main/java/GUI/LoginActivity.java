@@ -222,6 +222,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         return confirmed;
     }
 
+    /**
+     * State-mönstret. Appen byter state (funktionalitet) när en användare loggar in i appen,
+     * genom att en inloggad användare kan skapa, jämföra och spara handlingslistor.
+     * @param password
+     * @param email
+     * @return true/false
+     */
     private boolean isExistingUsers(String password, String email) {
         //TODO: Replace this with your own logic
         boolean confirmed = false;
