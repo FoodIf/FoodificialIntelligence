@@ -24,6 +24,10 @@ import domainFacade.DomainFacade;
  * Decorator-mönstret. Adapter-klassen bygger ut grundklassen med fler dekorativa funktionaliteter.
  * I vårt fall finns funktionalitet för en vanlig lista i standardklassen adaptern medför fler
  * kolumner och knappar till listan.
+ *
+ * Model View Controller-mönstret. Här behandlas de aktiviteter som användaren utför i den view som visas.
+ * klassen skickar förfrågningar om data ned till domänlagret och ber sedan view:n, vilken sköts av någon av
+ * aktivitetsklasserna att visa den data som har hämtats från domänlagret.
  */
 public class MyComparedAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> nameList;

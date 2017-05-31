@@ -13,6 +13,7 @@ import dataFacade.DataFacade;
  * Created by olle_ on 2017-04-27.
  */
 
+
 public class Main {
     private DataFacade dataFacade;
     private User user;
@@ -50,13 +51,6 @@ public class Main {
     public User getUser(){
         return user;
     }
-
-    /**
-     * Jämför userObjectets email med den inloggade emailen.
-     * @param userarray
-     * @return Ger tillbaka rätt user.
-     */
-
     public User compareUserObject(String[] userarray){
         ArrayList<User> userObjectArray = dataFacade.load("userClass", "load");
         for(User user : userObjectArray){
