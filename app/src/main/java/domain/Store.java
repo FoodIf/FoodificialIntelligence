@@ -42,4 +42,20 @@ public class Store {
     public String getStoreName() {
         return storeName;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getPic() {
+        return pic;
+    }
+
+    public LatLng getStorelatlng() {
+        return storelatlng;
+    }
+
+    public Store getStore(String productListKey) {
+        return this;
+    }
 }

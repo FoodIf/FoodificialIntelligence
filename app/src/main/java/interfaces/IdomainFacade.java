@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import domain.Store;
 import domainFacade.DomainFacade;
 import domain.MyList;
 
@@ -38,4 +39,7 @@ public interface IdomainFacade {
     public HashMap<String, ArrayList<String>> compareStores();
     public String getProductListKey();
     public void setProductListKey(String key);
+    public Store getStoreName(String productListKey);
+    public LatLng getUserLocation();
+    public void saveUser();
 }

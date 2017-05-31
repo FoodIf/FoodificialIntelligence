@@ -50,6 +50,14 @@ public class MainActivity extends Activity {
                 startActivityForResult(myIntent, 0);
         }
         });
+        Button save = (Button) findViewById(R.id.save_btn);
+        save.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+                domainFacade.saveUser();
+            }
+        });
 
     }
 }

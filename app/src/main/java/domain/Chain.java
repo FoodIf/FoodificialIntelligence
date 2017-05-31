@@ -29,4 +29,13 @@ public class Chain {
     public ArrayList<String> getProductList(int position){
         return stores.get(position).getProductList();
     }
+
+    public Store getStoreName(String productListKey) {
+        for(Store store:stores){
+            if(store.getStoreName().equals(productListKey)){
+                return store.getStore(productListKey);
+            }
+        }
+        return null;
+    }
 }

@@ -133,4 +133,16 @@ public class DomainFacade implements IdomainFacade{
     public void setProductListKey(String key) {
         user.setProductListKey(key);
     }
+    @Override
+    public Store getStoreName(String productListKey){
+        return main.getStoreName(productListKey);
+    }
+    @Override
+    public LatLng getUserLocation(){
+        return user.getLatlnguser();
+    }
+    @Override
+    public void saveUser(){
+        main.saveUser();
+    }
 }

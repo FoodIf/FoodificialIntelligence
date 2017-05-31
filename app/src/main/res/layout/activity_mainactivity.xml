@@ -29,5 +29,15 @@
         android:background="@android:color/holo_blue_light"
         android:text="Inställningar"
         android:textAlignment="center" />
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Spara uppgifter"
+        android:textAlignment="center" />
 
 </LinearLayout>

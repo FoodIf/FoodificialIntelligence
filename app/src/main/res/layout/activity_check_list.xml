@@ -10,30 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         tools:listitem="@android:layout/simple_list_item_checked"
-        android:layout_weight="0.64" />
+        android:layout_weight="0.94" />
+
 
     <Button
-        android:id="@+id/finishedShopping_Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_dark"
-        android:text="Klar!" />
-
-    <EditText
-        android:id="@+id/totalCost_EditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Fyll i totalkostnad från kvitto"
-        android:inputType="number"
-        android:textAlignment="center" />
-
-    <Button
-        android:id="@+id/saveToHistory_Button"
-        android:layout_width="382dp"
+        android:id="@+id/tostore"
+        android:layout_width="344dp"
         android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="Spara" />
+        android:text="Till affären" />
 
 </LinearLayout>

@@ -6,9 +6,11 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -31,15 +33,15 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
     private LatLng storelatlng;
     private LatLng userlatlng;
 
-    public StoreActivity(){}
-     public StoreActivity(DomainFacade domainFacade, int storePicture, String storeName, String storeAddress, LatLng storelatlng, LatLng userlatlng) {
-         this.domainFacade=domainFacade;
-         this.storePicture = storePicture;
-         this.storeName=storeName;
-         this.storeAddress=storeAddress;
-         this.storelatlng=storelatlng;
-         this.userlatlng=userlatlng;
-     }
+    public StoreActivity(){
+        domainFacade = DomainFacade.getInstance();
+        storeName=domainFacade.getStoreName(domainFacade.getProductListKey()).getStoreName();
+        storeAddress=domainFacade.getStoreName(domainFacade.getProductListKey()).getAddress();
+        storelatlng=domainFacade.getStoreName(domainFacade.getProductListKey()).getStorelatlng();
+        storePicture=domainFacade.getStoreName(domainFacade.getProductListKey()).getPic();
+        userlatlng=domainFacade.getUserLocation();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,17 +53,11 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
 
         double valueResult = domainFacade.compareDistance(storelatlng,userlatlng);
         double km = valueResult / 1;
-        DecimalFormat newFormat = new DecimalFormat("####");
+        DecimalFormat newFormat = new DecimalFormat("############");
         int kmInDec = Integer.valueOf(newFormat.format(km));
-        double meter = valueResult % 1000;
-        int meterInDec = Integer.valueOf(newFormat.format(meter));
-        //Inte 100 på vad denna gör, men testa utskriften nedan istället för denna, sparar bara denna ifall att.
-        Log.i("Distance", "" + valueResult + " km " + kmInDec
-                + " Meter " + meterInDec+ ".");
-        //
+
         TextView distanceView = (TextView) findViewById(R.id.store_distance);
-        distanceView.setText(valueResult + " km " + kmInDec
-                + " Meter " + meterInDec+ "                 .");
+        distanceView.setText("Avstånd till butiken: "+kmInDec +" km.");
 
 
         ImageView storebild = (ImageView) findViewById(R.id.storepicture);
@@ -79,6 +75,10 @@ public class StoreActivity extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.addMarker(new MarkerOptions().position(storelatlng).title(storeName));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userlatlng, 11));
+        mMap.addMarker(new MarkerOptions()
+                .position(userlatlng)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).title("Your location"));
 
     }
 

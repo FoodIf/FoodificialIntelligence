@@ -1,18 +1,18 @@
-Ketchup Heinz 1000g|25.90
-Tomater kvist 1000g|48.90
-Mellanmjölk Arla 1000ml|8.90
+Ketchup Heinz|25.90
+Tomater kvist|48.90
+Mellanmjölk Arla|8.90
 Smör Arla 500g|33.90
-Kycklingfilé frusen kronfågel 1000g|75.90
-Pyttipanna ICA 1000g|30.90
-Blåbär Fryst ICA 250g|18.50
-Kalles Kaviar 300g|24.90
-Snickers 2-pack 75g|10.90
-Ost Präst mellan 700g|76.30
-Lax gravad 180g|52.90
-Bröd Carlssons fyrkant 700g|25.90
-Falukorv Scan 800g|28.90
-Gifflar Kanel 280g|19.50
-Bearnaise Lohmanders 500ml|39.90
-Toalettpapper Ica skona 8p|27.90
-Chips Dill 275g|21.90
-Bregott Extrasaltat 600g|33.90
+Kycklingfilé frusen|75.90
+Pyttipanna ICA|30.90
+Blåbär Fryst ICA|18.50
+Kalles Kaviar|24.90
+Snickers|10.90
+Ost Präst mellan|76.30
+Lax gravad52.90
+Bröd Carlssons|25.90
+Falukorv Scan|28.90
+Gifflar Kanel|19.50
+Bearnaise|39.90
+Toalettpapper|27.90
+Chips Dill|21.90
+Bregott Saltat|33.90

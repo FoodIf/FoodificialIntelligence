@@ -3,6 +3,7 @@ package GUI;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -56,7 +57,6 @@ public class NewListsActivity extends Activity {
             MyCustomAdapter adapter1 = new MyCustomAdapter(domainFacade, domainFacade.getCurrentStringList(), MyApplication.getContext());
             listView.setAdapter(adapter1);
 
-            //TODO denna funkar inte- malte är med o fixar //Hannes
             TextView listName = (TextView) findViewById(R.id.listName);
             listName.setText(domainFacade.getListName());
 
@@ -89,6 +89,15 @@ public class NewListsActivity extends Activity {
                 public void onClick(View v) {
                     ComparedActivity comparedActivity = new ComparedActivity();
                     Intent myIntent = new Intent(v.getContext(), ComparedActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
+            });
+            FloatingActionButton back = (FloatingActionButton) findViewById(R.id.backbtn);
+            back.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent myIntent;
+                    myIntent = new Intent(v.getContext(), MyListsActivity.class);
                     startActivityForResult(myIntent, 0);
                 }
             });

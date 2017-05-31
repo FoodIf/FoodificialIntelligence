@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
@@ -22,7 +24,17 @@
             <ListView
                 android:id="@+id/myList_ListView"
                 android:layout_width="match_parent"
-                android:layout_height="630dp" />
+                android:layout_height="464dp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/backbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="mini"
+                app:srcCompat="@android:drawable/ic_menu_revert" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

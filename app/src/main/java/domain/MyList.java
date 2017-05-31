@@ -3,6 +3,7 @@ package domain;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * Created by Alexander Nilsson on 2017-04-27.
  */
 
-public class MyList {
+public class MyList implements Serializable{
     private String name;
     private String date;
     private ArrayList <String> products;

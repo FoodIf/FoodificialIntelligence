@@ -49,7 +49,6 @@ public class ComparedActivity extends Activity{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 int pos = Arrays.asList(domainFacade.storeBuilder(comparedLists)).indexOf(selectedItem);
                 /*Log.v("PRINTER: ", "VÄRDE " + comparedLists.get(selectedItem));

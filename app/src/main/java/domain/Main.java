@@ -50,9 +50,9 @@ public class Main {
         //TODO SPARA ANVÄNDAREN OCH DESS LISTOR VID FÖRÄNDRING I LISTOR
 
         //Temp, ska bort senare. Sparar objekt #GrowAfro.
-        ArrayList<User> userList = new ArrayList<>();
+        /*ArrayList<User> userList = new ArrayList<>();
         userList.add(new User("test@test.se"));
-        dataFacade.save("userClass", "save", userList);
+        dataFacade.save("userClass", "save", userList);*/
 
 
       //Temp, ska bort senare. Hämtar objekt. #GrowAfro.
@@ -98,7 +98,6 @@ public class Main {
         ArrayList<User> userObjectArray = dataFacade.load("userClass", "load");
         for(User user : userObjectArray){
             if(user.getEmail().equals(userarray[0])){
-                Log.v(user.getEmail(), "ladda user");
                 return user;
             }
         }
@@ -180,5 +179,21 @@ public class Main {
         storePrice.add("coop|" + map.get("coop").get(map.get("coop").size() - 1));
         storePrice.add("citygross|" + map.get("citygross").get(map.get("citygross").size() - 1));
         return storePrice;
+    }
+
+    public Store getStoreName(String productListKey) {
+
+        for(Chain chain:chainList){
+            if(chain.getChainName().equals(productListKey)){
+                return chain.getStoreName(productListKey);
+            }
+        }
+
+        return null;
+    }
+    public void saveUser(){
+        ArrayList<User> userList = new ArrayList<>();
+        userList.add(user);
+        dataFacade.save("userClass", "save", userList);
     }
 }

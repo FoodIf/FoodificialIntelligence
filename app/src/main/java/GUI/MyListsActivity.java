@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
@@ -102,6 +103,15 @@ public class MyListsActivity extends Activity{
                     });
                     builder.show();
 
+                }
+            });
+            FloatingActionButton back = (FloatingActionButton) findViewById(R.id.backbtn);
+            back.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent myIntent;
+                    myIntent = new Intent(v.getContext(), MainActivity.class);
+                    startActivityForResult(myIntent, 0);
                 }
             });
         }
