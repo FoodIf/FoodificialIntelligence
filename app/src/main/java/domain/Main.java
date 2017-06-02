@@ -13,7 +13,10 @@ import dataFacade.DataFacade;
  * Created by olle_ on 2017-04-27.
  */
 
-
+/**
+ * Protected Variation-mönstret. klasser och metoder i vår applikation skyddas från ändringar i andra
+ * delar av applikationen genom privata variabler och metoder.
+ */
 public class Main {
     private DataFacade dataFacade;
     private User user;
