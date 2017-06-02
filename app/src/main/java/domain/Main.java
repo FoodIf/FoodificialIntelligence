@@ -35,6 +35,14 @@ public class Main {
         chainList.get(chainList.size()-1).newStore("coop", "Tornby 7, 582 31 Linköping", R.drawable.coopbild,new LatLng(58.432222,15.590758));
         chainList.add(new Chain("citygross"));
         chainList.get(chainList.size()-1).newStore("citygross", "Djurgården 58, 581 28 Linköping", R.drawable.citygrossbild,new LatLng(58.386855,15.588012));
+
+        /**
+         * Kör första gången för att skapa en användare. När användaren är sparad kan kodsnutten
+         * nedan kommenteras bort.
+         */
+        ArrayList<User> userList = new ArrayList<>();
+        userList.add(new User("test@test.se"));
+        dataFacade.save("userClass", "save", userList);
     }
 
     public static void main(String[] args){
