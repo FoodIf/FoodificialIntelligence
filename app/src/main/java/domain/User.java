@@ -106,9 +106,9 @@ public class User implements Serializable {
         return stringList;
     }
 
-    public ArrayList<String> deleteList(int position) {
+    public ArrayList<MyList> deleteList(int position) {
         savedLists.remove(position);
-        return convertList(savedLists);
+        return savedLists;
     }
 
     public void setCurrentList(int position) {

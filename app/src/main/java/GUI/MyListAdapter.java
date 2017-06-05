@@ -14,6 +14,8 @@ import com.example.hannes.foodificialintelligence.R;
 
 import java.util.ArrayList;
 
+import domain.MyList;
+import domain.User;
 import domainFacade.DomainFacade;
 
 /**
@@ -31,13 +33,15 @@ import domainFacade.DomainFacade;
  */
 public class MyListAdapter extends BaseAdapter implements ListAdapter {
 
-    private ArrayList<String> listName = new ArrayList<String>();
+    private ArrayList<MyList> listName = new ArrayList<MyList>();
 
     private Context context;
     private DomainFacade domainFacade;
+    private User user;
 
-    public MyListAdapter(DomainFacade domainFacade, ArrayList<String> list, Context context) {
-        this.listName=list;
+    public MyListAdapter(DomainFacade domainFacade, User user, Context context) {
+        this.user=user;
+        this.listName=user.getSavedLists();
         this.domainFacade=domainFacade;
         this.context = context;
     }
@@ -67,7 +71,7 @@ public class MyListAdapter extends BaseAdapter implements ListAdapter {
         }
 
         TextView listItemText = (TextView)view.findViewById(R.id.listName);
-        listItemText.setText(listName.get(position));
+        listItemText.setText(listName.get(position).getName());
 
         listItemText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +87,7 @@ public class MyListAdapter extends BaseAdapter implements ListAdapter {
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                listName = domainFacade.deleteList(position);
+                listName = user.deleteList(position);
                 notifyDataSetChanged();
             }
         });

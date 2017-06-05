@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import domain.Store;
+import domain.User;
 import domainFacade.DomainFacade;
 import domain.MyList;
 
@@ -21,7 +22,7 @@ public interface IdomainFacade {
     public void setStandardList(ArrayList<String> standardList);
     public ArrayList<MyList> getSavedLists();
     public ArrayList <String> deleteproduct(int s);
-    public ArrayList<String> deleteList(int position);
+    public ArrayList<MyList> deleteList(int position);
     public ArrayList<String> getSavedStringLists();
     public ArrayList<String> getProductList();
     public ArrayList<String> getCurrentStringList();
@@ -40,4 +41,5 @@ public interface IdomainFacade {
     public Store getStoreName(String productListKey);
     public LatLng getUserLocation();
     public void saveUser();
+    public User getUser();
 }

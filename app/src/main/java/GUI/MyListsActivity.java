@@ -57,7 +57,7 @@ public class MyListsActivity extends Activity{
 
         ListView listView = (ListView) findViewById(R.id.myList_ListView);
 
-        MyListAdapter adapter = new MyListAdapter(domainFacade, domainFacade.getSavedStringLists(), MyApplication.getContext());
+        MyListAdapter adapter = new MyListAdapter(domainFacade, domainFacade.getUser(), MyApplication.getContext());
         listView.setAdapter(adapter);
 
 
