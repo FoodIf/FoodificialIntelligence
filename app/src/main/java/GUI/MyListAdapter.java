@@ -31,6 +31,11 @@ import domainFacade.DomainFacade;
  * klassen skickar förfrågningar om data ned till domänlagret och ber sedan view:n, vilken sköts av någon av
  * aktivitetsklasserna att visa den data som har hämtats från domänlagret.
  */
+
+
+/**
+ *Kompletteringen på mönstret "Model View Controller" 05-06-17
+ */
 public class MyListAdapter extends BaseAdapter implements ListAdapter {
 
     private ArrayList<MyList> listName = new ArrayList<MyList>();
